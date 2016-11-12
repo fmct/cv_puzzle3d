@@ -150,7 +150,7 @@ Passing the Model-View Matrix and the Projection Matrix.
 <!-- Bootstrap Stuff -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!-- -->
+<link rel="stylesheet" type="text/css" href="buttons.css">
 
 </head>
 
@@ -170,7 +170,15 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 				<div class="col-lg-5">
 					<div class="well">
-						<h4>Controls</h4>
+						<div class="btns">
+							<p>Ler modelo 3D de um ficheiro:		
+								<input type="file" id="file" name="file">
+							</p>
+						</div>
+						<h4>Escolha a figura</h4>
+						<button id="figura1" class="btn btn-info btn-sm btn3d">Figura 1</button>
+						<button id="figura2" class="btn btn-info btn-sm btn3d">Figura 2</button>
+						<h4>Controlos</h4>
 						<table align="center">
 							<tr>
 								<p>
@@ -182,7 +190,6 @@ Passing the Model-View Matrix and the Projection Matrix.
 							</tr>
 							<tr>
 								<td>
-									<button id="rotate-xx2-up" class="btn btn-warning"><strong>X</strong> <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
 									<button id="rotate-xx-up" class="btn btn-warning"><strong>X</strong> <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
 									<button id="rotate-xx-down" class="btn btn-warning"><strong>X</strong> <i class="fa fa-arrow-down" aria-hidden="true"></i></button>
 									&nbsp;&nbsp;
@@ -201,8 +208,8 @@ Passing the Model-View Matrix and the Projection Matrix.
 						<p />
 
 						<p>
-							<button id="move-front-button">Move to Front</button>
-	    					<button id="move-back-button">Move to Back</button>
+							<button id="move-front-button">Mover para Frente</button>
+	    					<button id="move-back-button">Move para Tras</button>
 						</p>
 
 						<p>

@@ -31,28 +31,48 @@ var globalTz = 0.0;
 // The local transformation parameters
 
 // The translation vector
+var figura1_on = 0;
+var figura2_on = 0;
 
-var tx = 0.0;
+var tx1 = -0.5;
 
-var ty = 0.0;
+var ty1 = 0.0;
 
-var tz = 0.0;
+var tz1 = 0.0;
+
+var tx2 = 0.0;
+
+var ty2 = 0.0;
+
+var tz2 = 0.0;
 
 // The rotation angles in degrees
 
-var angleXX = 0.0;
+var angleXX1 = 0.0;
 
-var angleYY = 0.0;
+var angleYY1 = 0.0;
 
-var angleZZ = 0.0;
+var angleZZ1 = 0.0;
+
+var angleXX2 = 0.0;
+
+var angleYY2 = 0.0;
+
+var angleZZ2 = 0.0;
 
 // The scaling factors
 
-var sx = 0.5;
+var sx1 = 0.5;
 
-var sy = 0.5;
+var sy1 = 0.5;
 
-var sz = 0.5;
+var sz1 = 0.5;
+
+var sx2 = 0.5;
+
+var sy2 = 0.5;
+
+var sz2 = 0.5;
 
 // NEW - GLOBAL Animation controls
 
@@ -475,15 +495,15 @@ function drawScene() {
 
 	// Instance 2 --- LEFT
 	
-	drawModel( angleXX, angleYY, angleZZ,  // CW rotations
-	           sx, sy, sz,
-	           tx - 0.5, ty, tz,
+	drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
+	           sx1, sy1, sz1,
+	           tx1, ty1, tz1,
 	           mvMatrix2,
 	           primitiveType );
 		
-	drawModel( angleXX, angleYY, angleZZ, 
-	           sx, sy, sz,
-	           tx, ty, tz,
+	drawModel( angleXX2, angleYY2, angleZZ2, 
+	           sx2, sy2, sz2,
+	           tx2, ty2, tz2,
 	           mvMatrix,
 	           primitiveType );
 }
@@ -561,8 +581,11 @@ function degToRad(degrees) {
 	      webgl.drawScene();
 	      */
 
-	    angleXX += radians(10 * deltaY);
-	    angleYY +=  radians(10 * deltaX);
+	    angleXX1 += radians(10 * deltaY);
+	    angleYY1 +=  radians(10 * deltaX);
+	    angleXX2 += radians(10 * deltaY);
+	    angleYY2 +=  radians(10 * deltaX);
+
 	    //Rodar o background
 	    //webgl.back.globalAngleXX += radians( 10 * deltaX);
       	//webgl.back.globalAngleYY += radians( 10 * deltaY);
@@ -576,113 +599,281 @@ function degToRad(degrees) {
 
 function setEventListeners(){
 
-	// Button events
+	document.getElementById("file").onchange = function(){
+		var file = this.files[0];
+		
+		var reader = new FileReader();
+		
+		reader.onload = function( progressEvent ){
 			
-	document.getElementById("move-left-button").onclick = function(){			
-		// Updating		
-		tx -= 0.25;		
-		// Render the viewport		
-		drawScene();  
-	};
-
-	document.getElementById("move-right-button").onclick = function(){		
-		// Updating		
-		tx += 0.25;		
-		// Render the viewport				
-		drawScene();  
-	};
-
-	document.getElementById("move-up-button").onclick = function(){			
-		// Updating	
-		ty += 0.25;		
-		// Render the viewport			
-		drawScene();  
-	};
-
-	document.getElementById("move-down-button").onclick = function(){		
-		// Updating		
-		ty -= 0.25;		
-		// Render the viewport	
-		drawScene();  
-	};
-
-	document.getElementById("rotate-zz-cw").onclick = function(){		
-		// Updating		
-		angleZZ -= 30;			
-		// Render the viewport			
-		drawScene();  
-	};
-
-	document.getElementById("rotate-zz-ccw").onclick = function(){		
-		// Updating
-		angleZZ += 30;				
-		// Render the viewport				
-		drawScene();  
-	};
-	
-	document.getElementById("rotate-xx-up").onclick = function(){				
-		// Updating			
-		angleXX -= 30.0;			
-		// Render the viewport				
-		drawScene();  
-	};
-
-	$("rotate-xx2-up").click(function(){
-   		// Updating			
-		gl.angleXX -= 30.0;			
-		// Render the viewport				
-		gl.drawScene(); 
-  	});
-
-	
-	document.getElementById("rotate-xx-down").onclick = function(){		
-		// Updating			
-		angleXX += 30.0;				
-		// Render the viewport
-		drawScene();  
-	};
-
-
-	document.getElementById("rotate-yy-right").onclick = function(){			
-		// Updating			
-		angleYY += 30.0;		
-		// Render the viewport	
-		drawScene();  
-	};
-
-	document.getElementById("rotate-yy-left").onclick = function(){			
-		// Updating		
-		angleYY -= 30.0;		
-		// Render the viewport
-		drawScene();  
-	};
-
-
-	document.getElementById("move-front-button").onclick = function(){
+			// Entire file read as a string
+			
+			// The tokens/values in the file
+    
+			// Separation between values is 1 or more whitespaces
+    
+			var tokens = this.result.split(/\s\s*/);
+    
+			// Array of values; each value is a string
+			
+			var numVertices = parseInt( tokens[0] );
+			
+			// For every vertex we have 6 floating point values
+			
+			var i, j;
+			
+			var aux = 1;
+			
+			var newVertices = [];
+			
+			var newColors = []
+			
+			for( i = 0; i < numVertices ; i++ ) {
+			
+				for( j = 0; j < 3; j++ ) {
+					
+					newVertices[ 3 * i + j ] = parseFloat( tokens[ aux++ ] );
+				}
+				
+				for( j = 0; j < 3; j++ ) {
+					
+					newColors[ 3 * i + j ] = parseFloat( tokens[ aux++ ] );
+				}
+			}
+					
+			// Assigning to the current model
+			
+			vertices = newVertices;
+			
+			colors = newColors;
+			
+			// Rendering the model just read
 		
-		// Updating
-		tz += 0.25;			
-		// Render the viewport
-		drawScene();  
-	};      
+			initBuffers();
 
-	document.getElementById("move-back-button").onclick = function(){
+			
+			drawScene();
 		
-		// Updating
-		tz -= 0.25;
-		// Render the viewport
-		drawScene();  
-	};      
+		};
+		
+		// Entire file read as a string
+			
+		reader.readAsText( file );		
+	};
 
+
+	// Button events
+	document.getElementById("figura1").onclick = function(){
+		figura1_on = 1;
+		document.getElementById("move-left-button").onclick = function(){			
+			// Updating		
+			tx1 -= 0.1;		
+			// Render the viewport		
+			drawScene();  
+		};
+
+		document.getElementById("move-right-button").onclick = function(){		
+			// Updating		
+			tx1 += 0.1;		
+			// Render the viewport				
+			drawScene();  
+		};
+
+		document.getElementById("move-up-button").onclick = function(){			
+			// Updating	
+			ty1 += 0.1;		
+			// Render the viewport			
+			drawScene();  
+		};
+
+		document.getElementById("move-down-button").onclick = function(){		
+			// Updating		
+			ty1 -= 0.1;		
+			// Render the viewport	
+			drawScene();  
+		};
+
+		document.getElementById("rotate-zz-cw").onclick = function(){		
+			// Updating		
+			angleZZ1 -= 30;			
+			// Render the viewport			
+			drawScene();  
+		};
+
+		document.getElementById("rotate-zz-ccw").onclick = function(){		
+			// Updating
+			angleZZ1 += 30;				
+			// Render the viewport				
+			drawScene();  
+		};
+		
+		document.getElementById("rotate-xx-up").onclick = function(){				
+			// Updating			
+			angleXX1 -= 30.0;			
+			// Render the viewport				
+			drawScene();  
+		};
+
+		$("rotate-xx2-up").click(function(){
+	   		// Updating			
+			gl.angleXX1 -= 30.0;			
+			// Render the viewport				
+			gl.drawScene(); 
+	  	});
+
+		
+		document.getElementById("rotate-xx-down").onclick = function(){		
+			// Updating			
+			angleXX1 += 30.0;				
+			// Render the viewport
+			drawScene();  
+		};
+
+
+		document.getElementById("rotate-yy-right").onclick = function(){			
+			// Updating			
+			angleYY1 += 30.0;		
+			// Render the viewport	
+			drawScene();  
+		};
+
+		document.getElementById("rotate-yy-left").onclick = function(){			
+			// Updating		
+			angleYY1 -= 30.0;		
+			// Render the viewport
+			drawScene();  
+		};
+
+
+		document.getElementById("move-front-button").onclick = function(){
+			
+			// Updating
+			tz1 += 0.25;			
+			// Render the viewport
+			drawScene();  
+		};      
+
+		document.getElementById("move-back-button").onclick = function(){
+			
+			// Updating
+			tz1 -= 0.25;
+			// Render the viewport
+			drawScene();  
+		};      
+	};
+	document.getElementById("figura2").onclick = function(){
+		figura2_on = 1;
+		document.getElementById("move-left-button").onclick = function(){			
+			// Updating		
+			tx2 -= 0.1;		
+			// Render the viewport		
+			drawScene();  
+		};
+
+		document.getElementById("move-right-button").onclick = function(){		
+			// Updating		
+			tx2 += 0.1;		
+			// Render the viewport				
+			drawScene();  
+		};
+
+		document.getElementById("move-up-button").onclick = function(){			
+			// Updating	
+			ty2 += 0.1;		
+			// Render the viewport			
+			drawScene();  
+		};
+
+		document.getElementById("move-down-button").onclick = function(){		
+			// Updating		
+			ty2 -= 0.1;		
+			// Render the viewport	
+			drawScene();  
+		};
+
+		document.getElementById("rotate-zz-cw").onclick = function(){		
+			// Updating		
+			angleZZ2 -= 30;			
+			// Render the viewport			
+			drawScene();  
+		};
+
+		document.getElementById("rotate-zz-ccw").onclick = function(){		
+			// Updating
+			angleZZ2 += 30;				
+			// Render the viewport				
+			drawScene();  
+		};
+		
+		document.getElementById("rotate-xx-up").onclick = function(){				
+			// Updating			
+			angleXX2 -= 30.0;			
+			// Render the viewport				
+			drawScene();  
+		};
+
+		$("rotate-xx2-up").click(function(){
+	   		// Updating			
+			gl.angleXX2 -= 30.0;			
+			// Render the viewport				
+			gl.drawScene(); 
+	  	});
+
+		
+		document.getElementById("rotate-xx-down").onclick = function(){		
+			// Updating			
+			angleXX2 += 30.0;				
+			// Render the viewport
+			drawScene();  
+		};
+
+
+		document.getElementById("rotate-yy-right").onclick = function(){			
+			// Updating			
+			angleYY2 += 30.0;		
+			// Render the viewport	
+			drawScene();  
+		};
+
+		document.getElementById("rotate-yy-left").onclick = function(){			
+			// Updating		
+			angleYY2 -= 30.0;		
+			// Render the viewport
+			drawScene();  
+		};
+
+
+		document.getElementById("move-front-button").onclick = function(){
+			
+			// Updating
+			tz2 += 0.25;			
+			// Render the viewport
+			drawScene();  
+		};      
+
+		document.getElementById("move-back-button").onclick = function(){
+			
+			// Updating
+			tz2 -= 0.25;
+			// Render the viewport
+			drawScene();  
+		};   
+	};
 	
 	document.getElementById("reset-button").onclick = function(){		
 		// The initial values 
-		tx = 0.0;
-		ty = 0.0; 
-		tz = 0.0;
-		angleXX = 0.0;
-		angleYY = 0.0;
-		angleZZ = 0.0;   	
+		tx1 = -0.5;
+		ty1 = 0.0; 
+		tz1 = 0.0;
+		angleXX1 = 0.0;
+		angleYY1 = 0.0;
+		angleZZ1 = 0.0;  
+		tx2 = 0.0;
+		ty2 = 0.0; 
+		tz2 = 0.0;
+		angleXX2 = 0.0;
+		angleYY2 = 0.0;
+		angleZZ2 = 0.0;   	
 		// Render the viewport		
 		drawScene();  
 	};      
@@ -707,45 +898,6 @@ function setEventListeners(){
 // WebGL Background (A tentar rodar o background!! - TODO)
 //
 
-function parseTXTfile(url){
-	var result = null;
-
-	$.ajax({
-	  url: url,
-	  type: 'get',
-	  dataType: 'text',
-	  async: false,
-	  success: function(data) {
-	      result = data;
-	  }
-	});
-
-	// Entire file read as a string
-	// The tokens/values in the file
-	// Separation between values is 1 or mode whitespaces
-	var tokens = result.split(/\s\s*/);
-
-	// Array of values; each value is a string
-	var numVertices = parseInt(tokens[0]);
-
-	// For every vertex we have 6 floating point values
-	var i, j;
-	var aux = 1;
-	var newVertices = [];
-	var newColors = []
-
-	for(i = 0; i < numVertices; i++){
-		for(j = 0; j < 3; j++){
-			newVertices[3 * i + j] = parseFloat(tokens[aux++]);
-		}
-
-		for(j = 0; j < 3; j++){
-			newColors[3 * i + j] = parseFloat(tokens[aux++]);
-		}
-	}
-
-	return {"vertices": newVertices.slice(), "colors": newColors.slice()};
-}
 
 
 //----------------------------------------------------------------------------
@@ -785,7 +937,7 @@ function initWebGL( canvas ) {
 	} catch (e) {
 	}
 	if (!gl) {
-		alert("Could not initialise WebGL, sorry! :-(");
+		alert("Error");
 	}        
 }
 
