@@ -494,18 +494,34 @@ function drawScene() {
 	// Instantianting the current model
 
 	// Instance 2 --- LEFT
-	
-	drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
-	           sx1, sy1, sz1,
-	           tx1, ty1, tz1,
-	           mvMatrix2,
-	           primitiveType );
-		
-	drawModel( angleXX2, angleYY2, angleZZ2, 
-	           sx2, sy2, sz2,
-	           tx2, ty2, tz2,
-	           mvMatrix,
-	           primitiveType );
+	//if(figura1_on == 0 && figura2_on==0){
+		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
+		           sx1, sy1, sz1,
+		           tx1, ty1, tz1,
+		           mvMatrix2,
+		           primitiveType );
+			
+		drawModel( angleXX2, angleYY2, angleZZ2, 
+		           sx2, sy2, sz2,
+		           tx2, ty2, tz2,
+		           mvMatrix,
+		           primitiveType );
+	/*}
+	else if(figura1_on == 1){
+		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
+		           sx1, sy1, sz1,
+		           tx1, ty1, tz1,
+		           mvMatrix2,
+		           primitiveType );
+	}
+
+	else if(figura2_on == 1){
+		drawModel( angleXX2, angleYY2, angleZZ2,  // CW rotations
+		           sx2, sy2, sz2,
+		           tx2, ty2, tz2,
+		           mvMatrix2,
+		           primitiveType );
+	}*/
 }
 
 
@@ -665,6 +681,7 @@ function setEventListeners(){
 	// Button events
 	document.getElementById("figura1").onclick = function(){
 		figura1_on = 1;
+		figura2_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
 			tx1 -= 0.1;		
@@ -763,6 +780,7 @@ function setEventListeners(){
 	};
 	document.getElementById("figura2").onclick = function(){
 		figura2_on = 1;
+		figura1_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
 			tx2 -= 0.1;		
