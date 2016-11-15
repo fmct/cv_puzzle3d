@@ -19,10 +19,14 @@
 var gl = null; // WebGL context
 
 var shaderProgram = null;
+var shaderProgram_back = null;
+
 
 var triangleVertexPositionBuffer = null;
 	
 var triangleVertexColorBuffer = null;
+
+var cubeVertexTextureCoordBuffer;
 
 // The GLOBAL transformation parameters
 
@@ -33,6 +37,28 @@ var globalTz = 0.0;
 // The translation vector
 var figura1_on = 0;
 var figura2_on = 0;
+
+var background = 0;
+
+//back
+var tx_back = 0.0;
+
+var ty_back = 0.0;
+
+var tz_back = 0.0;
+
+var angleXX_back = 0.0;
+
+var angleYY_back = 0.0;
+
+var angleZZ_back = 0.0;
+
+var sx_back = 0.25;
+
+var sy_back = 0.25;
+
+var sz_back = 0.25;
+
 
 var tx1 = -0.5;
 
@@ -74,15 +100,6 @@ var sy2 = 0.5;
 
 var sz2 = 0.5;
 
-// NEW - GLOBAL Animation controls
-
-var globalRotationYY_ON = 1;
-
-var globalRotationYY_DIR = 1;
-
-var globalRotationYY_SPEED = 1;
- 
-// To allow choosing the way of drawing the model triangles
 
 var primitiveType = null;
  
@@ -92,19 +109,37 @@ var projectionType = 1;
  
 // For storing the vertices defining the triangles
 
-var VBack = [
-  -1, -1,
-   1, -1,
-   1,  1,
-  -1,  1,
+var vertices_back = [
+            -5.0, -6.0,  1.0,
+             1.0, -6.0,  1.0,
+             1.0,  1.0,  1.0,
+            -5.0,  1.0,  1.0,
 ];
 
-var vTBack = [
-    0.0, 0.0,
-    1.0, 0.0,
-    1.0, 1.0,
-    0.0, 1.0
-    ];
+// Texture coordinates for the quadrangular faces
+
+var textureCoords = [
+          0.0, 0.0,
+          1.0, 0.0,
+          1.0, 1.0,
+          0.0, 1.0,
+];
+
+        
+var cubeVertexIndices = [
+            0, 1, 2,      0, 2, 3,
+
+            4, 5, 6,      4, 6, 7,
+
+            8, 9, 10,     8, 10, 11,
+
+            12, 13, 14,   12, 14, 15,
+
+            16, 17, 18,   16, 18, 19,
+
+            20, 21, 22,   20, 22, 23  
+];
+
 
 var VBuffer;
 var vTBuffer;    
@@ -303,76 +338,92 @@ var colors = [
 // The WebGL code
 //
 
-//----------------------------------------------------------------------------
-//
-//  Rendering
-//
-
 // Handling the Vertex and the Color Buffers
+
+function handleLoadedTexture(texture) {
+	
+	gl.bindTexture(gl.TEXTURE_2D, texture);
+	gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+	gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, texture.image);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+	gl.bindTexture(gl.TEXTURE_2D, null);
+}
+
+var webGLTexture;
+
+function initTexture() {
+	
+	webGLTexture = gl.createTexture();
+	webGLTexture.image = new Image();
+	webGLTexture.image.onload = function () {
+		handleLoadedTexture(webGLTexture)
+	}
+
+	webGLTexture.image.src = "table.jpg";
+}
 
 function initBuffers() {	
 	
-	// Coordinates
-	triangleVertexPositionBuffer = gl.createBuffer();
-	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
-	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-	triangleVertexPositionBuffer.itemSize = 3;
-	triangleVertexPositionBuffer.numItems = vertices.length / 3;			
+	if(background == 0){
+    // Coordinates
+	 	triangleVertexPositionBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+		triangleVertexPositionBuffer.itemSize = 3;
+		triangleVertexPositionBuffer.numItems = vertices.length / 3;
+  	}
 
-	// Associating to the vertex shader
-	
-	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, 
-			triangleVertexPositionBuffer.itemSize, 
-			gl.FLOAT, false, 0, 0);
-	
-	// Colors
+	if(background == 1){
+	 		
+		cubeVertexPositionBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices_back), gl.STATIC_DRAW);
+		cubeVertexPositionBuffer.itemSize = 3;
+		cubeVertexPositionBuffer.numItems = vertices_back.length / 3;			
+
+		// Textures
+			
+	    cubeVertexTextureCoordBuffer = gl.createBuffer();
+	    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+	 	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoords), gl.STATIC_DRAW);
+	    cubeVertexTextureCoordBuffer.itemSize = 2;
+	    cubeVertexTextureCoordBuffer.numItems = 24;			
+
+		// Vertex indices
 		
-	triangleVertexColorBuffer = gl.createBuffer();
-	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
-	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-	triangleVertexColorBuffer.itemSize = 3;
-	triangleVertexColorBuffer.numItems = colors.length / 3;			
+	    cubeVertexIndexBuffer = gl.createBuffer();
+	    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+	    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndices), gl.STATIC_DRAW);
+	    cubeVertexIndexBuffer.itemSize = 1;
+	    cubeVertexIndexBuffer.numItems = 36;
+	}
 
-	// Associating to the vertex shader
-	
-	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, 
-			triangleVertexColorBuffer.itemSize, 
-			gl.FLOAT, false, 0, 0);
+  	if(background == 0) {
+  		// Associating to the vertex shader
+
+		gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, 
+				triangleVertexPositionBuffer.itemSize, 
+				gl.FLOAT, false, 0, 0);
+
+		// Colors
+		
+		triangleVertexColorBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+		triangleVertexColorBuffer.itemSize = 3;
+		triangleVertexColorBuffer.numItems = colors.length / 3;			
+
+		// Associating to the vertex shader
+		
+		gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, 
+				triangleVertexColorBuffer.itemSize, 
+				gl.FLOAT, false, 0, 0);
+  	}
+
+	// enable depth test
+	gl.enable(gl.DEPTH_TEST);
 }
-
-/*
-function initBkgnd() {
-    backTex = gl.createTexture();
-    backTex.Img = new Image();
-    backTex.Img.onload = function() {
-        handleBkTex(backTex);
-    }
-    backTex.Img.src = "Bkgnd.jpg";
-}
-
-function handleBkTex(tex) {
-    gl.bindTexture(gl.TEXTURE_2D, tex);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, tex.Img);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-    gl.bindTexture(gl.TEXTURE_2D, null);
-}
-
-function drawBkgnd() {
-    gl.bindBuffer(gl.ARRAY_BUFFER, VBuffer);
-    //gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
-    gl.vertexAttribPointer(vertexPositionAttribute, 2, gl.FLOAT, false, 0, 0);
-
-    gl.bindBuffer(gl.ARRAY_BUFFER, vTBuffer);
-    gl.vertexAttribPointer(texCoordAttribute, 2, gl.FLOAT, false, 0, 0);
-
-    gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_2D, backTex);
-    gl.uniform1i(gl.getUniformLocation(shaderProgram, "uSampler"), 0);
-
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-}*/
 
 //----------------------------------------------------------------------------
 
@@ -384,48 +435,59 @@ function drawModel( angleXX, angleYY, angleZZ,
 					mvMatrix,
 					primitiveType ) {
 
-    // Pay attention to transformation order !!
-    
-	mvMatrix = mult( mvMatrix, translationMatrix( tx, ty, tz ) );
-						 
-	mvMatrix = mult( mvMatrix, rotationZZMatrix( angleZZ ) );
-	
-	mvMatrix = mult( mvMatrix, rotationYYMatrix( angleYY ) );
-	
-	mvMatrix = mult( mvMatrix, rotationXXMatrix( angleXX ) );
-	
-	mvMatrix = mult( mvMatrix, scalingMatrix( sx, sy, sz ) );
-						 
-	// Passing the Model View Matrix to apply the current transformation
-	
-	var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
-	
-	gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
-	
-	// Drawing the contents of the vertex buffer
-	
-	// primitiveType allows drawing as filled triangles / wireframe / vertices
-	
-	if( primitiveType == gl.LINE_LOOP ) {
-		
-		// To simulate wireframe drawing!
-		
-		// No faces are defined! There are no hidden lines!
-		
-		// Taking the vertices 3 by 3 and drawing a LINE_LOOP
-		
-		var i;
-		
-		for( i = 0; i < triangleVertexPositionBuffer.numItems / 3; i++ ) {
-		
-			gl.drawArrays( primitiveType, 3 * i, 3 ); 
-		}
-	}	
-	else {
-				
-		gl.drawArrays(primitiveType, 0, triangleVertexPositionBuffer.numItems); 
-		
-	}	
+    mvMatrix = mult(mvMatrix, translationMatrix(tx, ty, tz));
+	mvMatrix = mult(mvMatrix, rotationZZMatrix(angleZZ));
+	mvMatrix = mult(mvMatrix, rotationYYMatrix(angleYY));
+	mvMatrix = mult(mvMatrix, rotationXXMatrix(angleXX));
+	mvMatrix = mult(mvMatrix, scalingMatrix(sx, sy, sz));
+
+
+
+  	if(background == 0){
+  		var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
+  		gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
+	   if( primitiveType == gl.LINE_LOOP ) {
+			
+			// No faces are defined! There are no hidden lines!
+			
+			// Taking the vertices 3 by 3 and drawing a LINE_LOOP
+			
+			var i;
+			
+			for( i = 0; i < triangleVertexPositionBuffer.numItems / 3; i++ ) {
+			
+				gl.drawArrays( primitiveType, 3 * i, 3 ); 
+			}
+		}	
+		else {
+					
+			gl.drawArrays(primitiveType, 0, triangleVertexPositionBuffer.numItems); 
+			
+		}	
+  	}
+  	else
+  	{
+	  	var mvUniform = gl.getUniformLocation(shaderProgram_back, "uMVMatrix");
+	  	gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
+
+	    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
+
+	    gl.vertexAttribPointer(shaderProgram_back.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+	    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
+	    gl.vertexAttribPointer(shaderProgram_back.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+
+	    gl.activeTexture(gl.TEXTURE0);
+	    gl.bindTexture(gl.TEXTURE_2D, webGLTexture);
+
+	    gl.uniform1i(shaderProgram_back.samplerUniform, 0);
+
+	    // The vertex indices
+
+	    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
+
+		gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+  	}		
 }
 
 //----------------------------------------------------------------------------
@@ -439,13 +501,15 @@ function drawScene() {
 	var mvMatrix = mat4();
 
 	var mvMatrix2 = mat4();
+
+	var mvMatrix_back = mat4();
 	
 	// Clearing the frame-buffer and the depth-buffer
 	
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	
 	// Computing the Projection Matrix
-	
+	// Não está a ser usada
 	if( projectionType == 0 ) {
 		
 		// For now, the default orthogonal view volume
@@ -455,46 +519,28 @@ function drawScene() {
 		// Global transformation !!
 		
 		globalTz = 0;
-		
-		// TO BE DONE !
-		
-		// Allow the user to control the size of the view volume
+
 	}
 	else {	
 
-		// A standard view volume.
-		
-		// Viewer is at (0,0,0)
-		
-		// Ensure that the model is "inside" the view volume
-		
 		pMatrix = perspective( 45, 1, 0.05, 15 );
 		
 		// Global transformation !!
 		
 		globalTz = -2.5;
 
-		// TO BE DONE !
-		
-		// Allow the user to control the size of the view volume
 	}
 	
-	// Passing the Projection Matrix to apply the current projection
-	
-	var pUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
-	
-	gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
-	
-	// GLOBAL TRANSFORMATION FOR THE WHOLE SCENE
-	
-	mvMatrix = translationMatrix( 0, 0, globalTz-1.0 );
+	if(background == 0){
 
-	mvMatrix2 = translationMatrix( 0, 0, globalTz );
+		var pUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
 	
-	// Instantianting the current model
+		gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
+	
+		mvMatrix = translationMatrix( 0, 0, globalTz-1.0 );
 
-	// Instance 2 --- LEFT
-	//if(figura1_on == 0 && figura2_on==0){
+		mvMatrix2 = translationMatrix( 0, 0, globalTz );
+
 		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
 		           sx1, sy1, sz1,
 		           tx1, ty1, tz1,
@@ -506,24 +552,24 @@ function drawScene() {
 		           tx2, ty2, tz2,
 		           mvMatrix,
 		           primitiveType );
-	/*}
-	else if(figura1_on == 1){
-		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
-		           sx1, sy1, sz1,
-		           tx1, ty1, tz1,
-		           mvMatrix2,
-		           primitiveType );
+		//background = 1;
 	}
+	else {
 
-	else if(figura2_on == 1){
-		drawModel( angleXX2, angleYY2, angleZZ2,  // CW rotations
-		           sx2, sy2, sz2,
-		           tx2, ty2, tz2,
-		           mvMatrix2,
+		var pUniform = gl.getUniformLocation(shaderProgram_back, "uPMatrix");
+	
+		gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
+
+		mvMatrix_back = translationMatrix(0,0,globalTz);
+
+		drawModel( angleXX_back, angleYY_back, angleZZ_back, 
+		           sx_back, sy_back, sz_back,
+		           tx_back, ty_back, tz_back,
+		           mvMatrix_back,
 		           primitiveType );
-	}*/
+		//background = 0;
+	}
 }
-
 
 //----------------------------------------------------------------------------
 
@@ -550,67 +596,39 @@ function outputInfos(){
 
 
 function degToRad(degrees) {
-        return degrees * Math.PI / 180;
+    return degrees * Math.PI / 180;
+}
+var mouseDown = false;
+var lastMouseX = null;
+var lastMouseY = null;
+
+function handleMouseDown(event) {
+    mouseDown = true;
+    lastMouseX = event.clientX;
+    lastMouseY = event.clientY;
+}
+function handleMouseUp(event) {
+    mouseDown = false;
+}
+function handleMouseMove(event) {
+    if (!mouseDown) {
+        return;
     }
-    var mouseDown = false;
-    var lastMouseX = null;
-    var lastMouseY = null;
-    //var moonRotationMatrix = mat4.create();
-    //mat4.identity(moonRotationMatrix);
-    function handleMouseDown(event) {
-        mouseDown = true;
-        lastMouseX = event.clientX;
-        lastMouseY = event.clientY;
-    }
-    function handleMouseUp(event) {
-        mouseDown = false;
-    }
-    function handleMouseMove(event) {
-        if (!mouseDown) {
-            return;
-        }
-        var newX = event.clientX;
-        var newY = event.clientY;
-        var deltaX = newX - lastMouseX;
-        var deltaY = newY - lastMouseY;
-        /*
-        var newRotationMatrix = mat4.create();
-        mat4.identity(newRotationMatrix);
-        // Update: mat4.rotate(newRotationMatrix, degToRad(deltaX / 10), [0, 1, 0]); mat4.rotate() API has changed to mat4.rotate(out, a, rad, axis)
-        // where out is the receiving matrix and a is the matrix to rotate.
-        mat4.rotate(newRotationMatrix, newRotationMatrix, degToRad(deltaX / 10), [0, 1, 0]);
-        
-        mat4.rotate(newRotationMatrix, newRotationMatrix, degToRad(deltaY / 10), [1, 0, 0]);
-        // Update: mat4.multiply(newRotationMatrix, moonRotationMatrix, moonRotationMatrix); API has changed.
-        mat4.multiply(moonRotationMatrix, newRotationMatrix, moonRotationMatrix);
-        */
+    var newX = event.clientX;
+    var newY = event.clientY;
+    var deltaX = newX - lastMouseX;
+    var deltaY = newY - lastMouseY;
 
-        /*
-        for(var model in webgl.models){
-        webgl.models[model].globalAngleXX += radians( 10 * deltaX);
-        webgl.models[model].globalAngleYY += radians( 10 * deltaY);
+    angleXX1 += radians(10 * deltaY);
+    angleYY1 +=  radians(10 * deltaX);
+    angleXX2 += radians(10 * deltaY);
+    angleYY2 +=  radians(10 * deltaX);
 
-	      }
-	      webgl.back.globalAngleXX += radians( 10 * deltaX);
-	      webgl.back.globalAngleYY += radians( 10 * deltaY);
+    drawScene();  
 
-	      webgl.drawScene();
-	      */
-
-	    angleXX1 += radians(10 * deltaY);
-	    angleYY1 +=  radians(10 * deltaX);
-	    angleXX2 += radians(10 * deltaY);
-	    angleYY2 +=  radians(10 * deltaX);
-
-	    //Rodar o background
-	    //webgl.back.globalAngleXX += radians( 10 * deltaX);
-      	//webgl.back.globalAngleYY += radians( 10 * deltaY);
-	    drawScene();  
-
-
-        lastMouseX = newX;
-        lastMouseY = newY;
-    }
+    lastMouseX = newX;
+    lastMouseY = newY;
+}
 
 
 function setEventListeners(){
@@ -625,8 +643,6 @@ function setEventListeners(){
 			// Entire file read as a string
 			
 			// The tokens/values in the file
-    
-			// Separation between values is 1 or more whitespaces
     
 			var tokens = this.result.split(/\s\s*/);
     
@@ -662,12 +678,8 @@ function setEventListeners(){
 			vertices = newVertices;
 			
 			colors = newColors;
-			
-			// Rendering the model just read
 		
 			initBuffers();
-
-			
 			drawScene();
 		
 		};
@@ -879,7 +891,7 @@ function setEventListeners(){
 	};
 	
 	document.getElementById("reset-button").onclick = function(){		
-		// The initial values 
+
 		tx1 = -0.5;
 		ty1 = 0.0; 
 		tz1 = 0.0;
@@ -891,8 +903,8 @@ function setEventListeners(){
 		tz2 = 0.0;
 		angleXX2 = 0.0;
 		angleYY2 = 0.0;
-		angleZZ2 = 0.0;   	
-		// Render the viewport		
+		angleZZ2 = 0.0;   
+		
 		drawScene();  
 	};      
  
@@ -913,42 +925,17 @@ function setEventListeners(){
 
 //----------------------------------------------------------------------------
 //
-// WebGL Background (A tentar rodar o background!! - TODO)
-//
-
-
-
-//----------------------------------------------------------------------------
-//
 // WebGL Initialization
 //
 
 function initWebGL( canvas ) {
 	try {
 		
-		// Create the WebGL context
-		
-		// Some browsers still need "experimental-webgl"
-		
 		gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-		
-		// DEFAULT: The viewport occupies the whole canvas 
-		
-		// DEFAULT: The viewport background color is WHITE
-		
-		// NEW - Drawing the triangles defining the model
 		
 		primitiveType = gl.TRIANGLES;
 		
-		// DEFAULT: Face culling is DISABLED
-		
-		// Enable FACE CULLING
-		
 		gl.enable( gl.CULL_FACE );
-		
-		// DEFAULT: The BACK FACE is culled!!
-		
-		// The next instruction is not needed...
 		
 		gl.cullFace( gl.BACK );
         
@@ -966,15 +953,23 @@ function runWebGL() {
 	var canvas = document.getElementById("my-canvas");
 	
 	initWebGL( canvas );
+	if(background == 0){
 
-	//var result = test33("figuras/back.txt");
-	shaderProgram = initShaders( gl );
-	
-	setEventListeners();
-	
-	initBuffers();
-	//initBkgnd();
-    //drawBkgnd();
+		shaderProgram = initShaders( gl, 0 );
+		
+		setEventListeners();
+		
+		initBuffers();
+	}
+	else{
+
+		shaderProgram_back = initShaders( gl, 1 );
+		
+		setEventListeners();
+		
+		initBuffers();
+		initTexture();
+	}
 
 	canvas.onmousedown = handleMouseDown;
     document.onmouseup = handleMouseUp;
@@ -984,5 +979,3 @@ function runWebGL() {
 
 	outputInfos();
 }
-
-

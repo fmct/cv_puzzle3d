@@ -51,9 +51,9 @@ function getShader(gl, id) {
 // Initializing the shader program
 // TODO - Image texture
 
-function initShaders( gl, back ) {
+function initShaders( gl, texture ) {
 
-	if(!back){
+	if(!texture){
 		var fragmentShader = getShader(gl, "shader-fs");
 		var vertexShader = getShader(gl, "shader-vs");
 	}else{
@@ -79,13 +79,13 @@ function initShaders( gl, back ) {
 	gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
 
 	// Colors
-	if(!back){
+	if(!texture){
 		shaderProgram.vertexColorAttribute = gl.getAttribLocation(shaderProgram, "aVertexColor");
 		gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
 
 	}
 
-	if(back){
+	if(texture){
 		shaderProgram.textureCoordAttribute = gl.getAttribLocation(shaderProgram, "aTextureCoord");
     gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
 
