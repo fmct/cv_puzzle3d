@@ -38,7 +38,7 @@ var globalTz = 0.0;
 var figura1_on = 0;
 var figura2_on = 0;
 
-var background = 0;
+var background = 1;
 
 //back
 var tx_back = 0.0;
@@ -109,229 +109,20 @@ var projectionType = 1;
  
 // For storing the vertices defining the triangles
 
-var vertices_back = [
-            -5.0, -6.0,  1.0,
-             1.0, -6.0,  1.0,
-             1.0,  1.0,  1.0,
-            -5.0,  1.0,  1.0,
-];
-
+var vertices_back = verticesBack();
 // Texture coordinates for the quadrangular faces
 
-var textureCoords = [
-          0.0, 0.0,
-          1.0, 0.0,
-          1.0, 1.0,
-          0.0, 1.0,
-];
-
-        
-var cubeVertexIndices = [
-            0, 1, 2,      0, 2, 3,
-
-            4, 5, 6,      4, 6, 7,
-
-            8, 9, 10,     8, 10, 11,
-
-            12, 13, 14,   12, 14, 15,
-
-            16, 17, 18,   16, 18, 19,
-
-            20, 21, 22,   20, 22, 23  
-];
-
+var textureCoords = textCoord();
+       
+var cubeVertexIndices = cubeVertexIndex();
 
 var VBuffer;
-var vTBuffer;    
+var vTBuffer; 
 
-var vertices = [
-
-		// FRONT FACE
-		 
-		-0.25, -0.25,  0.25,
-		 
-		 0.25, -0.25,  0.25,
-		 
-		 0.25,  0.25,  0.25,
-
-		 
-		 0.25,  0.25,  0.25,
-		 
-		-0.25,  0.25,  0.25,
-		 
-		-0.25, -0.25,  0.25,
-		
-		// TOP FACE
-		
-		-0.25,  0.25,  0.25,
-		 
-		 0.25,  0.25,  0.25,
-		 
-		 0.25,  0.25, -0.25,
-
-		 
-		 0.25,  0.25, -0.25,
-		 
-		-0.25,  0.25, -0.25,
-		 
-		-0.25,  0.25,  0.25,
-		
-		// BOTTOM FACE 
-		
-		-0.25, -0.25, -0.25,
-		 
-		 0.25, -0.25, -0.25,
-		 
-		 0.25, -0.25,  0.25,
-
-		 
-		 0.25, -0.25,  0.25,
-		 
-		-0.25, -0.25,  0.25,
-		 
-		-0.25, -0.25, -0.25,
-		
-		// LEFT FACE 
-		
-		-0.25,  0.25,  0.25,
-		 
-		-0.25, -0.25, -0.25,
-
-		-0.25, -0.25,  0.25,
-		 
-		 
-		-0.25,  0.25,  0.25,
-		 
-		-0.25,  0.25, -0.25,
-		 
-		-0.25, -0.25, -0.25,
-		
-		// RIGHT FACE 
-		
-		 0.25,  0.25, -0.25,
-		 
-		 0.25, -0.25,  0.25,
-
-		 0.25, -0.25, -0.25,
-		 
-		 
-		 0.25,  0.25, -0.25,
-		 
-		 0.25,  0.25,  0.25,
-		 
-		 0.25, -0.25,  0.25,
-		
-		// BACK FACE 
-		
-		-0.25,  0.25, -0.25,
-		 
-		 0.25, -0.25, -0.25,
-
-		-0.25, -0.25, -0.25,
-		 
-		 
-		-0.25,  0.25, -0.25,
-		 
-		 0.25,  0.25, -0.25,
-		 
-		 0.25, -0.25, -0.25,			 
-];
-
+var vertices = ver();
 // And their colour
 
-var colors = [
-
-		 // FRONT FACE
-		 	
-		 1.00,  0.00,  0.00,
-		 
-		 1.00,  0.00,  0.00,
-		 
-		 1.00,  0.00,  0.00,
-
-		 	
-		 1.00,  1.00,  0.00,
-		 
-		 1.00,  1.00,  0.00,
-		 
-		 1.00,  1.00,  0.00,
-		 			 
-		 // TOP FACE
-		 	
-		 0.00,  0.00,  0.00,
-		 
-		 0.00,  0.00,  0.00,
-		 
-		 0.00,  0.00,  0.00,
-
-		 	
-		 0.50,  0.50,  0.50,
-		 
-		 0.50,  0.50,  0.50,
-		 
-		 0.50,  0.50,  0.50,
-		 			 
-		 // BOTTOM FACE
-		 	
-		 0.00,  1.00,  0.00,
-		 
-		 0.00,  1.00,  0.00,
-		 
-		 0.00,  1.00,  0.00,
-
-		 	
-		 0.00,  1.00,  1.00,
-		 
-		 0.00,  1.00,  1.00,
-		 
-		 0.00,  1.00,  1.00,
-		 			 
-		 // LEFT FACE
-		 	
-		 0.00,  0.00,  1.00,
-		 
-		 0.00,  0.00,  1.00,
-		 
-		 0.00,  0.00,  1.00,
-
-		 	
-		 1.00,  0.00,  1.00,
-		 
-		 1.00,  0.00,  1.00,
-		 
-		 1.00,  0.00,  1.00,
-		 			 
-		 // RIGHT FACE
-		 	
-		 0.25,  0.50,  0.50,
-		 
-		 0.25,  0.50,  0.50,
-		 
-		 0.25,  0.50,  0.50,
-
-		 	
-		 0.50,  0.25,  0.00,
-		 
-		 0.50,  0.25,  0.00,
-		 
-		 0.50,  0.25,  0.00,
-		 			 
-		 			 
-		 // BACK FACE
-		 	
-		 0.25,  0.00,  0.75,
-		 
-		 0.25,  0.00,  0.75,
-		 
-		 0.25,  0.00,  0.75,
-
-		 	
-		 0.50,  0.35,  0.35,
-		 
-		 0.50,  0.35,  0.35,
-		 
-		 0.50,  0.35,  0.35,			 			 
-];
+var colors = colors();
 
 //----------------------------------------------------------------------------
 //
@@ -421,12 +212,10 @@ function initBuffers() {
 				gl.FLOAT, false, 0, 0);
   	}
 
-	// enable depth test
 	gl.enable(gl.DEPTH_TEST);
 }
 
 //----------------------------------------------------------------------------
-
 //  Drawing the model
 
 function drawModel( angleXX, angleYY, angleZZ, 
@@ -634,6 +423,17 @@ function handleMouseMove(event) {
 function setEventListeners(){
 
 	document.getElementById("file").onchange = function(){
+
+		var fullPath = document.getElementById('file').value;
+
+		if (fullPath) {
+		    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+		    var filename = fullPath.substring(startIndex);
+		    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+		        filename = filename.substring(1);
+		    }
+		}
+
 		var file = this.files[0];
 		
 		var reader = new FileReader();
@@ -742,14 +542,6 @@ function setEventListeners(){
 			// Render the viewport				
 			drawScene();  
 		};
-
-		$("rotate-xx2-up").click(function(){
-	   		// Updating			
-			gl.angleXX1 -= 30.0;			
-			// Render the viewport				
-			gl.drawScene(); 
-	  	});
-
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
 			// Updating			
@@ -841,14 +633,6 @@ function setEventListeners(){
 			// Render the viewport				
 			drawScene();  
 		};
-
-		$("rotate-xx2-up").click(function(){
-	   		// Updating			
-			gl.angleXX2 -= 30.0;			
-			// Render the viewport				
-			gl.drawScene(); 
-	  	});
-
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
 			// Updating			
