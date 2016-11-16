@@ -48,8 +48,6 @@ function getShader(gl, id) {
 
 //----------------------------------------------------------------------------
 
-// Initializing the shader program
-// TODO - Image texture
 
 function initShaders( gl, texture ) {
 

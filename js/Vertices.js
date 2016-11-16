@@ -199,10 +199,10 @@ function verticesBack() {
 	var vertices_back;
 
 	vertices_back = [
-            -5.0, -6.0,  1.0,
-             1.0, -6.0,  1.0,
-             1.0,  1.0,  1.0,
-            -5.0,  1.0,  1.0,
+            -6.0, -6.0,  -4.0,
+             6.0, -6.0,  -4.0,
+             6.0,  6.0,  -4.0,
+            -6.0,  6.0,  -4.0,
 	];
 	return vertices_back;
 }

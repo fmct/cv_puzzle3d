@@ -19,8 +19,8 @@
 var gl = null; // WebGL context
 
 var shaderProgram = null;
-var shaderProgram_back = null;
 
+var shaderProgram_back = null;
 
 var triangleVertexPositionBuffer = null;
 	
@@ -38,7 +38,7 @@ var globalTz = 0.0;
 var figura1_on = 0;
 var figura2_on = 0;
 
-var background = 1;
+var background = 0;
 
 //back
 var tx_back = 0.0;
@@ -158,6 +158,7 @@ function initBuffers() {
 	
 	if(background == 0){
     // Coordinates
+    	//gl.useProgram(shaderProgram);
 	 	triangleVertexPositionBuffer = gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -166,7 +167,7 @@ function initBuffers() {
   	}
 
 	if(background == 1){
-	 		
+	 	gl.useProgram(shaderProgram_back);	
 		cubeVertexPositionBuffer = gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices_back), gl.STATIC_DRAW);
@@ -192,7 +193,7 @@ function initBuffers() {
 
   	if(background == 0) {
   		// Associating to the vertex shader
-
+  		gl.useProgram(shaderProgram);
 		gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, 
 				triangleVertexPositionBuffer.itemSize, 
 				gl.FLOAT, false, 0, 0);
@@ -206,7 +207,6 @@ function initBuffers() {
 		triangleVertexColorBuffer.numItems = colors.length / 3;			
 
 		// Associating to the vertex shader
-		
 		gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, 
 				triangleVertexColorBuffer.itemSize, 
 				gl.FLOAT, false, 0, 0);
@@ -222,7 +222,7 @@ function drawModel( angleXX, angleYY, angleZZ,
 					sx, sy, sz,
 					tx, ty, tz,
 					mvMatrix,
-					primitiveType ) {
+					primitiveType, back ) {
 
     mvMatrix = mult(mvMatrix, translationMatrix(tx, ty, tz));
 	mvMatrix = mult(mvMatrix, rotationZZMatrix(angleZZ));
@@ -230,33 +230,29 @@ function drawModel( angleXX, angleYY, angleZZ,
 	mvMatrix = mult(mvMatrix, rotationXXMatrix(angleXX));
 	mvMatrix = mult(mvMatrix, scalingMatrix(sx, sy, sz));
 
+  	if(!back){
+  		
+		gl.useProgram(shaderProgram);
+		var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
+	  	gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
 
+	  this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.triangleVertexPositionBuffer);
+    	this.gl.vertexAttribPointer(this.shaderProgram.vertexPositionAttribute,
+                          			this.triangleVertexPositionBuffer.itemSize,
+                          			this.gl.FLOAT, false, 0, 0);
 
-  	if(background == 0){
-  		var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
-  		gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
-	   if( primitiveType == gl.LINE_LOOP ) {
-			
-			// No faces are defined! There are no hidden lines!
-			
-			// Taking the vertices 3 by 3 and drawing a LINE_LOOP
-			
-			var i;
-			
-			for( i = 0; i < triangleVertexPositionBuffer.numItems / 3; i++ ) {
-			
-				gl.drawArrays( primitiveType, 3 * i, 3 ); 
-			}
-		}	
-		else {
-					
-			gl.drawArrays(primitiveType, 0, triangleVertexPositionBuffer.numItems); 
-			
-		}	
+    	this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.triangleVertexColorBuffer);
+
+    	this.gl.vertexAttribPointer(this.shaderProgram.vertexColorAttribute,
+                                this.triangleVertexColorBuffer.itemSize,
+                                this.gl.FLOAT, false, 0, 0);
+   		this.gl.drawArrays(this.gl.TRIANGLES, 0, this.triangleVertexPositionBuffer.numItems);
   	}
   	else
   	{
-	  	var mvUniform = gl.getUniformLocation(shaderProgram_back, "uMVMatrix");
+  		gl.useProgram(shaderProgram_back);
+		var mvUniform = gl.getUniformLocation(shaderProgram_back, "uMVMatrix");
+
 	  	gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
 
 	    gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
@@ -294,9 +290,7 @@ function drawScene() {
 	var mvMatrix_back = mat4();
 	
 	// Clearing the frame-buffer and the depth-buffer
-	
-	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-	
+		
 	// Computing the Projection Matrix
 	// Não está a ser usada
 	if( projectionType == 0 ) {
@@ -319,14 +313,12 @@ function drawScene() {
 		globalTz = -2.5;
 
 	}
-	
-	if(background == 0){
-
+		gl.useProgram(shaderProgram);
 		var pUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
 	
 		gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
 	
-		mvMatrix = translationMatrix( 0, 0, globalTz-1.0 );
+		mvMatrix = translationMatrix( 0, 0, globalTz);
 
 		mvMatrix2 = translationMatrix( 0, 0, globalTz );
 
@@ -334,20 +326,19 @@ function drawScene() {
 		           sx1, sy1, sz1,
 		           tx1, ty1, tz1,
 		           mvMatrix2,
-		           primitiveType );
+		           primitiveType, false  );
 			
 		drawModel( angleXX2, angleYY2, angleZZ2, 
 		           sx2, sy2, sz2,
 		           tx2, ty2, tz2,
 		           mvMatrix,
-		           primitiveType );
+		           primitiveType, false );
 		//background = 1;
-	}
-	else {
 
-		var pUniform = gl.getUniformLocation(shaderProgram_back, "uPMatrix");
+		gl.useProgram(shaderProgram_back);
+		var pUniform1 = gl.getUniformLocation(shaderProgram_back, "uPMatrix");
 	
-		gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
+		gl.uniformMatrix4fv(pUniform1, false, new Float32Array(flatten(pMatrix)));
 
 		mvMatrix_back = translationMatrix(0,0,globalTz);
 
@@ -355,9 +346,9 @@ function drawScene() {
 		           sx_back, sy_back, sz_back,
 		           tx_back, ty_back, tz_back,
 		           mvMatrix_back,
-		           primitiveType );
+		           primitiveType, true );
 		//background = 0;
-	}
+	
 }
 
 //----------------------------------------------------------------------------
@@ -412,6 +403,8 @@ function handleMouseMove(event) {
     angleYY1 +=  radians(10 * deltaX);
     angleXX2 += radians(10 * deltaY);
     angleYY2 +=  radians(10 * deltaX);
+    angleXX_back += radians(10 * deltaY);
+    angleYY_back += radians(10 * deltaX);
 
     drawScene();  
 
@@ -737,29 +730,25 @@ function runWebGL() {
 	var canvas = document.getElementById("my-canvas");
 	
 	initWebGL( canvas );
-	if(background == 0){
 
 		shaderProgram = initShaders( gl, 0 );
 		
-		setEventListeners();
 		
 		initBuffers();
-	}
-	else{
 
+		background = 1;
 		shaderProgram_back = initShaders( gl, 1 );
-		
-		setEventListeners();
-		
+
 		initBuffers();
-		initTexture();
-	}
+
+		initTexture();	
+
+	setEventListeners();
 
 	canvas.onmousedown = handleMouseDown;
     document.onmouseup = handleMouseUp;
     document.onmousemove = handleMouseMove;
-	
-	tick();		// NEW --- A timer controls the rendering / animation    
+	tick();
 
 	outputInfos();
 }
