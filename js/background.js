@@ -56,7 +56,7 @@ function initTexture() {
 		handleLoadedTexture(webGLTexture)
 	}
 
-	webGLTexture.image.src = "imgs/table.png";
+	webGLTexture.image.src = "imgs/table.jpg";
 }
 
 

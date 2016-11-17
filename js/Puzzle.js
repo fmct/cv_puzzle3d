@@ -16,20 +16,25 @@
 // Global Variables
 //
 
+
 var gl = null; // WebGL context
 
 var shaderProgram = null;
 
-var triangleVertexPositionBuffer = null;
+
+var triangleVertexPositionBuffer_F1 = null;
 	
-var triangleVertexColorBuffer = null;
+var triangleVertexColorBuffer_F1 = null;
+
+var triangleVertexPositionBuffer_F2 = null;
+	
+var triangleVertexColorBuffer_F2 = null;
 
 // The GLOBAL transformation parameters
 
 var globalTz = 0.0;
 
-// The local transformation parameters
-
+var nivel = 1;
 // The translation vector
 var figura1_on = 0;
 var figura2_on = 0;
@@ -64,58 +69,87 @@ var angleZZ2 = 0.0;
 
 // The scaling factors
 
-var sx1 = 0.25;
+var sx1 = 0.5;
 
-var sx2 = 0.25;
+var sx2 = 0.5;
 
-var sy1 = 0.25;
+var sy1 = 0.5;
 
-var sy2 = 0.25;
+var sy2 = 0.5;
 
-var sz1 = 0.25;
+var sz1 = 0.5;
 
-var sz2 = 0.25;
+var sz2 = 0.5;
 
 
 var primitiveType = null;
  
 // Texture coordinates for the quadrangular faces
 
-var vertices = ver();
+var vertices = vertices_cubo();
 
 // And their colour
 
-var colors = colors();
+var colors = colors_cubo();
 
 
 function initBuffers() {	
 	
 	if(background == 0){
     // Coordinates
-    	//gl.useProgram(shaderProgram);
-	 	triangleVertexPositionBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
+    	//--------------------FIGURA 1------------------------------
+	 	triangleVertexPositionBuffer_F1 = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-		triangleVertexPositionBuffer.itemSize = 3;
-		triangleVertexPositionBuffer.numItems = vertices.length / 3;
+		triangleVertexPositionBuffer_F1.itemSize = 3;
+		triangleVertexPositionBuffer_F1.numItems = vertices.length / 3;
 
 		// Associating to the vertex shader
   		gl.useProgram(shaderProgram);
 		gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, 
-				triangleVertexPositionBuffer.itemSize, 
+				triangleVertexPositionBuffer_F1.itemSize, 
 				gl.FLOAT, false, 0, 0);
 
 		// Colors
 		
-		triangleVertexColorBuffer = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
+		triangleVertexColorBuffer_F1 = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-		triangleVertexColorBuffer.itemSize = 3;
-		triangleVertexColorBuffer.numItems = colors.length / 3;			
+		triangleVertexColorBuffer_F1.itemSize = 3;
+		triangleVertexColorBuffer_F1.numItems = colors.length / 3;			
 
 		// Associating to the vertex shader
 		gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, 
-				triangleVertexColorBuffer.itemSize, 
+				triangleVertexColorBuffer_F1.itemSize, 
+				gl.FLOAT, false, 0, 0);
+
+		//--------------------FIGURA 2 ------------------------------
+		vertices = verticesPiramideQuadrangular();
+		colors = colorsPiramideQuandrangular();
+
+		triangleVertexPositionBuffer_F2 = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+		triangleVertexPositionBuffer_F2.itemSize = 3;
+		triangleVertexPositionBuffer_F2.numItems = vertices.length / 3;
+
+		// Associating to the vertex shader
+  		gl.useProgram(shaderProgram);
+		gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, 
+				triangleVertexPositionBuffer_F2.itemSize, 
+				gl.FLOAT, false, 0, 0);
+
+		// Colors
+		
+		triangleVertexColorBuffer_F2 = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+		triangleVertexColorBuffer_F2.itemSize = 3;
+		triangleVertexColorBuffer_F2.numItems = colors.length / 3;			
+
+		// Associating to the vertex shader
+		gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, 
+				triangleVertexColorBuffer_F2.itemSize, 
 				gl.FLOAT, false, 0, 0);
   	}
 
@@ -154,7 +188,7 @@ function drawModel( angleXX, angleYY, angleZZ,
 					sx, sy, sz,
 					tx, ty, tz,
 					mvMatrix,
-					primitiveType, background ) {
+					primitiveType, background , figura) {
 
     mvMatrix = mult(mvMatrix, translationMatrix(tx, ty, tz));
 	mvMatrix = mult(mvMatrix, rotationZZMatrix(angleZZ));
@@ -163,22 +197,38 @@ function drawModel( angleXX, angleYY, angleZZ,
 	mvMatrix = mult(mvMatrix, scalingMatrix(sx, sy, sz));
 
   	if(!background){
-  		
-		gl.useProgram(shaderProgram);
+  		gl.useProgram(shaderProgram);
 		var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
-	  	gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
+		gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
+  		if(figura == "cubo"){
+  			alert("Lol");				
+		    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
+	    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+	                          			triangleVertexPositionBuffer_F1.itemSize,
+	                          			gl.FLOAT, false, 0, 0);
 
-	    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
-    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-                          			triangleVertexPositionBuffer.itemSize,
-                          			gl.FLOAT, false, 0, 0);
+	    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
 
-    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer);
+	    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+	                                triangleVertexColorBuffer_F1.itemSize,
+	                                gl.FLOAT, false, 0, 0);
+	   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
 
-    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-                                triangleVertexColorBuffer.itemSize,
-                                gl.FLOAT, false, 0, 0);
-   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer.numItems);
+   		}
+   		if(figura == "piramideQuandrangular"){
+   			alert("lol");
+		    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
+	    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+	                          			triangleVertexPositionBuffer_F2.itemSize,
+	                          			gl.FLOAT, false, 0, 0);
+
+	    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
+
+	    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+	                                triangleVertexColorBuffer_F2.itemSize,
+	                                gl.FLOAT, false, 0, 0);
+	   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
+   		}
   	}
   	else
   	{
@@ -242,13 +292,13 @@ function drawScene() {
 	           sx1, sy1, sz1,
 	           tx1, ty1, tz1,
 	           mvMatrix2,
-	           primitiveType, false  );
+	           primitiveType, false , "piramideQuandrangular" );
 		
 	drawModel( angleXX2, angleYY2, angleZZ2, 
 	           sx2, sy2, sz2,
 	           tx2, ty2, tz2,
 	           mvMatrix,
-	           primitiveType, false );
+	           primitiveType, false, "cubo" );
 
 	//background = 1;
 
@@ -263,7 +313,7 @@ function drawScene() {
 	           sx_back, sy_back, sz_back,
 	           tx_back, ty_back, tz_back,
 	           mvMatrix_back,
-	           primitiveType, true );	
+	           primitiveType, true);	
 }
 
 //----------------------------------------------------------------------------
@@ -325,99 +375,30 @@ function setEventListeners(canvas){
     document.onmouseup = handleMouseUp;
     document.onmousemove = handleMouseMove;
 
-	document.getElementById("file").onchange = function(){
-
-		var fullPath = document.getElementById('file').value;
-
-		if (fullPath) {
-		    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-		    var filename = fullPath.substring(startIndex);
-		    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-		        filename = filename.substring(1);
-		    }
-		}
-
-		var file = this.files[0];
-		
-		var reader = new FileReader();
-		
-		reader.onload = function( progressEvent ){
-			
-			// Entire file read as a string
-			
-			// The tokens/values in the file
-    
-			var tokens = this.result.split(/\s\s*/);
-    
-			// Array of values; each value is a string
-			
-			var numVertices = parseInt( tokens[0] );
-			
-			// For every vertex we have 6 floating point values
-			
-			var i, j;
-			
-			var aux = 1;
-			
-			var newVertices = [];
-			
-			var newColors = []
-			
-			for( i = 0; i < numVertices ; i++ ) {
-			
-				for( j = 0; j < 3; j++ ) {
-					
-					newVertices[ 3 * i + j ] = parseFloat( tokens[ aux++ ] );
-				}
-				
-				for( j = 0; j < 3; j++ ) {
-					
-					newColors[ 3 * i + j ] = parseFloat( tokens[ aux++ ] );
-				}
-			}
-					
-			// Assigning to the current model
-			
-			vertices = newVertices;
-			
-			colors = newColors;
-		
-			initBuffers();
-			drawScene();
-		
-		};
-		
-		// Entire file read as a string
-			
-		reader.readAsText( file );		
-	};
-
-	// Default - Figura 1
-
 	document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			tx1 -= 0.1;		
+			tx1 -= 0.05;		
 			// Render the viewport		
 			drawScene();  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
 			// Updating		
-			tx1 += 0.1;		
+			tx1 += 0.05;		
 			// Render the viewport				
 			drawScene();  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			ty1 += 0.1;		
+			ty1 += 0.05;		
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
 			// Updating		
-			ty1 -= 0.1;		
+			ty1 -= 0.05;		
 			// Render the viewport	
 			drawScene();  
 		};
@@ -469,7 +450,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-front-button").onclick = function(){
 			
 			// Updating
-			tz1 += 0.25;			
+			tz1 += 0.2;			
 			// Render the viewport
 			drawScene();  
 		};      
@@ -477,7 +458,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-back-button").onclick = function(){
 			
 			// Updating
-			tz1 -= 0.25;
+			tz1 -= 0.2;
 			
 			// Render the viewport
 			drawScene();  
@@ -489,28 +470,28 @@ function setEventListeners(canvas){
 		figura2_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			tx1 -= 0.1;		
+			tx1 -= 0.02;		
 			// Render the viewport		
 			drawScene();  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
 			// Updating		
-			tx1 += 0.1;		
+			tx1 += 0.02;		
 			// Render the viewport				
 			drawScene();  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			ty1 += 0.1;		
+			ty1 += 0.02;		
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
 			// Updating		
-			ty1 -= 0.1;		
+			ty1 -= 0.02;		
 			// Render the viewport	
 			drawScene();  
 		};
@@ -562,7 +543,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-front-button").onclick = function(){
 			
 			// Updating
-			tz1 += 0.25;			
+			tz1 += 0.2;			
 			// Render the viewport
 			drawScene();  
 		};      
@@ -570,7 +551,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-back-button").onclick = function(){
 			
 			// Updating
-			tz1 -= 0.25;
+			tz1 -= 0.2;
 			// Render the viewport
 			drawScene();  
 		};      
@@ -580,28 +561,28 @@ function setEventListeners(canvas){
 		figura1_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			tx2 -= 0.1;		
+			tx2 -= 0.02;		
 			// Render the viewport		
 			drawScene();  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
 			// Updating		
-			tx2 += 0.1;		
+			tx2 += 0.02;		
 			// Render the viewport				
 			drawScene();  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			ty2 += 0.1;		
+			ty2 += 0.02;		
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
 			// Updating		
-			ty2 -= 0.1;		
+			ty2 -= 0.02;		
 			// Render the viewport	
 			drawScene();  
 		};
@@ -653,7 +634,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-front-button").onclick = function(){
 			
 			// Updating
-			tz2 += 0.25;			
+			tz2 += 0.2;			
 			// Render the viewport
 			drawScene();  
 		};      
@@ -661,7 +642,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-back-button").onclick = function(){
 			
 			// Updating
-			tz2 -= 0.25;
+			tz2 -= 0.2;
 			// Render the viewport
 			drawScene();  
 		};   
@@ -684,19 +665,7 @@ function setEventListeners(canvas){
 		
 		drawScene();  
 	};      
- 
-
-	document.getElementById("face-culling-button").onclick = function(){
-		
-		if( gl.isEnabled( gl.CULL_FACE ) )
-		{
-			gl.disable( gl.CULL_FACE );
-		}
-		else
-		{
-			gl.enable( gl.CULL_FACE );
-		}
-	};      
+       
 
 }
 
