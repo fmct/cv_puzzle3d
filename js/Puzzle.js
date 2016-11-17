@@ -200,8 +200,7 @@ function drawModel( angleXX, angleYY, angleZZ,
   		gl.useProgram(shaderProgram);
 		var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
 		gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
-  		if(figura == "cubo"){
-  			alert("Lol");				
+  		if(figura == "cubo"){			
 		    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
 	    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
 	                          			triangleVertexPositionBuffer_F1.itemSize,
@@ -216,7 +215,6 @@ function drawModel( angleXX, angleYY, angleZZ,
 
    		}
    		if(figura == "piramideQuandrangular"){
-   			alert("lol");
 		    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
 	    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
 	                          			triangleVertexPositionBuffer_F2.itemSize,
@@ -664,8 +662,7 @@ function setEventListeners(canvas){
 		angleZZ2 = 0.0;   
 		
 		drawScene();  
-	};      
-       
+	};            
 
 }
 
@@ -716,5 +713,4 @@ function runWebGL() {
 
 	tick();
 
-	outputInfos();
 }

@@ -108,6 +108,10 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 <script type="text/javascript" src="js/background.js"></script>
 
+<script type="text/javascript" src="js/Initial.js"></script>
+
+
+
 
 <!-- Bootstrap Stuff -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -117,7 +121,7 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 </head>
 
-<body onload="runWebGL();">
+<body onload="niveis();">
 
 	<div style="text-align: center">
 		
@@ -133,8 +137,8 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 				<div class="col-lg-5">
 					<div class="well">
-						<h2>Nivel 1</h2>
-						<img src="imgs/nivel1.png" alt="Mountain View" style="width:304px;height:228px;">
+						<h2 id="nome_nivel"></h2>
+						<img id="nivel" style="width:304px;height:228px;">
 						<h4>Posição Peça:</h4>
 						<div class="row">
 							<div class="col-lg-6">
