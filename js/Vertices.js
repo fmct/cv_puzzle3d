@@ -1,9 +1,8 @@
 function ver() {
-	var ver;
-
+	var vertices = [	
 		// FRONT FACE
-		 
-	ver = [	-0.25, -0.25,  0.25,
+
+		-0.25, -0.25,  0.25,
 		 
 		 0.25, -0.25,  0.25,
 		 
@@ -91,14 +90,12 @@ function ver() {
 		 
 		 0.25, -0.25, -0.25,			 
 ];
-return ver;
+return vertices;
 
 }
 
 function colors(){
-	var colors;
-
-	colors = [
+	var colors = [
 
 		 // FRONT FACE
 		 	
@@ -196,8 +193,7 @@ function colors(){
 }
 
 function verticesBack() {
-	var vertices_back;
-
+var
 	vertices_back = [
             -6.0, -6.0,  -4.0,
              6.0, -6.0,  -4.0,
@@ -208,8 +204,7 @@ function verticesBack() {
 }
 
 function textCoord(){
-	var textureCoords;
-	textureCoords = [
+	var textureCoords = [
           0.0, 0.0,
           1.0, 0.0,
           1.0, 1.0,
@@ -219,7 +214,7 @@ function textCoord(){
 }
 
 function cubeVertexIndex(){
-	var cubeVertexIndices;
+	/*
 	cubeVertexIndices = [
             0, 1, 2,      0, 2, 3,
 
@@ -232,6 +227,10 @@ function cubeVertexIndex(){
             16, 17, 18,   16, 18, 19,
 
             20, 21, 22,   20, 22, 23  
+	];
+	*/
+	var cubeVertexIndices = [
+    	0, 1, 2,      0, 2, 3
 	];
 
 	return cubeVertexIndices;

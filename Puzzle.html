@@ -3,10 +3,11 @@
 <html>
 
 <head>
+<meta charset="UTF-8" />
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 	
 <title>Puzzle3D</title>
-
-<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/3dbtn.css">
 
 
 <!--
@@ -16,51 +17,6 @@ Using a vertex coordinate buffer and a vertex colour buffer.
 
 Passing the Model-View Matrix and the Projection Matrix. 
 -->
-
-<script id="shader-vs" type="x-shader/x-vertex">
-	
-    attribute vec3 aVertexPosition;
-
-    attribute vec3 aVertexColor;
-    
-    uniform mat4 uMVMatrix;
-
-    uniform mat4 uPMatrix;
-
-    varying vec4 vertexColor;
-    
-    void main(void) {
-		
-		// To allow seeing the points drawn
-		
-		gl_PointSize = 5.0;
-		
-		// Just converting the (x,y,z) vertices to Homogeneous Coord.
-		
-		// And multiplying by the Projection and the Model-View matrix
-		
-        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
-        
-        // Converting the RGB color value to RGBA
-        
-        vertexColor = vec4(aVertexColor, 1.0);
-    }
-</script>
-
-<!--
-<script id="shader-fs" type="x-shader/x-fragment">
-
-	precision mediump float;
-	
-	varying vec4 vertexColor;
-	
-	void main(void) {
-		
-		// Using the passed vertex color
-		
-		gl_FragColor = vertexColor;
-	}
-</script>-->
 
 <script id="shader-vs" type="x-shader/x-vertex">
 	    attribute vec3 aVertexPosition;
@@ -100,7 +56,7 @@ Passing the Model-View Matrix and the Projection Matrix.
 </script>
 
 
-<script id="shader-vsback" type="x-shader/x-vertex">
+<script id="shader-vs-background" type="x-shader/x-vertex">
 	attribute vec3 aVertexPosition;
 	attribute vec2 aTextureCoord;
 
@@ -116,7 +72,7 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 </script>
 
-<script id="shader-fsback" type="x-shader/x-fragment">
+<script id="shader-fs-background" type="x-shader/x-fragment">
 	varying highp vec2 vTexCoord;
 
 	uniform sampler2D uSampler;
@@ -125,6 +81,7 @@ Passing the Model-View Matrix and the Projection Matrix.
 	    gl_FragColor = texture2D(uSampler, vec2(vTexCoord.s, vTexCoord.t));
 	}
 </script>
+
 
 
 <!-- The JS files -->
@@ -149,10 +106,13 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 <script type="text/javascript" src="js/Puzzle.js"></script>
 
+<script type="text/javascript" src="js/background.js"></script>
+
 
 <!-- Bootstrap Stuff -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 <link rel="stylesheet" type="text/css" href="js/buttons.css">
 
 </head>
@@ -178,6 +138,44 @@ Passing the Model-View Matrix and the Projection Matrix.
 								<input type="file" id="file" name="file">
 							</p>
 						</div>
+						<h4>Posição Peça:</h4>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" title="Transação em X" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+										40% 
+										</div>
+									</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-info progress-bar-striped" title="Transação em Y" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+									50% 
+									</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-warning progress-bar-striped" title="Transação em Z" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+									60% 
+									</div>
+								</div>
+							</div>
+								<div class="col-lg-6">
+								<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" title="Ângulo em X" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+										40% 
+										</div>
+									</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-info progress-bar-striped" title="Ângulo em Y" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+									50% 
+									</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-warning progress-bar-striped" title="Ângulo em Z" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+									60% 
+									</div>
+								</div>
+							</div>
+						</div>	
+							
 						<h4>Escolha a figura</h4>
 						<button id="figura1" class="btn btn-info btn-sm btn3d">Figura 1</button>
 						<button id="figura2" class="btn btn-info btn-sm btn3d">Figura 2</button>
@@ -212,7 +210,7 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 						<p>
 							<button id="move-front-button">Mover para Frente</button>
-	    					<button id="move-back-button">Move para Tras</button>
+	    					<button id="move-back-button">Move para Trás</button>
 						</p>
 
 						<p>
@@ -258,8 +256,7 @@ Passing the Model-View Matrix and the Projection Matrix.
 			</div>
 		</div>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
 	    <script type="text/javascript">
 	      $(function () {
 	        $('[data-toggle="tooltip"]').tooltip()
