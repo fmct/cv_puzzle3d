@@ -66,9 +66,9 @@ var angleYY2 = 0.0;
 
 var angleZZ2 = 0.0;
 
-var globalAngleXX = 0.0
+var globalAngleXX = 0.0;
 
-var globalAngleYY = 0.0
+var globalAngleYY = 0.0;
 
 // The scaling factors
 
@@ -84,17 +84,17 @@ var sz1 = 0.5;
 
 var sz2 = 0.5;
  
-var block = 0.8 
+var block = 0.8;
 
-var barreira_sup = 1.5;
+//limites do  plano
+var limite_dir = 1.5;
+var limite_esq = -1.5;
+var limite_sup = 1.5;
+var limite_inf = -1.5;
 
-var barreira_inf = -1.5;
-
-// Texture coordinates for the quadrangular faces
+// Texture coordinates for the quadrangular faces and their color
 
 var vertices = vertices_cubo();
-
-// And their colour
 
 var colors = colors_cubo();
 
@@ -350,16 +350,16 @@ function handleKeys() {
 	if (currentlyPressedKeys[65]) {
 		// a
 		if(figura1_on){
-			if(tx1 > barreira_inf){
+			if(tx1 > limite_inf){
 				tx1 -= 0.01;		
 			}
 			drawScene();
 		}else if(figura2_on){
-			if(tx2 > barreira_inf){
+			if(tx2 > limite_inf){
 				tx2 -= 0.01;		
 			}
 		}else{
-			if(tx1 > barreira_inf){
+			if(tx1 > limite_inf){
 				tx1 -= 0.01;		
 			}	
 		}
@@ -367,15 +367,15 @@ function handleKeys() {
 	else if (currentlyPressedKeys[68]) {
 		// d
 		if(figura1_on){
-			if(tx1 < barreira_sup){
+			if(tx1 < limite_sup){
 				tx1 += 0.01;		
 			}	
 		}else if(figura2_on){
-			if(tx2 < barreira_sup){
+			if(tx2 < limite_sup){
 				tx2 += 0.01;		
 			}
 		}else{
-			if(tx1 < barreira_sup){
+			if(tx1 < limite_sup){
 				tx1 += 0.01;		
 			}	
 		}	
@@ -383,15 +383,15 @@ function handleKeys() {
 	else if (currentlyPressedKeys[87]) {
 		// w
 		if(figura1_on){
-			if(ty1 < barreira_sup){
+			if(ty1 < limite_sup){
 				ty1 += 0.01;	
 			}
 		}else if(figura2_on){
-			if(ty2 < barreira_sup){
+			if(ty2 < limite_sup){
 				ty2 += 0.01;	
 			}	
 		}else{
-			if(ty1 < barreira_sup){
+			if(ty1 < limite_sup){
 				ty1 += 0.01;	
 			}	
 		}
@@ -399,15 +399,15 @@ function handleKeys() {
 	else if (currentlyPressedKeys[83]) {
 		// s
 		if(figura1_on){
-			if(ty1 > barreira_inf){
+			if(ty1 > limite_inf){
 				ty1 -= 0.01;
 			}	
 		}else if(figura2_on){
-			if(ty2 > barreira_inf){
+			if(ty2 > limite_inf){
 				ty2 -= 0.01;
 			}
 		}else{
-			if(ty1 > barreira_inf){
+			if(ty1 > limite_inf){
 				ty1 -= 0.01;
 			}	
 		}
@@ -493,7 +493,7 @@ function setEventListeners(canvas){
 
 	document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			if(tx1 > barreira_inf){
+			if(tx1 > limite_esq){
 				tx1 -= 0.1;		
 			}
 			// Render the viewport		
@@ -502,7 +502,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-right-button").onclick = function(){		
 			// Updating	
-			if(tx1 < barreira_sup){
+			if(tx1 < limite_dir){
 				tx1 += 0.1;		
 			}	
 			// Render the viewport				
@@ -511,7 +511,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			if(ty1 < barreira_sup){
+			if(ty1 < limite_dirsup){
 				ty1 += 0.1;	
 			}
 			// Render the viewport			
@@ -520,7 +520,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-down-button").onclick = function(){		
 			// Updating	
-			if(ty1 > barreira_inf){
+			if(ty1 > limite_inf){
 				ty1 -= 0.1;
 			}	
 			// Render the viewport	
@@ -573,7 +573,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-front-button").onclick = function(){
 			// Updating
-			if(tz1 < barreira_sup){
+			if(tz1 < limite_sup){
 				tz1 += 0.1;
 			}	
 			// Render the viewport
@@ -595,7 +595,7 @@ function setEventListeners(canvas){
 		figura2_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			if(tx1 > barreira_inf){
+			if(tx1 > limite_esq){
 				tx1 -= 0.1;		
 			}
 			// Render the viewport		
@@ -604,7 +604,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-right-button").onclick = function(){		
 			// Updating	
-			if(tx1 < barreira_sup){
+			if(tx1 < limite_dir){
 				tx1 += 0.1;		
 			}	
 			// Render the viewport				
@@ -613,7 +613,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			if(ty1 < barreira_sup){
+			if(ty1 < limite_sup){
 				ty1 += 0.1;	
 			}
 			// Render the viewport			
@@ -622,7 +622,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-down-button").onclick = function(){		
 			// Updating	
-			if(ty1 > barreira_inf){
+			if(ty1 > limite_inf){
 				ty1 -= 0.1;
 			}	
 			// Render the viewport	
@@ -675,7 +675,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-front-button").onclick = function(){
 			// Updating
-			if(tz1 < barreira_sup){
+			if(tz1 < limite_sup){
 				tz1 += 0.1;
 			}	
 			// Render the viewport
@@ -696,7 +696,7 @@ function setEventListeners(canvas){
 		figura1_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			if(tx2 > barreira_inf){
+			if(tx2 > limite_inf){
 				tx2 -= 0.1;		
 			}	
 			// Render the viewport		
@@ -705,7 +705,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-right-button").onclick = function(){		
 			// Updating	
-			if(tx2 < barreira_sup){
+			if(tx2 < limite_sup){
 				tx2 += 0.1;		
 			}		
 			// Render the viewport				
@@ -714,7 +714,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			if(ty2 < barreira_sup){
+			if(ty2 < limite_sup){
 				ty2 += 0.1;	
 			}	
 			// Render the viewport			
@@ -723,7 +723,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-down-button").onclick = function(){		
 			// Updating	
-			if(ty2 > barreira_inf){
+			if(ty2 > limite_inf){
 				ty2 -= 0.1;	
 			}		
 			// Render the viewport	
@@ -776,7 +776,7 @@ function setEventListeners(canvas){
 
 		document.getElementById("move-front-button").onclick = function(){
 			// Updating
-			if(tz2 < barreira_sup){
+			if(tz2 < limite_sup){
 				tz2 += 0.1;		
 			}
 			// Render the viewport
