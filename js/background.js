@@ -16,6 +16,10 @@ var angleYY_back = 0.0;
 
 var angleZZ_back = 0.0;
 
+var globalAngleXX_back = 0.0
+
+var globalAngleYY_back = 0.0
+
 var sx_back = 0.25;
 
 var sy_back = 0.25;

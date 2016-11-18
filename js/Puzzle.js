@@ -16,11 +16,9 @@
 // Global Variables
 //
 
-
 var gl = null; // WebGL context
 
 var shaderProgram = null;
-
 
 var triangleVertexPositionBuffer_F1 = null;
 	
@@ -35,6 +33,7 @@ var triangleVertexColorBuffer_F2 = null;
 var globalTz = 0.0;
 
 var nivel = 1;
+
 // The translation vector
 var figura1_on = 0;
 var figura2_on = 0;
@@ -67,6 +66,10 @@ var angleYY2 = 0.0;
 
 var angleZZ2 = 0.0;
 
+var globalAngleXX = 0.0
+
+var globalAngleYY = 0.0
+
 // The scaling factors
 
 var sx1 = 0.5;
@@ -80,10 +83,13 @@ var sy2 = 0.5;
 var sz1 = 0.5;
 
 var sz2 = 0.5;
-
-
-var primitiveType = null;
  
+var block = 0.8 
+
+var barreira_sup = 1.5;
+
+var barreira_inf = -1.5;
+
 // Texture coordinates for the quadrangular faces
 
 var vertices = vertices_cubo();
@@ -271,9 +277,11 @@ function drawScene() {
 
 	pMatrix = perspective( 45, 1, 0.05, 15 );
 
+	gl.enable( gl.DEPTH_TEST );
+
 	// Global transformation !!
 	
-	globalTz = -2.5;
+	globalTz = -3.5;
 
 	// Background = 0
 
@@ -282,9 +290,19 @@ function drawScene() {
 
 	gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
 
-	mvMatrix = translationMatrix( 0, 0, globalTz);
+	mvMatrix = translationMatrix(0, 0, globalTz);
+  	mvMatrix = mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY));
+ 	mvMatrix = mult(mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY)),
+	                rotationXXMatrix(globalAngleXX));
 
-	mvMatrix2 = translationMatrix( 0, 0, globalTz );
+	mvMatrix2 = translationMatrix(0, 0, globalTz);
+  	mvMatrix2 = mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY));
+ 	mvMatrix2 = mult(mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY)),
+	                rotationXXMatrix(globalAngleXX));
 
 	drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
 	           sx1, sy1, sz1,
@@ -305,7 +323,12 @@ function drawScene() {
 
 	gl.uniformMatrix4fv(pUniform1, false, new Float32Array(flatten(pMatrix)));
 
-	mvMatrix_back = translationMatrix( 0, 0, globalTz);
+	mvMatrix_back = translationMatrix(0, 0, globalTz);
+  	mvMatrix_back = mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY));
+ 	mvMatrix_back = mult(mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY)),
+	                rotationXXMatrix(globalAngleXX));
 
 	drawModel( angleXX_back, angleYY_back, angleZZ_back, 
 	           sx_back, sy_back, sz_back,
@@ -316,11 +339,90 @@ function drawScene() {
 
 //----------------------------------------------------------------------------
 
+// Handling keyboard events
+
+// Adapted from www.learningwebgl.com
+
+var currentlyPressedKeys = {};
+
+function handleKeys() {
+	
+	if (currentlyPressedKeys[65]) {
+		// a
+		if(figura1_on){
+			if(tx1 > barreira_inf){
+				tx1 -= 0.01;		
+			}
+		}else if(figura2_on){
+			if(tx2 > barreira_inf){
+				tx2 -= 0.01;		
+			}
+		}else{
+			if(tx1 > barreira_inf){
+				tx1 -= 0.01;		
+			}	
+		}
+	}
+	else if (currentlyPressedKeys[68]) {
+		// d
+		if(figura1_on){
+			if(tx1 < barreira_sup){
+				tx1 += 0.01;		
+			}	
+		}else if(figura2_on){
+			if(tx2 < barreira_sup){
+				tx2 += 0.01;		
+			}
+		}else{
+			if(tx1 < barreira_sup){
+				tx1 += 0.01;		
+			}	
+		}	
+	}
+	else if (currentlyPressedKeys[87]) {
+		// w
+		if(figura1_on){
+			if(ty1 < barreira_sup){
+				ty1 += 0.01;	
+			}
+		}else if(figura2_on){
+			if(ty2 < barreira_sup){
+				ty2 += 0.01;	
+			}	
+		}else{
+			if(ty1 < barreira_sup){
+				ty1 += 0.01;	
+			}	
+		}
+	}
+	else if (currentlyPressedKeys[83]) {
+		// s
+		if(figura1_on){
+			if(ty1 > barreira_inf){
+				ty1 -= 0.01;
+			}	
+		}else if(figura2_on){
+			if(ty2 > barreira_inf){
+				ty2 -= 0.01;
+			}
+		}else{
+			if(ty1 > barreira_inf){
+				ty1 -= 0.01;
+			}	
+		}
+	}
+}
+
+
+//----------------------------------------------------------------------------
+
 // Timer
 
 function tick() {
 	
 	requestAnimFrame(tick);
+
+	handleKeys();
 	
 	drawScene();
 }
@@ -331,6 +433,7 @@ function tick() {
 function degToRad(degrees) {
     return degrees * Math.PI / 180;
 }
+
 var mouseDown = false;
 var lastMouseX = null;
 var lastMouseY = null;
@@ -353,12 +456,10 @@ function handleMouseMove(event) {
     var deltaX = newX - lastMouseX;
     var deltaY = newY - lastMouseY;
 
-    angleXX1 += radians(10 * deltaY);
-    angleYY1 +=  radians(10 * deltaX);
-    angleXX2 += radians(10 * deltaY);
-    angleYY2 +=  radians(10 * deltaX);
-    angleXX_back += radians(10 * deltaY);
-    angleYY_back += radians(10 * deltaX);
+    globalAngleXX += radians(10 * deltaY);
+    globalAngleYY += radians(10 * deltaX);
+    globalAngleXX_back += radians(10 * deltaY);
+    globalAngleYY_back += radians(10 * deltaX);
 
     drawScene();  
 
@@ -370,61 +471,85 @@ function handleMouseMove(event) {
 function setEventListeners(canvas){
 
 	canvas.onmousedown = handleMouseDown;
+
     document.onmouseup = handleMouseUp;
+
     document.onmousemove = handleMouseMove;
+
+    function handleKeyDown(event) {
+		
+        currentlyPressedKeys[event.keyCode] = true;
+    }
+
+    function handleKeyUp(event) {
+		
+        currentlyPressedKeys[event.keyCode] = false;
+    }
+
+	document.onkeydown = handleKeyDown;
+    
+    document.onkeyup = handleKeyUp;
 
 	document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			tx1 -= 0.05;		
+			if(tx1 > barreira_inf){
+				tx1 -= 0.1;		
+			}
 			// Render the viewport		
 			drawScene();  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
-			// Updating		
-			tx1 += 0.05;		
+			// Updating	
+			if(tx1 < barreira_sup){
+				tx1 += 0.1;		
+			}	
 			// Render the viewport				
 			drawScene();  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			ty1 += 0.05;		
+			if(ty1 < barreira_sup){
+				ty1 += 0.1;	
+			}
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
-			// Updating		
-			ty1 -= 0.05;		
+			// Updating	
+			if(ty1 > barreira_inf){
+				ty1 -= 0.1;
+			}	
 			// Render the viewport	
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-cw").onclick = function(){		
 			// Updating		
-			angleZZ1 -= 30;			
+			angleZZ1 -= 45;			
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-ccw").onclick = function(){		
 			// Updating
-			angleZZ1 += 30;				
+			angleZZ1 += 45;				
 			// Render the viewport				
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
 			// Updating			
-			angleXX1 -= 30.0;			
+			angleXX1 -= 45;			
 			// Render the viewport				
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
 			// Updating			
-			angleXX1 += 30.0;				
+			angleXX1 += 45;				
 			// Render the viewport
 			drawScene();  
 		};
@@ -432,32 +557,33 @@ function setEventListeners(canvas){
 
 		document.getElementById("rotate-yy-right").onclick = function(){			
 			// Updating			
-			angleYY1 += 30.0;		
+			angleYY1 += 45;		
 			// Render the viewport	
 			drawScene();  
 		};
 
 		document.getElementById("rotate-yy-left").onclick = function(){			
 			// Updating		
-			angleYY1 -= 30.0;		
+			angleYY1 -= 45;		
 			// Render the viewport
 			drawScene();  
 		};
 
 
 		document.getElementById("move-front-button").onclick = function(){
-			
 			// Updating
-			tz1 += 0.2;			
+			if(tz1 < barreira_sup){
+				tz1 += 0.1;
+			}	
 			// Render the viewport
 			drawScene();  
 		};      
 
 		document.getElementById("move-back-button").onclick = function(){
-			
 			// Updating
-			tz1 -= 0.2;
-			
+			if(tz1+block > tz_back){
+				tz1 -= 0.1;
+			}
 			// Render the viewport
 			drawScene();  
 		};      
@@ -468,56 +594,64 @@ function setEventListeners(canvas){
 		figura2_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			tx1 -= 0.02;		
+			if(tx1 > barreira_inf){
+				tx1 -= 0.1;		
+			}
 			// Render the viewport		
 			drawScene();  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
-			// Updating		
-			tx1 += 0.02;		
+			// Updating	
+			if(tx1 < barreira_sup){
+				tx1 += 0.1;		
+			}	
 			// Render the viewport				
 			drawScene();  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			ty1 += 0.02;		
+			if(ty1 < barreira_sup){
+				ty1 += 0.1;	
+			}
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
-			// Updating		
-			ty1 -= 0.02;		
+			// Updating	
+			if(ty1 > barreira_inf){
+				ty1 -= 0.1;
+			}	
 			// Render the viewport	
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-cw").onclick = function(){		
 			// Updating		
-			angleZZ1 -= 30;			
+			angleZZ1 -= 45;			
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-ccw").onclick = function(){		
 			// Updating
-			angleZZ1 += 30;				
+			angleZZ1 += 45;				
 			// Render the viewport				
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
 			// Updating			
-			angleXX1 -= 30.0;			
+			angleXX1 -= 45;			
 			// Render the viewport				
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
 			// Updating			
-			angleXX1 += 30.0;				
+			angleXX1 += 45;				
 			// Render the viewport
 			drawScene();  
 		};
@@ -525,31 +659,33 @@ function setEventListeners(canvas){
 
 		document.getElementById("rotate-yy-right").onclick = function(){			
 			// Updating			
-			angleYY1 += 30.0;		
+			angleYY1 += 45;		
 			// Render the viewport	
 			drawScene();  
 		};
 
 		document.getElementById("rotate-yy-left").onclick = function(){			
 			// Updating		
-			angleYY1 -= 30.0;		
+			angleYY1 -= 45;		
 			// Render the viewport
 			drawScene();  
 		};
 
 
 		document.getElementById("move-front-button").onclick = function(){
-			
 			// Updating
-			tz1 += 0.2;			
+			if(tz1 < barreira_sup){
+				tz1 += 0.1;
+			}	
 			// Render the viewport
 			drawScene();  
 		};      
 
 		document.getElementById("move-back-button").onclick = function(){
-			
 			// Updating
-			tz1 -= 0.2;
+			if(tz1+block > tz_back){
+				tz1 -= 0.01;
+			}
 			// Render the viewport
 			drawScene();  
 		};      
@@ -559,56 +695,64 @@ function setEventListeners(canvas){
 		figura1_on = 0;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
-			tx2 -= 0.02;		
+			if(tx2 > barreira_inf){
+				tx2 -= 0.1;		
+			}	
 			// Render the viewport		
 			drawScene();  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
-			// Updating		
-			tx2 += 0.02;		
+			// Updating	
+			if(tx2 < barreira_sup){
+				tx2 += 0.1;		
+			}		
 			// Render the viewport				
 			drawScene();  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
-			ty2 += 0.02;		
+			if(ty2 < barreira_sup){
+				ty2 += 0.1;	
+			}	
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
-			// Updating		
-			ty2 -= 0.02;		
+			// Updating	
+			if(ty2 > barreira_inf){
+				ty2 -= 0.1;	
+			}		
 			// Render the viewport	
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-cw").onclick = function(){		
 			// Updating		
-			angleZZ2 -= 30;			
+			angleZZ2 -= 45;			
 			// Render the viewport			
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-ccw").onclick = function(){		
 			// Updating
-			angleZZ2 += 30;				
+			angleZZ2 += 45;				
 			// Render the viewport				
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
 			// Updating			
-			angleXX2 -= 30.0;			
+			angleXX2 -= 45;			
 			// Render the viewport				
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
 			// Updating			
-			angleXX2 += 30.0;				
+			angleXX2 += 45;				
 			// Render the viewport
 			drawScene();  
 		};
@@ -616,38 +760,38 @@ function setEventListeners(canvas){
 
 		document.getElementById("rotate-yy-right").onclick = function(){			
 			// Updating			
-			angleYY2 += 30.0;		
+			angleYY2 += 45;		
 			// Render the viewport	
 			drawScene();  
 		};
 
 		document.getElementById("rotate-yy-left").onclick = function(){			
 			// Updating		
-			angleYY2 -= 30.0;		
+			angleYY2 -= 45;		
 			// Render the viewport
 			drawScene();  
 		};
 
 
 		document.getElementById("move-front-button").onclick = function(){
-			
 			// Updating
-			tz2 += 0.2;			
+			if(tz2 < barreira_sup){
+				tz2 += 0.1;		
+			}
 			// Render the viewport
 			drawScene();  
 		};      
 
 		document.getElementById("move-back-button").onclick = function(){
-			
-			// Updating
-			tz2 -= 0.2;
+			if(tz2+block > tz_back){
+				tz2 -= 0.1;
+			}
 			// Render the viewport
-			drawScene();  
+			drawScene();   
 		};   
 	};
 	
 	document.getElementById("reset-button").onclick = function(){		
-
 		tx1 = -0.5;
 		ty1 = 0.0; 
 		tz1 = 0.0;
@@ -659,7 +803,17 @@ function setEventListeners(canvas){
 		tz2 = 0.0;
 		angleXX2 = 0.0;
 		angleYY2 = 0.0;
-		angleZZ2 = 0.0;   
+		angleZZ2 = 0.0;  
+		tx_back = 0.0;
+		ty_back = 0.0;
+		tz_back = 0.0;
+		angleXX_back = 0.0;
+		angleYY_back = 0.0;
+		angleZZ_back = 0.0; 
+		globalAngleXX = 0.0;
+		globalAngleYY = 0.0;
+		globalAngleXX_back = 0.0;
+		globalAngleYY_back = 0.0;
 		
 		drawScene();  
 	};            

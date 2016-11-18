@@ -111,8 +111,6 @@ Passing the Model-View Matrix and the Projection Matrix.
 <script type="text/javascript" src="js/Initial.js"></script>
 
 
-
-
 <!-- Bootstrap Stuff -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -132,13 +130,20 @@ Passing the Model-View Matrix and the Projection Matrix.
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7 text-center">
-					<canvas id="my-canvas" style="border: 1px solid #E0E0E0; " width="512" height="512"></canvas>
+					<canvas id="my-canvas" style="border: 0.5px solid #E0E0E0; " width="512" height="512"></canvas>
 				</div>
 
 				<div class="col-lg-5">
 					<div class="well">
-						<h2 id="nome_nivel"></h2>
-						<img id="nivel" style="width:304px;height:228px;">
+						<h4 id="nome_nivel"></h4>
+						<div class="row">
+							<div class="col-lg-6">
+								<img id="nivel" style="width:180px;height:150px;">
+							</div>
+							<div class="col-lg-6">
+								<img id="nivel_2" style="width:180px;height:150px;">
+							</div>
+						</div>
 						<h4>Posição Peça:</h4>
 						<div class="row">
 							<div class="col-lg-6">
@@ -210,8 +215,8 @@ Passing the Model-View Matrix and the Projection Matrix.
 						<p />
 
 						<p>
-							<button id="move-front-button">Mover para Frente</button>
-	    					<button id="move-back-button">Move para Trás</button>
+							<button id="move-front-button">Mover para Cima</button>
+	    					<button id="move-back-button">Move para Baixo</button>
 						</p>
 
 						<p>
