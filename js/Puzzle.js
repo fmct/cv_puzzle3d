@@ -353,6 +353,7 @@ function handleKeys() {
 			if(tx1 > barreira_inf){
 				tx1 -= 0.01;		
 			}
+			drawScene();
 		}else if(figura2_on){
 			if(tx2 > barreira_inf){
 				tx2 -= 0.01;		

@@ -183,8 +183,10 @@ Passing the Model-View Matrix and the Projection Matrix.
 						</div>	
 							
 						<h4>Escolha a figura</h4>
-						<button id="figura1" class="btn btn-info btn-sm btn3d">Figura 1</button>
-						<button id="figura2" class="btn btn-info btn-sm btn3d">Figura 2</button>
+						<div class="btn-group">
+							<button type="button" id="figura1" class="btn btn-tumblr btn3d">Figura 1</button>
+							<button type="button" id="figura2" class="btn btn-tumblr btn3d">Figura 2</button>
+						</div>
 						<h4>Controlos</h4>
 						<table align="center">
 							<tr>
@@ -257,20 +259,13 @@ Passing the Model-View Matrix and the Projection Matrix.
 			</div>
 		</div>
 
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	    <script type="text/javascript">
-	      $(function () {
-	        $('[data-toggle="tooltip"]').tooltip()
-	      });
-	      $("#face-culling-button").click(function(){
-	        if($("#face-culling-button > i").attr("class") == "fa fa-toggle-on"){
-	          $("#face-culling-button > i").attr("class", "fa fa-toggle-off");
-	          $("#face-culling-button").attr("class", "btn btn-danger");
-	        }else{
-	          $("#face-culling-button > i").attr("class", "fa fa-toggle-on");
-	          $("#face-culling-button").attr("class", "btn btn-success");
-	        }
-	      });
+	      $('body').on('click', '.btn-group button', function (e) {
+    			$(this).addClass('active');
+    			$(this).siblings().removeClass('active');
+
+			});
     	</script>
 
 </body>
