@@ -36,6 +36,13 @@ function setEventListeners(canvas){
 				fase = tentativa[1];
 				jogadas_nivel = tentativa[2];
 				document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+				if(acertou == 12){
+					swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+					});
+				}
 			}		
 			verifyPositions("figura1");
 			drawScene();  
@@ -52,6 +59,14 @@ function setEventListeners(canvas){
 				fase = tentativa[1];
 				jogadas_nivel = tentativa[2];	
 				document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+				if(acertou == 12){
+					swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+					});;
+					//nivel = 2;
+				}
 			}
 			verifyPositions("figura1");			
 			drawScene();  
@@ -68,6 +83,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];	
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}
 
 			verifyPositions("figura1");			
 			drawScene();  
@@ -84,7 +107,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];	
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}
 			verifyPositions("figura1");
 			drawScene();  
 		};
@@ -101,7 +131,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-	
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}			
 			verifyPositions("figura1");		
 			drawScene();  
 		};
@@ -118,7 +155,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-	
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}
 			verifyPositions("figura1");			
 			drawScene();  
 		};
@@ -135,7 +179,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-	
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}
 			verifyPositions("figura1");			
 			drawScene();  
 		};
@@ -152,7 +203,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}
 			verifyPositions("figura1");
 			drawScene();  
 		};
@@ -170,7 +228,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-	
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			verifyPositions("figura1");
 			drawScene();  
 		};
@@ -187,11 +252,17 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			verifyPositions("figura1");
 			drawScene();  
 		};
-
 
 		document.getElementById("move-front-button").onclick = function(){
 			// Updating
@@ -204,7 +275,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-				
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			verifyPositions("figura1");
 			drawScene();  
 		};      
@@ -220,7 +298,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-				
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			verifyPositions("figura1");
 			drawScene();  
 		};      
@@ -241,7 +326,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			verifyPositions("figura2");	
 			drawScene();  
 		};
@@ -257,7 +349,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-			
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
 
@@ -272,7 +371,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-			
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
 
@@ -287,7 +393,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-	
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
 
@@ -303,7 +416,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-			
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
 
@@ -319,7 +439,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-					
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}			
 			drawScene();  
 		};
 		
@@ -335,7 +462,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-					
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}			
 			drawScene();  
 		};
 		
@@ -351,7 +485,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-	
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
 
@@ -368,7 +509,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
 
@@ -384,7 +532,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-	
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
 
@@ -400,7 +555,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};      
 
@@ -414,7 +576,14 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();   
 		};   
 	};

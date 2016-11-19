@@ -42,9 +42,8 @@ function acertou_x(tx, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_x1 =true;
-				alert("acertou x f1");
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou a variavel X da pirâmide", "success");
 				}
 			}
 		}
@@ -60,9 +59,8 @@ function acertou_x(tx, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_x2 =true;
-				alert("acertou x f2");
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou a variavel X do cubo", "success");
 				}
 			}
 		}
@@ -84,9 +82,8 @@ function acertou_y(ty, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_y1 = true;
-				alert("acertou y f1");
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou a variavel Y da pirâmide", "success");
 				}
 			}
 		}
@@ -102,9 +99,8 @@ function acertou_y(ty, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_y2 = true;
-				alert("acertou y f2");
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou a variavel Y do cubo", "success");
 				}
 			}
 		}
@@ -127,9 +123,8 @@ function acertou_z(tz, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_z1 = true;
-				alert("acertou z f1")
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou a variavel Z da pirâmide", "success");
 				}
 			}
 		}
@@ -145,9 +140,8 @@ function acertou_z(tz, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_z2 = true;
-				alert("acertou z f2")
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou a variavel Z do cubo", "success");
 				}
 			}
 		}
@@ -170,9 +164,8 @@ function acertou_angY(angleYY, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_angY1 = true;
-				alert("acertou angY f1")
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou o ângulo Y da pirâmide", "success");
 				}
 			}
 		}
@@ -188,9 +181,8 @@ function acertou_angY(angleYY, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_angY2 = true;
-				alert("acertou angY f2")
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou o ângulo Y do cubo", "success");
 				}
 			}
 		}
@@ -212,10 +204,9 @@ function acertou_angX(angleXX, nivel, points, fase,jogadas, figura){
 			}
 			else{
 				acertou += 1;
-				hit_angX1 = true;
-				alert("acertou angX f1")
-				if(acertou == 12){
-					alert("acertou");
+				hit_angX1 = true;	
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou o ângulo X da pirâmide", "success");
 				}
 			}
 		}
@@ -231,9 +222,8 @@ function acertou_angX(angleXX, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_angX2 = true;
-				alert("acertou angX f2")
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou o ângulo X da cubo", "success");
 				}
 			}
 		}
@@ -256,9 +246,8 @@ function acertou_angZ(angleZZ, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_angZ1 = true;
-				alert("acertou angY f1")
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou o ângulo Z da pirâmide", "success");
 				}
 			}
 		}
@@ -274,9 +263,8 @@ function acertou_angZ(angleZZ, nivel, points, fase,jogadas, figura){
 			else{
 				acertou += 1;
 				hit_angZ2 = true;
-				alert("acertou angY f1")
-				if(acertou == 12){
-					alert("acertou");
+				if(acertou != 12){
+					swal("Bom trabalho!", "Acertou o ângulo Z da pirâmide", "success");
 				}
 			}
 		}
