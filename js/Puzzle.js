@@ -496,7 +496,8 @@ function setEventListeners(canvas){
 			if(tx1 > limite_esq){
 				tx1 -= 0.1;		
 			}
-			// Render the viewport		
+			// Render the viewport	
+			verifyPositions("figura1");	
 			drawScene();  
 		};
 
@@ -505,7 +506,8 @@ function setEventListeners(canvas){
 			if(tx1 < limite_dir){
 				tx1 += 0.1;		
 			}	
-			// Render the viewport				
+			// Render the viewport		
+			verifyPositions("figura1");		
 			drawScene();  
 		};
 
@@ -514,7 +516,8 @@ function setEventListeners(canvas){
 			if(ty1 < limite_dirsup){
 				ty1 += 0.1;	
 			}
-			// Render the viewport			
+			// Render the viewport	
+			verifyPositions("figura1");		
 			drawScene();  
 		};
 
@@ -524,27 +527,31 @@ function setEventListeners(canvas){
 				ty1 -= 0.1;
 			}	
 			// Render the viewport	
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-cw").onclick = function(){		
 			// Updating		
 			angleZZ1 -= 45;			
-			// Render the viewport			
+			// Render the viewport	
+			verifyPositions("figura1");		
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-ccw").onclick = function(){		
 			// Updating
 			angleZZ1 += 45;				
-			// Render the viewport				
+			// Render the viewport	
+			verifyPositions("figura1");			
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
 			// Updating			
 			angleXX1 -= 45;			
-			// Render the viewport				
+			// Render the viewport	
+			verifyPositions("figura1");			
 			drawScene();  
 		};
 		
@@ -552,6 +559,7 @@ function setEventListeners(canvas){
 			// Updating			
 			angleXX1 += 45;				
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -560,6 +568,7 @@ function setEventListeners(canvas){
 			// Updating			
 			angleYY1 += 45;		
 			// Render the viewport	
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -567,6 +576,7 @@ function setEventListeners(canvas){
 			// Updating		
 			angleYY1 -= 45;		
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -577,6 +587,7 @@ function setEventListeners(canvas){
 				tz1 += 0.1;
 			}	
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};      
 
@@ -586,6 +597,7 @@ function setEventListeners(canvas){
 				tz1 -= 0.1;
 			}
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};      
 
@@ -593,12 +605,14 @@ function setEventListeners(canvas){
 	document.getElementById("figura1").onclick = function(){
 		figura1_on = 1;
 		figura2_on = 0;
+		bars_fig1 = 1;
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
 			if(tx1 > limite_esq){
 				tx1 -= 0.1;		
 			}
 			// Render the viewport		
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -607,7 +621,8 @@ function setEventListeners(canvas){
 			if(tx1 < limite_dir){
 				tx1 += 0.1;		
 			}	
-			// Render the viewport				
+			// Render the viewport	
+			verifyPositions("figura1");			
 			drawScene();  
 		};
 
@@ -616,7 +631,8 @@ function setEventListeners(canvas){
 			if(ty1 < limite_sup){
 				ty1 += 0.1;	
 			}
-			// Render the viewport			
+			// Render the viewport	
+			verifyPositions("figura1");		
 			drawScene();  
 		};
 
@@ -626,27 +642,31 @@ function setEventListeners(canvas){
 				ty1 -= 0.1;
 			}	
 			// Render the viewport	
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-cw").onclick = function(){		
 			// Updating		
 			angleZZ1 -= 45;			
-			// Render the viewport			
+			// Render the viewport	
+			verifyPositions("figura1");		
 			drawScene();  
 		};
 
 		document.getElementById("rotate-zz-ccw").onclick = function(){		
 			// Updating
 			angleZZ1 += 45;				
-			// Render the viewport				
+			// Render the viewport	
+			verifyPositions("figura1");			
 			drawScene();  
 		};
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
 			// Updating			
 			angleXX1 -= 45;			
-			// Render the viewport				
+			// Render the viewport	
+			verifyPositions("figura1");			
 			drawScene();  
 		};
 		
@@ -654,6 +674,7 @@ function setEventListeners(canvas){
 			// Updating			
 			angleXX1 += 45;				
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -662,6 +683,7 @@ function setEventListeners(canvas){
 			// Updating			
 			angleYY1 += 45;		
 			// Render the viewport	
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -669,6 +691,7 @@ function setEventListeners(canvas){
 			// Updating		
 			angleYY1 -= 45;		
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -679,6 +702,7 @@ function setEventListeners(canvas){
 				tz1 += 0.1;
 			}	
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};      
 
@@ -688,18 +712,22 @@ function setEventListeners(canvas){
 				tz1 -= 0.01;
 			}
 			// Render the viewport
+			verifyPositions("figura1");
 			drawScene();  
 		};      
 	};
 	document.getElementById("figura2").onclick = function(){
 		figura2_on = 1;
 		figura1_on = 0;
+		bars_fig1 = 0;
+		verifyPositions("figura2");	
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		
 			if(tx2 > limite_inf){
 				tx2 -= 0.1;		
 			}	
-			// Render the viewport		
+			// Render the viewport	
+			verifyPositions("figura2");	
 			drawScene();  
 		};
 
@@ -867,5 +895,7 @@ function runWebGL() {
 	setEventListeners(canvas);
 
 	tick();
+
+	setProgressBars();
 
 }
