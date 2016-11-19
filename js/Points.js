@@ -177,7 +177,6 @@ function acertou_angY(angleYY, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
-			alert(angleYY);
 			if( angleYY != angleYY2_certo_nivel1 ){
 				points -= 10;
 				jogadas -= 1;
