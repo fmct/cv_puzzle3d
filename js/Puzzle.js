@@ -33,8 +33,10 @@ var triangleVertexColorBuffer_F2 = null;
 var globalTz = 0.0;
 
 var nivel = 1;
+var points = 500;
+var fase = 0
+var jogadas_nivel = 0;// The translation vector
 
-// The translation vector
 var figura1_on = 0;
 var figura2_on = 0;
 
@@ -84,6 +86,7 @@ var sz1 = 0.5;
 
 var sz2 = 0.5;
  
+
 var block = 0.8;
 
 //limites do  plano
@@ -206,32 +209,34 @@ function drawModel( angleXX, angleYY, angleZZ,
   		gl.useProgram(shaderProgram);
 		var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
 		gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
-  		if(figura == "cubo"){			
-		    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
-	    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-	                          			triangleVertexPositionBuffer_F1.itemSize,
-	                          			gl.FLOAT, false, 0, 0);
+		if(nivel == 1){
+	  		if(figura == "cubo"){			
+			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
+		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+		                          			triangleVertexPositionBuffer_F1.itemSize,
+		                          			gl.FLOAT, false, 0, 0);
 
-	    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
+		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
 
-	    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-	                                triangleVertexColorBuffer_F1.itemSize,
-	                                gl.FLOAT, false, 0, 0);
-	   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
+		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+		                                triangleVertexColorBuffer_F1.itemSize,
+		                                gl.FLOAT, false, 0, 0);
+		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
 
-   		}
-   		if(figura == "piramideQuandrangular"){
-		    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
-	    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-	                          			triangleVertexPositionBuffer_F2.itemSize,
-	                          			gl.FLOAT, false, 0, 0);
+	   		}
+	   		if(figura == "piramideQuandrangular"){
+			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
+		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+		                          			triangleVertexPositionBuffer_F2.itemSize,
+		                          			gl.FLOAT, false, 0, 0);
 
-	    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
+		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
 
-	    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-	                                triangleVertexColorBuffer_F2.itemSize,
-	                                gl.FLOAT, false, 0, 0);
-	   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
+		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+		                                triangleVertexColorBuffer_F2.itemSize,
+		                                gl.FLOAT, false, 0, 0);
+		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
+	   		}
    		}
   	}
   	else
@@ -303,21 +308,21 @@ function drawScene() {
  	mvMatrix2 = mult(mult(translationMatrix(0, 0, globalTz),
 	                rotationYYMatrix(globalAngleYY)),
 	                rotationXXMatrix(globalAngleXX));
-
-	drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
-	           sx1, sy1, sz1,
-	           tx1, ty1, tz1,
-	           mvMatrix2,
-	           primitiveType, false , "piramideQuandrangular" );
-		
-	drawModel( angleXX2, angleYY2, angleZZ2, 
-	           sx2, sy2, sz2,
-	           tx2, ty2, tz2,
-	           mvMatrix,
-	           primitiveType, false, "cubo" );
+ 	if(nivel == 1){
+		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
+		           sx1, sy1, sz1,
+		           tx1, ty1, tz1,
+		           mvMatrix2,
+		           primitiveType, false , "piramideQuandrangular" );
+			
+		drawModel( angleXX2, angleYY2, angleZZ2, 
+		           sx2, sy2, sz2,
+		           tx2, ty2, tz2,
+		           mvMatrix,
+		           primitiveType, false, "cubo" );
 
 	//background = 1;
-
+	}
 	gl.useProgram(shaderProgram_back);
 	var pUniform1 = gl.getUniformLocation(shaderProgram_back, "uPMatrix");
 
@@ -468,387 +473,6 @@ function handleMouseMove(event) {
     lastMouseY = newY;
 }
 
-
-function setEventListeners(canvas){
-
-	canvas.onmousedown = handleMouseDown;
-
-    document.onmouseup = handleMouseUp;
-
-    document.onmousemove = handleMouseMove;
-
-    function handleKeyDown(event) {
-		
-        currentlyPressedKeys[event.keyCode] = true;
-    }
-
-    function handleKeyUp(event) {
-		
-        currentlyPressedKeys[event.keyCode] = false;
-    }
-
-	document.onkeydown = handleKeyDown;
-    
-    document.onkeyup = handleKeyUp;
-
-	document.getElementById("move-left-button").onclick = function(){			
-			// Updating		
-			if(tx1 > limite_esq){
-				tx1 -= 0.1;		
-			}
-			// Render the viewport	
-			verifyPositions("figura1");	
-			drawScene();  
-		};
-
-		document.getElementById("move-right-button").onclick = function(){		
-			// Updating	
-			if(tx1 < limite_dir){
-				tx1 += 0.1;		
-			}	
-			// Render the viewport		
-			verifyPositions("figura1");		
-			drawScene();  
-		};
-
-		document.getElementById("move-up-button").onclick = function(){			
-			// Updating	
-			if(ty1 < limite_dirsup){
-				ty1 += 0.1;	
-			}
-			// Render the viewport	
-			verifyPositions("figura1");		
-			drawScene();  
-		};
-
-		document.getElementById("move-down-button").onclick = function(){		
-			// Updating	
-			if(ty1 > limite_inf){
-				ty1 -= 0.1;
-			}	
-			// Render the viewport	
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-		document.getElementById("rotate-zz-cw").onclick = function(){		
-			// Updating		
-			angleZZ1 -= 45;			
-			// Render the viewport	
-			verifyPositions("figura1");		
-			drawScene();  
-		};
-
-		document.getElementById("rotate-zz-ccw").onclick = function(){		
-			// Updating
-			angleZZ1 += 45;				
-			// Render the viewport	
-			verifyPositions("figura1");			
-			drawScene();  
-		};
-		
-		document.getElementById("rotate-xx-up").onclick = function(){				
-			// Updating			
-			angleXX1 -= 45;			
-			// Render the viewport	
-			verifyPositions("figura1");			
-			drawScene();  
-		};
-		
-		document.getElementById("rotate-xx-down").onclick = function(){		
-			// Updating			
-			angleXX1 += 45;				
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-
-		document.getElementById("rotate-yy-right").onclick = function(){			
-			// Updating			
-			angleYY1 += 45;		
-			// Render the viewport	
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-		document.getElementById("rotate-yy-left").onclick = function(){			
-			// Updating		
-			angleYY1 -= 45;		
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-
-		document.getElementById("move-front-button").onclick = function(){
-			// Updating
-			if(tz1 < limite_sup){
-				tz1 += 0.1;
-			}	
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};      
-
-		document.getElementById("move-back-button").onclick = function(){
-			// Updating
-			if(tz1+block > tz_back){
-				tz1 -= 0.1;
-			}
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};      
-
-	// Button events
-	document.getElementById("figura1").onclick = function(){
-		figura1_on = 1;
-		figura2_on = 0;
-		bars_fig1 = 1;
-		document.getElementById("move-left-button").onclick = function(){			
-			// Updating		
-			if(tx1 > limite_esq){
-				tx1 -= 0.1;		
-			}
-			// Render the viewport		
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-		document.getElementById("move-right-button").onclick = function(){		
-			// Updating	
-			if(tx1 < limite_dir){
-				tx1 += 0.1;		
-			}	
-			// Render the viewport	
-			verifyPositions("figura1");			
-			drawScene();  
-		};
-
-		document.getElementById("move-up-button").onclick = function(){			
-			// Updating	
-			if(ty1 < limite_sup){
-				ty1 += 0.1;	
-			}
-			// Render the viewport	
-			verifyPositions("figura1");		
-			drawScene();  
-		};
-
-		document.getElementById("move-down-button").onclick = function(){		
-			// Updating	
-			if(ty1 > limite_inf){
-				ty1 -= 0.1;
-			}	
-			// Render the viewport	
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-		document.getElementById("rotate-zz-cw").onclick = function(){		
-			// Updating		
-			angleZZ1 -= 45;			
-			// Render the viewport	
-			verifyPositions("figura1");		
-			drawScene();  
-		};
-
-		document.getElementById("rotate-zz-ccw").onclick = function(){		
-			// Updating
-			angleZZ1 += 45;				
-			// Render the viewport	
-			verifyPositions("figura1");			
-			drawScene();  
-		};
-		
-		document.getElementById("rotate-xx-up").onclick = function(){				
-			// Updating			
-			angleXX1 -= 45;			
-			// Render the viewport	
-			verifyPositions("figura1");			
-			drawScene();  
-		};
-		
-		document.getElementById("rotate-xx-down").onclick = function(){		
-			// Updating			
-			angleXX1 += 45;				
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-
-		document.getElementById("rotate-yy-right").onclick = function(){			
-			// Updating			
-			angleYY1 += 45;		
-			// Render the viewport	
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-		document.getElementById("rotate-yy-left").onclick = function(){			
-			// Updating		
-			angleYY1 -= 45;		
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};
-
-
-		document.getElementById("move-front-button").onclick = function(){
-			// Updating
-			if(tz1 < limite_sup){
-				tz1 += 0.1;
-			}	
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};      
-
-		document.getElementById("move-back-button").onclick = function(){
-			// Updating
-			if(tz1+block > tz_back){
-				tz1 -= 0.01;
-			}
-			// Render the viewport
-			verifyPositions("figura1");
-			drawScene();  
-		};      
-	};
-	document.getElementById("figura2").onclick = function(){
-		figura2_on = 1;
-		figura1_on = 0;
-		bars_fig1 = 0;
-		verifyPositions("figura2");	
-		document.getElementById("move-left-button").onclick = function(){			
-			// Updating		
-			if(tx2 > limite_inf){
-				tx2 -= 0.1;		
-			}	
-			// Render the viewport	
-			verifyPositions("figura2");	
-			drawScene();  
-		};
-
-		document.getElementById("move-right-button").onclick = function(){		
-			// Updating	
-			if(tx2 < limite_sup){
-				tx2 += 0.1;		
-			}		
-			// Render the viewport				
-			drawScene();  
-		};
-
-		document.getElementById("move-up-button").onclick = function(){			
-			// Updating	
-			if(ty2 < limite_sup){
-				ty2 += 0.1;	
-			}	
-			// Render the viewport			
-			drawScene();  
-		};
-
-		document.getElementById("move-down-button").onclick = function(){		
-			// Updating	
-			if(ty2 > limite_inf){
-				ty2 -= 0.1;	
-			}		
-			// Render the viewport	
-			drawScene();  
-		};
-
-		document.getElementById("rotate-zz-cw").onclick = function(){		
-			// Updating		
-			angleZZ2 -= 45;			
-			// Render the viewport			
-			drawScene();  
-		};
-
-		document.getElementById("rotate-zz-ccw").onclick = function(){		
-			// Updating
-			angleZZ2 += 45;				
-			// Render the viewport				
-			drawScene();  
-		};
-		
-		document.getElementById("rotate-xx-up").onclick = function(){				
-			// Updating			
-			angleXX2 -= 45;			
-			// Render the viewport				
-			drawScene();  
-		};
-		
-		document.getElementById("rotate-xx-down").onclick = function(){		
-			// Updating			
-			angleXX2 += 45;				
-			// Render the viewport
-			drawScene();  
-		};
-
-
-		document.getElementById("rotate-yy-right").onclick = function(){			
-			// Updating			
-			angleYY2 += 45;		
-			// Render the viewport	
-			drawScene();  
-		};
-
-		document.getElementById("rotate-yy-left").onclick = function(){			
-			// Updating		
-			angleYY2 -= 45;		
-			// Render the viewport
-			drawScene();  
-		};
-
-
-		document.getElementById("move-front-button").onclick = function(){
-			// Updating
-			if(tz2 < limite_sup){
-				tz2 += 0.1;		
-			}
-			// Render the viewport
-			drawScene();  
-		};      
-
-		document.getElementById("move-back-button").onclick = function(){
-			if(tz2+block > tz_back){
-				tz2 -= 0.1;
-			}
-			// Render the viewport
-			drawScene();   
-		};   
-	};
-	
-	document.getElementById("reset-button").onclick = function(){		
-		tx1 = -0.5;
-		ty1 = 0.0; 
-		tz1 = 0.0;
-		angleXX1 = 0.0;
-		angleYY1 = 0.0;
-		angleZZ1 = 0.0;  
-		tx2 = 0.0;
-		ty2 = 0.0; 
-		tz2 = 0.0;
-		angleXX2 = 0.0;
-		angleYY2 = 0.0;
-		angleZZ2 = 0.0;  
-		tx_back = 0.0;
-		ty_back = 0.0;
-		tz_back = 0.0;
-		angleXX_back = 0.0;
-		angleYY_back = 0.0;
-		angleZZ_back = 0.0; 
-		globalAngleXX = 0.0;
-		globalAngleYY = 0.0;
-		globalAngleXX_back = 0.0;
-		globalAngleYY_back = 0.0;
-		
-		drawScene();  
-	};            
-
-}
-
 //----------------------------------------------------------------------------
 //
 // WebGL Initialization
@@ -897,5 +521,19 @@ function runWebGL() {
 	tick();
 
 	setProgressBars();
+	
+	if(nivel == 1){
+		acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
+	}
+
+	if(nivel == 1){
+		jogadas_nivel = 25;
+	}
+	if(nivel == 2){
+		jogadas_nivel = 30;
+	}
+	if(nivel == 3){
+		jogadas_nivel = 35;
+	}
 
 }

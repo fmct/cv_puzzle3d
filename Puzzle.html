@@ -103,6 +103,10 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 <script type="text/javascript" src="js/Vertices.js"></script>
 
+<script type="text/javascript" src="js/Points.js"></script>
+
+<script type="text/javascript" src="js/setEventListeners.js"></script>
+
 <script type="text/javascript" src="js/Puzzle.js"></script>
 
 <script type="text/javascript" src="js/background.js"></script>
@@ -139,21 +143,22 @@ Passing the Model-View Matrix and the Projection Matrix.
 
 				<div class="col-lg-5">
 					<div class="well">
-						<button type="button" id="Pontos" class="w3-btn-floating-large w3-teal">0</button>
 						<h4 id="nome_nivel"></h4>
+						<button type="button" id="points" class="w3-btn-floating-large w3-teal"></button>
+						<h5 id="jogadas"></h5>	
 						<div class="row">
 							<div class="col-lg-6">
-								<img id="nivel" style="width:180px;height:150px;">
+								<img id="nivel" style="width:200px;height:190px;">
 							</div>
 							<div class="col-lg-6">
-								<img id="nivel_2" style="width:180px;height:150px;">
+								<img id="nivel_2" style="width:200px;height:190px;">
 							</div>
 						</div>
 
 						<h4>Escolha a figura</h4>
 						<div class="btn-group">
-							<button type="button" id="figura1" class="btn btn-tumblr btn3d">Figura 1</button>
-							<button type="button" id="figura2" class="btn btn-tumblr btn3d">Figura 2</button>
+							<button type="button" id="figura1" class="btn btn-tumblr btn3d"></button>
+							<button type="button" id="figura2" class="btn btn-tumblr btn3d"></button>
 						</div>
 
 						<h4>Posição Peça:</h4>
@@ -185,8 +190,8 @@ Passing the Model-View Matrix and the Projection Matrix.
 									&nbsp;&nbsp;
 								</td>
 								<td>
-									<button class="btn btn-danger" id="rotate-yy-right"><strong>Y</strong> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-									<button class="btn btn-danger" id="rotate-yy-left"><strong>Y</strong> <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+									<button class="btn btn-danger" id="rotate-yy-right"><strong>Y</strong> <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+									<button class="btn btn-danger" id="rotate-yy-left"><strong>Y</strong> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 									&nbsp;&nbsp;
 								</td>
 								<td>
