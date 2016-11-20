@@ -612,7 +612,13 @@ function setEventListeners(canvas){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		
+		if(nivel == 1){
+			jogadas_nivel = 25;
+			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			points = 500; 
+			document.getElementById("points").innerHTML=points;
+
+		}
 		drawScene();  
 	};            
   }
