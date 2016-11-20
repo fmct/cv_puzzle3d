@@ -29,6 +29,7 @@ function setEventListeners(canvas){
 		figura2_on = 0;
 		figura3_on = 0;
 		bars_fig1 = 1;
+		getVisibleBars();
 		document.getElementById("move-left-button").onclick = function(){			
 			if(nivel == 1){		
 				if(tx1 > limite_esq){
@@ -552,6 +553,7 @@ function setEventListeners(canvas){
 		figura1_on = 0;
 		figura3_on = 0;
 		bars_fig1 = 0;
+		getVisibleBars();
 		//verifyPositions("figura2");	
 		document.getElementById("move-left-button").onclick = function(){			
 			if(nivel == 1){		
@@ -1084,6 +1086,7 @@ function setEventListeners(canvas){
 		figura1_on = 0;
 		figura3_on = 1;
 		bars_fig1 = 0;
+		getVisibleBars();
 		//verifyPositions("figura2");	
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		

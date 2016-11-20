@@ -659,6 +659,7 @@ function reset(){
 		points = 500; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
+		positionsNot();
 		acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 	}
 	if(nivel == 2){	
@@ -695,6 +696,7 @@ function reset(){
 		points = points_fim_nivel; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
+		positionsNot();
 		//acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 	}
 }
