@@ -1096,7 +1096,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1128,7 +1128,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1160,7 +1160,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1192,7 +1192,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1224,7 +1224,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1255,7 +1255,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1288,7 +1288,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1321,7 +1321,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1355,7 +1355,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1388,7 +1388,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1421,7 +1421,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
@@ -1462,7 +1462,7 @@ function setEventListeners(canvas){
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
 			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
+			if(acertou == 18){
 				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
