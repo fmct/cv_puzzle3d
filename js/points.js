@@ -13,8 +13,8 @@ var hit_angZ1 = false;
 var tx1_certo_nivel1 = 0.0;
 var ty1_certo_nivel1 = 0.25;
 var tz1_certo_nivel1 = -0.1;
-var angleYY1_certo_nivel1 = -90;
 var angleXX1_certo_nivel1 = 0.0;
+var angleYY1_certo_nivel1 = -90;
 var angleZZ1_certo_nivel1 = 0.0;
 	//figura2
 var hit_x2 = false;
