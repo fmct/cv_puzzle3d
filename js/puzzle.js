@@ -28,17 +28,23 @@ var triangleVertexPositionBuffer_F2 = null;
 	
 var triangleVertexColorBuffer_F2 = null;
 
+var triangleVertexPositionBuffer_F3 = null;
+	
+var triangleVertexColorBuffer_F3 = null;
+
 // The GLOBAL transformation parameters
 
 var globalTz = 0.0;
 
 var nivel = 1;
 var points = 500;
+var points_fim_nivel = 0;
 var fase = 0
 var jogadas_nivel = 0;// The translation vector
 
 var figura1_on = 0;
 var figura2_on = 0;
+var figura3_on = 0;
 
 var background = 0;
 
@@ -46,13 +52,19 @@ var tx1 = -0.5;
 
 var tx2 = 0.0;
 
+var tx3 = 0.5;
+
 var ty1 = 0.0;
 
 var ty2 = 0.0;
 
+var ty3 = 0.5;
+
 var tz1 = 0.0;
 
 var tz2 = 0.0;
+
+var tz3 = -0.5;
 
 // The rotation angles in degrees
 
@@ -68,6 +80,12 @@ var angleYY2 = 0.0;
 
 var angleZZ2 = 0.0;
 
+var angleXX3 = 45;
+
+var angleYY3 = 0.0;
+
+var angleZZ3 = 0.0;
+
 var globalAngleXX = 0.0;
 
 var globalAngleYY = 0.0;
@@ -78,13 +96,19 @@ var sx1 = 0.5;
 
 var sx2 = 0.5;
 
+var sx3 = 0.5;
+
 var sy1 = 0.5;
 
 var sy2 = 0.5;
 
+var sy3 = 0.5;
+
 var sz1 = 0.5;
 
 var sz2 = 0.5;
+
+var sz3 = 0.5;
  
 
 var block = 0.8;
@@ -106,6 +130,10 @@ function initBuffers() {
 	
 	if(background == 0){
     // Coordinates
+    	if(nivel == 2){
+    		vertices = verticesStar();
+    		colors = colorsStar();
+    	}
     	//--------------------FIGURA 1------------------------------
 	 	triangleVertexPositionBuffer_F1 = gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
@@ -133,9 +161,14 @@ function initBuffers() {
 				gl.FLOAT, false, 0, 0);
 
 		//--------------------FIGURA 2 ------------------------------
-		vertices = verticesPiramideQuadrangular();
-		colors = colorsPiramideQuandrangular();
-
+		if(nivel == 1){
+			vertices = verticesPiramideQuadrangular();
+			colors = colorsPiramideQuandrangular();
+		}
+		if(nivel == 2){
+			vertices = verticesPiramideVerde();
+			colors = colorsPiramideQuandrangularVerde();
+		}
 		triangleVertexPositionBuffer_F2 = gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -160,6 +193,35 @@ function initBuffers() {
 		gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, 
 				triangleVertexColorBuffer_F2.itemSize, 
 				gl.FLOAT, false, 0, 0);
+		if(nivel == 2){
+
+			vertices = verticesParalelipipedo();
+			colors = colorsParalelipipedo();
+			triangleVertexPositionBuffer_F3 = gl.createBuffer();
+			gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F3);
+			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+			triangleVertexPositionBuffer_F3.itemSize = 3;
+			triangleVertexPositionBuffer_F3.numItems = vertices.length / 3;
+
+			// Associating to the vertex shader
+	  		gl.useProgram(shaderProgram);
+			gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, 
+					triangleVertexPositionBuffer_F3.itemSize, 
+					gl.FLOAT, false, 0, 0);
+
+			// Colors
+			
+			triangleVertexColorBuffer_F3 = gl.createBuffer();
+			gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F3);
+			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+			triangleVertexColorBuffer_F3.itemSize = 3;
+			triangleVertexColorBuffer_F3.numItems = colors.length / 3;			
+
+			// Associating to the vertex shader
+			gl.vertexAttribPointer(shaderProgram.vertexColorAttribute, 
+				triangleVertexColorBuffer_F3.itemSize, 
+				gl.FLOAT, false, 0, 0);
+		}
   	}
 
 	if(background == 1){
@@ -238,6 +300,48 @@ function drawModel( angleXX, angleYY, angleZZ,
 		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
 	   		}
    		}
+   		if(nivel == 2){
+   			if(figura == "estrela"){			
+			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
+		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+		                          			triangleVertexPositionBuffer_F1.itemSize,
+		                          			gl.FLOAT, false, 0, 0);
+
+		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
+
+		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+		                                triangleVertexColorBuffer_F1.itemSize,
+		                                gl.FLOAT, false, 0, 0);
+		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
+
+	   		}
+	   		if(figura == "piramideVerde"){
+			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
+		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+		                          			triangleVertexPositionBuffer_F2.itemSize,
+		                          			gl.FLOAT, false, 0, 0);
+
+		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
+
+		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+		                                triangleVertexColorBuffer_F2.itemSize,
+		                                gl.FLOAT, false, 0, 0);
+		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
+	   		}
+	   		if(figura == "paralelipipedo"){
+			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F3);
+		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+		                          			triangleVertexPositionBuffer_F3.itemSize,
+		                          			gl.FLOAT, false, 0, 0);
+
+		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F3);
+
+		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+		                                triangleVertexColorBuffer_F3.itemSize,
+		                                gl.FLOAT, false, 0, 0);
+		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F3.numItems);
+	   		}
+   		}
   	}
   	else
   	{
@@ -277,6 +381,8 @@ function drawScene() {
 	var mvMatrix = mat4();
 
 	var mvMatrix2 = mat4();
+
+	var mvMatrix3 = mat4();
 
 	var mvMatrix_back = mat4();
 
@@ -323,6 +429,34 @@ function drawScene() {
 
 	//background = 1;
 	}
+	if(nivel == 2){
+
+		mvMatrix3 = translationMatrix(0, 0, globalTz);
+	  	mvMatrix3 = mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY));
+	 	mvMatrix3 = mult(mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY)),
+	                rotationXXMatrix(globalAngleXX));
+
+		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
+		           sx1, sy1, sz1,
+		           tx1, ty1, tz1,
+		           mvMatrix2,
+		           primitiveType, false , "estrela" );
+			
+		drawModel( angleXX2, angleYY2, angleZZ2, 
+		           sx2, sy2, sz2,
+		           tx2, ty2, tz2,
+		           mvMatrix,
+		           primitiveType, false, "piramideVerde" );
+
+		drawModel( angleXX3, angleYY3, angleZZ3, 
+		           sx3, sy3, sz3,
+		           tx3, ty3, tz3,
+		           mvMatrix3,
+		           primitiveType, false, "paralelipipedo" );
+	}
+
 	gl.useProgram(shaderProgram_back);
 	var pUniform1 = gl.getUniformLocation(shaderProgram_back, "uPMatrix");
 
@@ -520,12 +654,47 @@ function reset(){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		if(nivel == 1){
-			jogadas_nivel = 25;
-			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			points = 500; 
-			document.getElementById("points").innerHTML=points;
-		}
+		jogadas_nivel = 25;
+		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+		points = 500; 
+		document.getElementById("points").innerHTML=points;
+		acertou = 0;
+		acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
+		alert(acertou);
+	}
+	if(nivel == 2){	
+		tx1 = -0.5;
+		ty1 = 0.0; 
+		tz1 = 0.0;
+		angleXX1 = 0.0;
+		angleYY1 = 0.0;
+		angleZZ1 = 0.0;  
+		tx2 = 0.0;
+		ty2 = 0.0; 
+		tz2 = 0.0;
+		angleXX2 = 0.0;
+		angleYY2 = 0.0;
+		angleZZ2 = 0.0;
+		tx3 = 0.5;
+		ty3 = 0.5;
+		tz3 = -0.5; 
+		angleXX3 = 45;
+		angleYY3 = 0.0;
+		angleZZ3 = 0.0; 
+		tx_back = 0.0;
+		ty_back = 0.0;
+		tz_back = 0.0;
+		angleXX_back = 0.0;
+		angleYY_back = 0.0;
+		angleZZ_back = 0.0; 
+		globalAngleXX = 0.0;
+		globalAngleYY = 0.0;
+		globalAngleXX_back = 0.0;
+		globalAngleYY_back = 0.0;
+		jogadas_nivel = 35;
+		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+		points = points_fim_nivel; 
+		document.getElementById("points").innerHTML=points;
 	}
 }
 
@@ -538,7 +707,6 @@ function runWebGL() {
 	initWebGL( canvas );
 
 	shaderProgram = initShaders( gl );
-	
 	initBuffers();
 
 	background = 1;
@@ -548,7 +716,13 @@ function runWebGL() {
 	initBuffers();
 
 	initTexture();	
-
+	if(nivel == 2){
+		var button = document.createElement("button");
+		button.className = "btn btn-tumblr btn3d";
+		button.id = "figura3";
+		document.getElementById("choose_fig").appendChild(button);
+		document.getElementById("figura3").innerHTML="paralelipipedo"
+	}
 	setEventListeners(canvas);
 
 	tick();
@@ -563,7 +737,7 @@ function runWebGL() {
 		jogadas_nivel = 25;
 	}
 	if(nivel == 2){
-		jogadas_nivel = 30;
+		jogadas_nivel = 35;
 	}
 	if(nivel == 3){
 		jogadas_nivel = 35;
