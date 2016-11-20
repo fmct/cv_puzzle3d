@@ -660,7 +660,6 @@ function reset(){
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
 		acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
-		alert(acertou);
 	}
 	if(nivel == 2){	
 		tx1 = -0.5;
@@ -695,6 +694,8 @@ function reset(){
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = points_fim_nivel; 
 		document.getElementById("points").innerHTML=points;
+		acertou = 0;
+		//acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 	}
 }
 
