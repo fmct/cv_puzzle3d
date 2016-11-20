@@ -46,8 +46,18 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 				}
-			}		
-			drawScene();  
+				else{
+					if(jogadas_nivel == 0){
+						swal({
+							  title: "Jogadas disponiveis esgotadas",
+							  text: "Começar do inicio",
+							  imageUrl: "imgs/sadSmile.png"
+						});
+						reset();
+					}
+					drawScene();
+				}
+			}			  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
@@ -69,8 +79,18 @@ function setEventListeners(canvas){
 					});;
 					//nivel = 2;
 				}
-			}		
-			drawScene();  
+				else{
+					if(jogadas_nivel == 0){
+						swal({
+							  title: "Jogadas disponiveis esgotadas",
+							  text: "Começar do inicio",
+							  imageUrl: "imgs/sadSmile.png"
+						});
+						reset();
+					}
+					drawScene();
+				}
+			}			  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
@@ -91,8 +111,18 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}	
-			drawScene();  
+			}
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}		 
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
@@ -114,7 +144,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			} 
 		};
 
 
@@ -136,8 +176,18 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}	
-			drawScene();  
+			}
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	 
 		};      
 
 		document.getElementById("move-back-button").onclick = function(){
@@ -158,8 +208,18 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}	
-			drawScene();  
+			}
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene();
+			}		  
 		};
 
 		document.getElementById("rotate-xx-up").onclick = function(){				
@@ -181,8 +241,18 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}		
-			drawScene();  
+			}
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}			 
 		};
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
@@ -205,9 +275,18 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
-
 
 		document.getElementById("rotate-yy-right").onclick = function(){			
 			// Updating			
@@ -229,7 +308,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	 
 		};
 
 		document.getElementById("rotate-yy-left").onclick = function(){			
@@ -252,7 +341,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("rotate-zz-cw").onclick = function(){		
@@ -275,7 +374,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}				
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("rotate-zz-ccw").onclick = function(){		
@@ -298,7 +407,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}			
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};	      
 	};
 
@@ -326,7 +445,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("move-right-button").onclick = function(){		
@@ -348,7 +477,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
@@ -370,7 +509,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("move-down-button").onclick = function(){		
@@ -392,7 +541,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("move-front-button").onclick = function(){
@@ -414,7 +573,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	 
 		};      
 
 		document.getElementById("move-back-button").onclick = function(){
@@ -435,7 +604,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();   
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	   
 		};   
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
@@ -458,7 +637,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}			
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	 
 		};
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
@@ -481,7 +670,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 
@@ -505,7 +704,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("rotate-yy-left").onclick = function(){			
@@ -528,7 +737,17 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 
 		document.getElementById("rotate-zz-cw").onclick = function(){		
@@ -550,8 +769,26 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
+			}
+			if(jogadas_nivel == 0 && nivel == 1){
+				swal({
+					  title: "Jogadas disponiveis esgotadas",
+					  text: "Começar do inicio",
+					  imageUrl: "imgs/sadSmile.png"
+				});
+				reset();
 			}	
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	 
 		};
 
 		document.getElementById("rotate-zz-ccw").onclick = function(){		
@@ -574,41 +811,22 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}			
-			drawScene();  
+			else{
+				if(jogadas_nivel == 0){
+					swal({
+						  title: "Jogadas disponiveis esgotadas",
+						  text: "Começar do inicio",
+						  imageUrl: "imgs/sadSmile.png"
+					});
+					reset();
+				}
+				drawScene(); 
+			}	  
 		};
 	};
 	
 	document.getElementById("reset-button").onclick = function(){	
-	if(nivel == 1){	
-		tx1 = -0.5;
-		ty1 = 0.0; 
-		tz1 = 0.0;
-		angleXX1 = 0.0;
-		angleYY1 = 0.0;
-		angleZZ1 = 0.0;  
-		tx2 = 0.0;
-		ty2 = 0.0; 
-		tz2 = 0.0;
-		angleXX2 = 0.0;
-		angleYY2 = 0.0;
-		angleZZ2 = 0.0;  
-		tx_back = 0.0;
-		ty_back = 0.0;
-		tz_back = 0.0;
-		angleXX_back = 0.0;
-		angleYY_back = 0.0;
-		angleZZ_back = 0.0; 
-		globalAngleXX = 0.0;
-		globalAngleYY = 0.0;
-		globalAngleXX_back = 0.0;
-		globalAngleYY_back = 0.0;
-		if(nivel == 1){
-			jogadas_nivel = 25;
-			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-			points = 500; 
-			document.getElementById("points").innerHTML=points;
-		}
+		reset();
 		drawScene();  
 	};            
-  }
 }

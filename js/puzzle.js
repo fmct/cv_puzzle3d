@@ -496,6 +496,39 @@ function initWebGL( canvas ) {
 	}        
 }
 
+function reset(){
+	if(nivel == 1){	
+		tx1 = -0.5;
+		ty1 = 0.0; 
+		tz1 = 0.0;
+		angleXX1 = 0.0;
+		angleYY1 = 0.0;
+		angleZZ1 = 0.0;  
+		tx2 = 0.0;
+		ty2 = 0.0; 
+		tz2 = 0.0;
+		angleXX2 = 0.0;
+		angleYY2 = 0.0;
+		angleZZ2 = 0.0;  
+		tx_back = 0.0;
+		ty_back = 0.0;
+		tz_back = 0.0;
+		angleXX_back = 0.0;
+		angleYY_back = 0.0;
+		angleZZ_back = 0.0; 
+		globalAngleXX = 0.0;
+		globalAngleYY = 0.0;
+		globalAngleXX_back = 0.0;
+		globalAngleYY_back = 0.0;
+		if(nivel == 1){
+			jogadas_nivel = 25;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+			points = 500; 
+			document.getElementById("points").innerHTML=points;
+		}
+	}
+}
+
 //----------------------------------------------------------------------------
 
 function runWebGL() {
