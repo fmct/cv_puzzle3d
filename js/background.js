@@ -1,4 +1,6 @@
 
+/* Texture Background related */
+
 var shaderProgram_back = null;
 
 var cubeVertexTextureCoordBuffer;
@@ -31,7 +33,6 @@ var vertices_back = verticesBack();
 var textureCoords = textCoord();
        
 var cubeVertexIndices = cubeVertexIndex();
-
 
 //----------------------------------------------------------------------------
 //

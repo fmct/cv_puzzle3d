@@ -1,13 +1,4 @@
 //////////////////////////////////////////////////////////////////////////////
-//
-//  initShaders.js 
-//
-//	Getting, compiling and linking the vertex and the fragment shaders
-//
-//  J. Madeira - October 2015
-//
-//////////////////////////////////////////////////////////////////////////////
-
 
 // Getting and compiling a shader
 
@@ -76,6 +67,7 @@ function initShaders( gl ) {
 	return shaderProgram;
 }
 
+// Texture/Background Shaders
 
 function initShaders_back( gl ) {
 	var fragmentShader = getShader(gl, "shader-fs-background");

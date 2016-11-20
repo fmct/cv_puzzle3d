@@ -1,3 +1,6 @@
+
+/* Events related */
+
 function setEventListeners(canvas){
 
 	canvas.onmousedown = handleMouseDown;
@@ -30,12 +33,12 @@ function setEventListeners(canvas){
 				if(tx1 > limite_esq){
 					tx1 -= 0.05;		
 				}
-				var tentativa = acertou_x(tx1,nivel,points,fase,jogadas_nivel,"figura1");
+				var tentativa = verificarPosicaoTx(tx1,nivel,points,fase,jogadas_nivel,"figura1");
 				points = tentativa[0];
 				document.getElementById("points").innerHTML=points;
 				fase = tentativa[1];
 				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
 					  title: "Primeiro nivel concluido!",
@@ -44,7 +47,6 @@ function setEventListeners(canvas){
 					});
 				}
 			}		
-			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -53,12 +55,12 @@ function setEventListeners(canvas){
 				if(tx1 < limite_dir){
 					tx1 += 0.05;		
 				}	
-				var tentativa = acertou_x(tx1,nivel,points,fase,jogadas_nivel,"figura1");
+				var tentativa = verificarPosicaoTx(tx1,nivel,points,fase,jogadas_nivel,"figura1");
 				points = tentativa[0];
 				document.getElementById("points").innerHTML=points;
 				fase = tentativa[1];
 				jogadas_nivel = tentativa[2];	
-				document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
 					  title: "Primeiro nivel concluido!",
@@ -67,8 +69,7 @@ function setEventListeners(canvas){
 					});;
 					//nivel = 2;
 				}
-			}
-			verifyPositions("figura1");			
+			}		
 			drawScene();  
 		};
 
@@ -77,12 +78,12 @@ function setEventListeners(canvas){
 			if(ty1 < limite_sup){
 				ty1 += 0.05;	
 			}
-			var tentativa = acertou_y(ty1,nivel,points,fase,jogadas_nivel,"figura1");
+			var tentativa = verificarPosicaoTy(ty1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];	
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -90,9 +91,7 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}
-
-			verifyPositions("figura1");			
+			}	
 			drawScene();  
 		};
 
@@ -101,12 +100,12 @@ function setEventListeners(canvas){
 			if(ty1 > limite_inf){
 				ty1 -= 0.05;
 			}	
-			var tentativa = acertou_y(ty1,nivel,points,fase,jogadas_nivel,"figura1");
+			var tentativa = verificarPosicaoTy(ty1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];	
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -115,46 +114,21 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}
-			verifyPositions("figura1");
 			drawScene();  
 		};
 
-		document.getElementById("rotate-zz-cw").onclick = function(){		
-			// Updating		
-			angleZZ1 -= 45;		
-			if(angleZZ1 == 360 || angleZZ1 == -360){
-				angleZZ1 = 0;
-			}		
-			var tentativa = acertou_angZ(angleZZ1,nivel,points,fase,jogadas_nivel,"figura1");
-			points = tentativa[0];
-			document.getElementById("points").innerHTML=points;
-			fase = tentativa[1];	
-			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
-				swal({
-					  title: "Primeiro nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-				});
-				//nivel = 2;
-			}			
-			verifyPositions("figura1");		
-			drawScene();  
-		};
 
-		document.getElementById("rotate-zz-ccw").onclick = function(){		
+		document.getElementById("move-front-button").onclick = function(){
 			// Updating
-			angleZZ1 += 45;
-			if(angleZZ1 == 360 || angleZZ1 == -360){
-				angleZZ1 = 0;
-			}					
-			var tentativa = acertou_angZ(angleZZ1,nivel,points,fase,jogadas_nivel,"figura1");
+			if(tz1 < limite_sup){
+				tz1 += 0.1;
+			}	
+			var tentativa = verificarPosicaoTz(tz1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -162,23 +136,44 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
+			}	
+			drawScene();  
+		};      
+
+		document.getElementById("move-back-button").onclick = function(){
+			// Updating
+			if(tz1+block > tz_back){
+				tz1 -= 0.1;
 			}
-			verifyPositions("figura1");			
+			var tentativa = verificarPosicaoTz(tz1,nivel,points,fase,jogadas_nivel,"figura1");
+			points = tentativa[0];
+			document.getElementById("points").innerHTML=points;
+			fase = tentativa[1];	
+			jogadas_nivel = tentativa[2];
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
 			drawScene();  
 		};
-		
+
 		document.getElementById("rotate-xx-up").onclick = function(){				
 			// Updating			
 			angleXX1 -= 45;
 			if(angleXX1 == 360 || angleXX1 == -360){
 				angleXX1 = 0;
 			}			
-			var tentativa = acertou_angX(angleXX1,nivel,points,fase,jogadas_nivel,"figura1");
+			var tentativa = verificarPosicaoAngleXX(angleXX1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -186,8 +181,7 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}
-			verifyPositions("figura1");			
+			}		
 			drawScene();  
 		};
 		
@@ -197,12 +191,12 @@ function setEventListeners(canvas){
 			if(angleXX1 == 360 || angleXX1 == -360){
 				angleXX1 = 0;
 			}						
-			var tentativa = acertou_angX(angleXX1,nivel,points,fase,jogadas_nivel,"figura1");
+			var tentativa = verificarPosicaoAngleXX(angleXX1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -211,7 +205,6 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}
-			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -222,12 +215,12 @@ function setEventListeners(canvas){
 			if(angleYY1 == 360 || angleYY1 == -360){
 				angleYY1 = 0;
 			}	
-			var tentativa = acertou_angY(angleYY1,nivel,points,fase,jogadas_nivel,"figura1");
+			var tentativa = verificarPosicaoAngleYY(angleYY1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -236,7 +229,6 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			verifyPositions("figura1");
 			drawScene();  
 		};
 
@@ -246,12 +238,12 @@ function setEventListeners(canvas){
 			if(angleYY1 == 360 || angleYY1 == -360){
 				angleYY1 = 0;
 			}		
-			var tentativa = acertou_angY(angleYY1,nivel,points,fase,jogadas_nivel,"figura1");
+			var tentativa = verificarPosicaoAngleYY(angleYY1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -260,21 +252,21 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			verifyPositions("figura1");
 			drawScene();  
 		};
 
-		document.getElementById("move-front-button").onclick = function(){
-			// Updating
-			if(tz1 < limite_sup){
-				tz1 += 0.1;
-			}	
-			var tentativa = acertou_z(tz1,nivel,points,fase,jogadas_nivel,"figura1");
+		document.getElementById("rotate-zz-cw").onclick = function(){		
+			// Updating		
+			angleZZ1 -= 45;		
+			if(angleZZ1 == 360 || angleZZ1 == -360){
+				angleZZ1 = 0;
+			}		
+			var tentativa = verificarPosicaoAngleZZ(angleZZ1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -282,22 +274,22 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}	
-			verifyPositions("figura1");
+			}				
 			drawScene();  
-		};      
+		};
 
-		document.getElementById("move-back-button").onclick = function(){
+		document.getElementById("rotate-zz-ccw").onclick = function(){		
 			// Updating
-			if(tz1+block > tz_back){
-				tz1 -= 0.1;
-			}
-			var tentativa = acertou_z(tz1,nivel,points,fase,jogadas_nivel,"figura1");
+			angleZZ1 += 45;
+			if(angleZZ1 == 360 || angleZZ1 == -360){
+				angleZZ1 = 0;
+			}					
+			var tentativa = verificarPosicaoAngleZZ(angleZZ1,nivel,points,fase,jogadas_nivel,"figura1");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];	
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -305,11 +297,11 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}	
-			verifyPositions("figura1");
+			}			
 			drawScene();  
-		};      
+		};	      
 	};
+
 	document.getElementById("figura2").onclick = function(){
 		figura2_on = 1;
 		figura1_on = 0;
@@ -320,12 +312,12 @@ function setEventListeners(canvas){
 			if(tx2 > limite_inf){
 				tx2 -= 0.1;		
 			}	
-			var tentativa = acertou_x(tx2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTx(tx2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -334,7 +326,6 @@ function setEventListeners(canvas){
 				});
 				//nivel = 2;
 			}	
-			verifyPositions("figura2");	
 			drawScene();  
 		};
 
@@ -343,12 +334,12 @@ function setEventListeners(canvas){
 			if(tx2 < limite_sup){
 				tx2 += 0.1;		
 			}		
-			var tentativa = acertou_x(tx2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTx(tx2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -365,12 +356,12 @@ function setEventListeners(canvas){
 			if(ty2 < limite_sup){
 				ty2 += 0.1;	
 			}	
-			var tentativa = acertou_y(ty2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTy(ty2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -387,12 +378,12 @@ function setEventListeners(canvas){
 			if(ty2 > limite_inf){
 				ty2 -= 0.1;	
 			}		
-			var tentativa = acertou_y(ty2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTy(ty2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -404,41 +395,17 @@ function setEventListeners(canvas){
 			drawScene();  
 		};
 
-		document.getElementById("rotate-zz-cw").onclick = function(){		
-			// Updating		
-			angleZZ2 -= 45;			
-			if(angleZZ2 == 360 || angleZZ2 == -360){
-				angleZZ2 = 0;
-			}
-			var tentativa = acertou_angZ(angleZZ2,nivel,points,fase,jogadas_nivel,"figura2");
-			points = tentativa[0];
-			document.getElementById("points").innerHTML=points;
-			fase = tentativa[1];
-			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-			if(acertou == 12){
-				swal({
-					  title: "Primeiro nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-				});
-				//nivel = 2;
-			}	
-			drawScene();  
-		};
-
-		document.getElementById("rotate-zz-ccw").onclick = function(){		
+		document.getElementById("move-front-button").onclick = function(){
 			// Updating
-			angleZZ2 += 45;				
-			if(angleZZ2 == 360 || angleZZ2 == -360){
-				angleZZ2 = 0;
+			if(tz2 < limite_sup){
+				tz2 += 0.1;		
 			}
-			var tentativa = acertou_angZ(angleZZ2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTz(tz2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -446,9 +413,30 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}			
+			}	
 			drawScene();  
-		};
+		};      
+
+		document.getElementById("move-back-button").onclick = function(){
+			if(tz2+block > tz_back){
+				tz2 -= 0.1;
+			}
+			var tentativa = verificarPosicaoTz(tz2,nivel,points,fase,jogadas_nivel,"figura2");
+			points = tentativa[0];
+			document.getElementById("points").innerHTML=points;
+			fase = tentativa[1];
+			jogadas_nivel = tentativa[2];
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+			if(acertou == 12){
+				swal({
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+				});
+				//nivel = 2;
+			}	
+			drawScene();   
+		};   
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
 			// Updating			
@@ -456,12 +444,12 @@ function setEventListeners(canvas){
 			if(angleXX2 == 360 || angleXX2 == -360){
 				angleXX2 = 0;
 			}
-			var tentativa = acertou_angX(angleXX2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleXX(angleXX2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -479,12 +467,12 @@ function setEventListeners(canvas){
 			if(angleXX2 == 360 || angleXX2 == -360){
 				angleXX2 = 0;
 			}
-			var tentativa = acertou_angX(angleXX2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleXX(angleXX2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -503,12 +491,12 @@ function setEventListeners(canvas){
 			if(angleYY2 == 360 || angleYY2 == -360){
 				angleYY2 = 0;
 			}	
-			var tentativa = acertou_angY(angleYY2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleYY(angleYY2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -526,12 +514,12 @@ function setEventListeners(canvas){
 			if(angleYY2 == 360 || angleYY2 == -360){
 				angleYY2 = 0;
 			}
-			var tentativa = acertou_angY(angleYY2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleYY(angleYY2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -543,18 +531,18 @@ function setEventListeners(canvas){
 			drawScene();  
 		};
 
-
-		document.getElementById("move-front-button").onclick = function(){
-			// Updating
-			if(tz2 < limite_sup){
-				tz2 += 0.1;		
+		document.getElementById("rotate-zz-cw").onclick = function(){		
+			// Updating		
+			angleZZ2 -= 45;			
+			if(angleZZ2 == 360 || angleZZ2 == -360){
+				angleZZ2 = 0;
 			}
-			var tentativa = acertou_z(tz2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleZZ(angleZZ2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -564,18 +552,20 @@ function setEventListeners(canvas){
 				//nivel = 2;
 			}	
 			drawScene();  
-		};      
+		};
 
-		document.getElementById("move-back-button").onclick = function(){
-			if(tz2+block > tz_back){
-				tz2 -= 0.1;
+		document.getElementById("rotate-zz-ccw").onclick = function(){		
+			// Updating
+			angleZZ2 += 45;				
+			if(angleZZ2 == 360 || angleZZ2 == -360){
+				angleZZ2 = 0;
 			}
-			var tentativa = acertou_z(tz2,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleZZ(angleZZ2,nivel,points,fase,jogadas_nivel,"figura2");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
 			jogadas_nivel = tentativa[2];
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			if(acertou == 12){
 				swal({
 					  title: "Primeiro nivel concluido!",
@@ -583,9 +573,9 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 				//nivel = 2;
-			}	
-			drawScene();   
-		};   
+			}			
+			drawScene();  
+		};
 	};
 	
 	document.getElementById("reset-button").onclick = function(){	
@@ -614,10 +604,9 @@ function setEventListeners(canvas){
 		globalAngleYY_back = 0.0;
 		if(nivel == 1){
 			jogadas_nivel = 25;
-			document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
+			document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 			points = 500; 
 			document.getElementById("points").innerHTML=points;
-
 		}
 		drawScene();  
 	};            

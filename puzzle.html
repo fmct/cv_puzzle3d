@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+	
+<title>Puzzle3D</title>
+<link rel="stylesheet" type="text/css" href="css/3dbtn.css">
+<link rel="stylesheet" type="text/css" href="css/roundButton.css">
+
+
+<!--
+The simple vertex and fragment shaders.
+
+Using a vertex coordinate buffer and a vertex colour buffer.
+
+Passing the Model-View Matrix and the Projection Matrix. 
+-->
+
+<script id="shader-vs" type="x-shader/x-vertex">
+	    attribute vec3 aVertexPosition;
+
+	    attribute vec3 aVertexColor;
+
+	    uniform mat4 uMVMatrix;
+
+	    uniform mat4 uPMatrix;
+
+	    varying vec4 vertexColor;
+
+	    void main(void) {
+			// To allow seeing the points drawn
+
+			gl_PointSize = 5.0;
+
+	        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+
+	        // Converting the RGB color value to RGBA
+
+	        vertexColor = vec4(aVertexColor, 1.0);
+	    }
+</script>
+
+<script id="shader-fs" type="x-shader/x-fragment">
+	precision mediump float;
+
+	varying vec4 vertexColor;
+
+	void main(void) {
+
+		// Using the passed vertex color
+
+		gl_FragColor = vertexColor;
+	}
+</script>
+
+
+<script id="shader-vs-background" type="x-shader/x-vertex">
+	attribute vec3 aVertexPosition;
+	attribute vec2 aTextureCoord;
+
+	uniform mat4 uMVMatrix;
+	uniform mat4 uPMatrix;
+
+	varying highp vec2 vTexCoord;	
+
+	void main(void) {
+	    gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+	    vTexCoord = aTextureCoord;
+	}
+
+</script>
+
+<script id="shader-fs-background" type="x-shader/x-fragment">
+	varying highp vec2 vTexCoord;
+
+	uniform sampler2D uSampler;
+
+	void main(void) {
+	    gl_FragColor = texture2D(uSampler, vec2(vTexCoord.s, vTexCoord.t));
+	}
+</script>
+
+
+
+<!-- The JS files -->
+
+<!-- Some useful functions for browser compatibility -->
+
+<script type="text/javascript" src="js/webgl-utils.js"></script>
+
+<!-- Handling vectors and matrices -->
+
+<script type="text/javascript" src="js/maths.js"></script>
+
+<!-- Processing triangle mesh models -->
+
+<script type="text/javascript" src="js/models.js"></script>
+
+<!-- WebGL code -->
+
+<script type="text/javascript" src="js/initShaders.js"></script>
+
+<script type="text/javascript" src="js/vertices.js"></script>
+
+<script type="text/javascript" src="js/points.js"></script>
+
+<script type="text/javascript" src="js/setEventListeners.js"></script>
+
+<script type="text/javascript" src="js/puzzle.js"></script>
+
+<script type="text/javascript" src="js/background.js"></script>
+
+<script type="text/javascript" src="js/initial.js"></script>
+
+<script type="text/javascript" src="js/progress_bar.js"></script>
+
+
+<!-- Bootstrap Stuff -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" type="text/css" href="js/buttons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body onload="niveis();">
+
+	<div style="text-align: center">
+		
+		<h3>Puzzle3D</h3>
+		<br/>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 text-center">
+					<canvas id="my-canvas" style="border: 0.5px solid #E0E0E0; " width="512" height="512"></canvas>
+				</div>
+
+				<div class="col-lg-5">
+					<div class="well">
+						<h4 id="nome_nivel"></h4>
+						<button type="button" id="points" class="w3-btn-floating-large w3-teal"></button>
+						<h5 id="jogadas"></h5>	
+						<div class="row">
+							<div class="col-lg-6">
+								<img id="nivel" style="width:200px;height:190px;">
+							</div>
+							<div class="col-lg-6">
+								<img id="nivel_2" style="width:200px;height:190px;">
+							</div>
+						</div>
+
+						<h4>Escolha a figura</h4>
+						<div class="btn-group">
+							<button type="button" id="figura1" class="btn btn-tumblr btn3d"></button>
+							<button type="button" id="figura2" class="btn btn-tumblr btn3d"></button>
+						</div>
+
+						<h4>Posição Peça:</h4>
+						<div class="row">
+							<div class="col-lg-6">
+								<div id="bars_fig1"></div>
+								<div id="bars_fig2"></div>
+							</div>
+							<div class="col-lg-6">
+								<div id="bars2_fig1"></div>
+								<div id="bars2_fig2"></div>
+							</div>
+						</div>	
+							
+						<h4>Controlos</h4>
+						<table align="center">
+							<tr>
+								<p>
+								<button class="btn btn-primary" id="move-left-button"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+								<button class="btn btn-primary" id="move-right-button"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+								<button class="btn btn-primary" id="move-up-button"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+								<button class="btn btn-primary" id="move-down-button"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+								</p>
+							</tr>
+							<tr>
+								<td>
+									<button id="rotate-xx-up" class="btn btn-warning"><strong>X</strong> <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+									<button id="rotate-xx-down" class="btn btn-warning"><strong>X</strong> <i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+									&nbsp;&nbsp;
+								</td>
+								<td>
+									<button class="btn btn-danger" id="rotate-yy-right"><strong>Y</strong> <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+									<button class="btn btn-danger" id="rotate-yy-left"><strong>Y</strong> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+									&nbsp;&nbsp;
+								</td>
+								<td>
+									<button class="btn btn-info" id="rotate-zz-cw"><strong>Z</strong> <i class="fa fa-repeat" aria-hidden="true"></i></button>
+									<button class="btn btn-info" id="rotate-zz-ccw"><strong>Z</strong> <i class="fa fa-undo" aria-hidden="true"></i></button>
+								</td>
+							</tr>
+						</table>
+						<p />
+
+						<p>
+							<button id="move-front-button">Mover para Cima</button>
+	    					<button id="move-back-button">Move para Baixo</button>
+						</p>
+
+						<p>
+							<h4>Reset: </h4>
+							<button class="btn btn-danger" id="reset-button"><i class="fa fa-power-off"></i></button>
+						</p>
+
+						<p>
+						  <!-- Trigger the modal with a button -->
+						  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Help</button>
+
+						  <!-- Modal -->
+						  <div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog">
+						      <!-- Modal content-->
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">Help</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p>
+						          	Escrever regras!!
+						          </p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div>
+						      
+						    </div>
+						  </div>
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	    <script type="text/javascript">
+	      $('body').on('click', '.btn-group button', function (e) {
+    			$(this).addClass('active');
+    			$(this).siblings().removeClass('active');
+
+			});
+    	</script>
+
+</body>
+
+</html>
