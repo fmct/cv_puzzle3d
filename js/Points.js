@@ -31,7 +31,7 @@ var angleZZ2_certo_nivel1 = 0.0;
 function acertou_x(tx, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
 		if(figura == "figura1"){
-			if( !(tx >= tx1_certo_nivel1-0.05 && tx <= tx1_certo_nivel1)){
+			if( !(tx >= tx1_certo_nivel1-0.04 && tx <= tx1_certo_nivel1+0.04)){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_x1 == true){
@@ -48,7 +48,7 @@ function acertou_x(tx, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
-			if( !(tx >= tx2_certo_nivel1-0.05 && tx <= tx2_certo_nivel1)){
+			if( !(tx >= tx2_certo_nivel1-0.04 && tx <= tx2_certo_nivel1+0.04)){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_x2 == true){
@@ -71,7 +71,7 @@ function acertou_x(tx, nivel, points, fase,jogadas, figura){
 function acertou_y(ty, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
 		if(figura == "figura1"){
-			if( ty != ty1_certo_nivel1){
+			if( !(ty >= ty1_certo_nivel1-0.04 && ty <= ty1_certo_nivel1+0.04)){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_y1 == true){
@@ -88,10 +88,11 @@ function acertou_y(ty, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
-			if( ty != ty2_certo_nivel1){
+			if( !(ty >= ty2_certo_nivel1-0.04 && ty <= ty2_certo_nivel1+0.04)){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_y2 == true){
+					//alert("fds");
 					hit_y2 = false;
 					acertou -= 1;
 				}
@@ -112,7 +113,7 @@ function acertou_z(tz, nivel, points, fase,jogadas, figura){
 
 	if(nivel == 1){
 		if(figura == "figura1"){
-			if( tz != tz1_certo_nivel1){
+			if(!(tz >= tz1_certo_nivel1-0.04 && tz <= ty1_certo_nivel1+0.04)){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_z1 == true){
@@ -129,11 +130,12 @@ function acertou_z(tz, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
-			if( tz != tz2_certo_nivel1){
+			if( !(tz >= tz1_certo_nivel1-0.04 && tz <= tz1_certo_nivel1+0.04)){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_z2 == true){
 					hit_z2 = false;
+					//alert("fds");
 					acertou -= 1;
 				}
 			}
@@ -174,6 +176,7 @@ function acertou_angY(angleYY, nivel, points, fase,jogadas, figura){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_angY2 == true){
+					//alert("fds");
 					hit_angY2 = false;
 					acertou -= 1;
 				}
@@ -216,6 +219,7 @@ function acertou_angX(angleXX, nivel, points, fase,jogadas, figura){
 				jogadas -= 1;
 				if(hit_angX2 == true){
 					hit_angX2 = false;
+					alert("fds");
 					acertou -= 1;
 				}
 			}
@@ -256,6 +260,7 @@ function acertou_angZ(angleZZ, nivel, points, fase,jogadas, figura){
 				points -= 10;
 				jogadas -= 1;
 				if(hit_angZ2 == true){
+					alert("fds");
 					hit_angZ2 = false;
 					acertou -= 1;
 				}
