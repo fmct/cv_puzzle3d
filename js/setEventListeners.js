@@ -367,7 +367,7 @@ function setEventListeners(canvas){
 				if(angleXX1 == 360 || angleXX1 == -360){
 					angleXX1 = 0;
 				}
-				drawScen();	
+				drawScene();	
 			}	  
 		};
 
@@ -1093,7 +1093,7 @@ function setEventListeners(canvas){
 			if(tx3 > limite_inf){
 				tx3 -= 0.1;		
 			}	
-			var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1125,7 +1125,7 @@ function setEventListeners(canvas){
 			if(tx3 < limite_sup){
 				tx3 += 0.1;		
 			}		
-			var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1157,7 +1157,7 @@ function setEventListeners(canvas){
 			if(ty3 < limite_sup){
 				ty3 += 0.1;	
 			}	
-			var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1189,7 +1189,7 @@ function setEventListeners(canvas){
 			if(ty3 > limite_inf){
 				ty3 -= 0.1;	
 			}		
-			var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1221,7 +1221,7 @@ function setEventListeners(canvas){
 			if(tz3 < limite_sup){
 				tz3 += 0.1;		
 			}
-			var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1252,7 +1252,7 @@ function setEventListeners(canvas){
 			if(tz3+block > tz_back){
 				tz3 -= 0.1;
 			}
-			var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1285,7 +1285,7 @@ function setEventListeners(canvas){
 			if(angleXX3 == 360 || angleXX3 == -360){
 				angleXX3 = 0;
 			}
-			var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1318,7 +1318,7 @@ function setEventListeners(canvas){
 			if(angleXX3 == 360 || angleXX3 == -360){
 				angleXX3 = 0;
 			}
-			var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1352,7 +1352,7 @@ function setEventListeners(canvas){
 			if(angleYY3 == 360 || angleYY3 == -360){
 				angleYY3 = 0;
 			}	
-			var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1385,7 +1385,7 @@ function setEventListeners(canvas){
 			if(angleYY3 == 360 || angleYY3 == -360){
 				angleYY3 = 0;
 			}
-			var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1418,7 +1418,7 @@ function setEventListeners(canvas){
 			if(angleZZ3 == 360 || angleZZ3 == -360){
 				angleZZ3 = 0;
 			}
-			var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];
@@ -1459,7 +1459,7 @@ function setEventListeners(canvas){
 			if(angleZZ3 == 360 || angleZZ3 == -360){
 				angleZZ3 = 0;
 			}
-			var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura2");
+			var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
 			document.getElementById("points").innerHTML=points;
 			fase = tentativa[1];

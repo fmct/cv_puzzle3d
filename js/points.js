@@ -55,7 +55,7 @@ var tx3_certo_nivel2 = 0.0;
 var ty3_certo_nivel2 = -0.2;
 var tz3_certo_nivel2 = -0.2;
 var angleYY3_certo_nivel2 = 0.0;
-var angleXX3_certo_nivel2 = 0.0;
+var angleXX3_certo_nivel2 = 90;
 var angleZZ3_certo_nivel2 = 90;
 
 function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
@@ -266,7 +266,7 @@ function verificarPosicaoTz(tz, nivel, points, fase,jogadas, figura){
 			if(!(tz >= tz1_certo_nivel1-0.04 && tz <= tz1_certo_nivel1+0.04)) {
 				points -= 10;
 				jogadas -= 1;
-				setBarAttributesTranslationsNot(3, 2, tz1_certo_nivel1, tz);
+				setBarAttributesTranslationsNot(3, 1, tz1_certo_nivel1, tz);
 				if(hit_z1 == true){
 					hit_z1 = false;
 					acertou -= 1; 
@@ -274,7 +274,7 @@ function verificarPosicaoTz(tz, nivel, points, fase,jogadas, figura){
 			}else{
 				acertou += 1;
 				hit_z1 = true;
-				setBarAttributesTranslationsOrAngles(3, 2);
+				setBarAttributesTranslationsOrAngles(3, 1);
 				if(acertou != 12){
 					swal("Bom trabalho!", "Acertou a variavel Z da pirâmide", "success");
 				}
@@ -437,7 +437,7 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 			}				
 		}
 		if(figura == "figura3"){
-			if( angleXX != angleXX3_certo_nivel2 + 360 && angleXX != angleXX3_certo_nivel2){
+			if( angleXX != angleXX3_certo_nivel2 - 360 && angleXX != angleXX3_certo_nivel2){
 				points -= 10;
 				jogadas -= 1;
 				//setBarAttributesAnglesNot(4, 2, angleXX2_certo_nivel1, angleXX);	
