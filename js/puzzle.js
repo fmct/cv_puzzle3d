@@ -36,7 +36,7 @@ var triangleVertexColorBuffer_F3 = null;
 
 var globalTz = 0.0;
 
-var nivel = 1;
+var nivel = 2;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0
@@ -485,14 +485,13 @@ function drawScene() {
 var currentlyPressedKeys = {};
 
 function handleKeys() {
-	
+
 	if (currentlyPressedKeys[65]) {
 		// a
 		if(figura1_on){
 			if(tx1 > limite_inf){
-				tx1 -= 0.01;		
+				tx1 -= 0.01;	
 			}
-			drawScene();
 		}else if(figura2_on){
 			if(tx2 > limite_inf){
 				tx2 -= 0.01;		
@@ -662,7 +661,7 @@ function reset(){
 		hit_x1 = hit_y1 = hit_z1 = hit_angXX1 = hit_angYY1 = hit_angZZ1 = false;
 		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
 		positionsNot();
-		acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
+		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 	}
 	if(nivel == 2){	
 		tx1 = -0.5;
@@ -702,7 +701,7 @@ function reset(){
 		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
 		hit_x3 = hit_y3 = hit_z3 = hit_angXX3 = hit_angYY3 = hit_angZZ3 = false;
 		positionsNot();
-		acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
+		acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 	}
 }
 
@@ -736,19 +735,21 @@ function runWebGL() {
 	tick();
 
 	setProgressBars();
-	
-	if(nivel == 1){
-		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
-	}
 
 	if(nivel == 1){
+		getBarsReset(1,0,0,0,0);
+		getVisibleBars();
+		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 		jogadas_nivel = 25;
 	}
 	if(nivel == 2){
-		jogadas_nivel = 35;
+		getBarsReset(0,0,1,0,0);
+		getVisibleBars();
+		acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
+		jogadas_nivel = 80;
 	}
 	if(nivel == 3){
-		jogadas_nivel = 35;
+		jogadas_nivel = 100;
 	}
 
 }
