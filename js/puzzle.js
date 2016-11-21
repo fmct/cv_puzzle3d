@@ -738,7 +738,7 @@ function runWebGL() {
 	setProgressBars();
 	
 	if(nivel == 1){
-		acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
+		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 	}
 
 	if(nivel == 1){

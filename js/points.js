@@ -99,7 +99,7 @@ function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 			}
 		}
 	}	
-	if(nivel == 2){
+	else if(nivel == 2){
 		if(figura == "figura1"){
 			if( !(tx >= tx1_certo_nivel2-0.04 && tx <= tx1_certo_nivel2+0.04)){
 				points -= 10;
@@ -200,7 +200,7 @@ function verificarPosicaoTy(ty, nivel, points, fase,jogadas, figura){
 			}
 		}
 	}
-	if(nivel == 2){
+	else if(nivel == 2){
 		if(figura == "figura1"){
 			if( !(ty >= ty1_certo_nivel2-0.04 && ty <= ty1_certo_nivel2+0.04)){
 				points -= 10;
@@ -299,7 +299,7 @@ function verificarPosicaoTz(tz, nivel, points, fase,jogadas, figura){
 			}
 		}
 	}
-	if(nivel == 2){
+	else if(nivel == 2){
 		if(figura == "figura1"){
 			if(!(tz >= tz1_certo_nivel2-0.04 && tz <= tz1_certo_nivel2+0.04)) {
 				points -= 10;
@@ -398,7 +398,7 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 			}				
 		}
 	}
-	if(nivel == 2){
+	else if(nivel == 2){
 		if(figura == "figura1"){ 
 			if( angleXX != angleXX1_certo_nivel2){
 				points -= 10;
@@ -498,7 +498,7 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 			}
 		}
 	}
-	if(nivel == 2){
+	else if(nivel == 2){
 		if(figura == "figura1"){
 			if( angleYY != angleYY1_certo_nivel2 && angleYY != angleYY1_certo_nivel2 - 360 ){
 				points -= 10;
@@ -596,7 +596,7 @@ function verificarPosicaoAngleZZ(angleZZ, nivel, points, fase,jogadas, figura){
 			}
 		}
 	}
-	if(nivel == 2){
+	else if(nivel == 2){
 		if(figura == "figura1"){
 			if( angleZZ != angleZZ1_certo_nivel2 && angleZZ != angleZZ1_certo_nivel2 - 360){
 				points -= 10;
@@ -655,7 +655,7 @@ function verificarPosicaoAngleZZ(angleZZ, nivel, points, fase,jogadas, figura){
 	return [points,fase,jogadas];
 }
 
-function acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2){
+function acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2){
 	if(nivel == 1){
 		//figura1
 		if(tx1 == tx1_certo_nivel1){
