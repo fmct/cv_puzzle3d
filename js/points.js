@@ -2,7 +2,6 @@
 /* Points related */
 
 var acertou = 0;
-/* ------nivel 1 -------- */
 	//figura1
 var hit_x1 = false;
 var hit_y1 = false;
@@ -10,12 +9,20 @@ var hit_z1 = false;
 var hit_angY1 = false;
 var hit_angX1 = false;
 var hit_angZ1 = false;
+		//nivel 1
 var tx1_certo_nivel1 = 0.0;
 var ty1_certo_nivel1 = 0.25;
 var tz1_certo_nivel1 = -0.1;
 var angleXX1_certo_nivel1 = 0.0;
 var angleYY1_certo_nivel1 = -90;
 var angleZZ1_certo_nivel1 = 0.0;
+		//nivel 2
+var tx1_certo_nivel2 = 0.0;
+var ty1_certo_nivel2 = 0.9;
+var tz1_certo_nivel2 = -0.2;
+var angleXX1_certo_nivel2 = 0.0;
+var angleYY1_certo_nivel2 = 180;
+var angleZZ1_certo_nivel2 = 45;
 	//figura2
 var hit_x2 = false;
 var hit_y2 = false;
@@ -23,14 +30,33 @@ var hit_z2 = false;
 var hit_angY2 = false;
 var hit_angX2 = false;
 var hit_angZ2 = false;
+		//nivel 1
 var tx2_certo_nivel1 = 0.0;
 var ty2_certo_nivel1 = 0.0;
 var tz2_certo_nivel1 = -0.1;
 var angleYY2_certo_nivel1 = 0.0;
 var angleXX2_certo_nivel1 = 90;
 var angleZZ2_certo_nivel1 = 0.0;
-/* ------------------------ */
-
+		//nivel 2
+var tx2_certo_nivel2 = 0.0;
+var ty2_certo_nivel2 = 0.3;
+var tz2_certo_nivel2 = -0.2;
+var angleYY2_certo_nivel2 = -90;
+var angleXX2_certo_nivel2 = 0.0;
+var angleZZ2_certo_nivel2 = 0.0;
+	//figura 3
+var hit_x3 = false;
+var hit_y3 = false;
+var hit_z3 = false;
+var hit_angY3 = false;
+var hit_angX3 = false;
+var hit_angZ3 = false;	
+var tx3_certo_nivel2 = 0.0;
+var ty3_certo_nivel2 = -0.2;
+var tz3_certo_nivel2 = -0.2;
+var angleYY3_certo_nivel2 = 0.0;
+var angleXX3_certo_nivel2 = 0.0;
+var angleZZ3_certo_nivel2 = 90;
 
 function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
@@ -288,7 +314,7 @@ function verificarPosicaoAngleZZ(angleZZ, nivel, points, fase,jogadas, figura){
 	return [points,fase,jogadas];
 }
 
-function acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX,angleYY2,angleZZ2){
+function acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2){
 	if(nivel == 1){
 		//figura1
 		if(tx1 == tx1_certo_nivel1){
@@ -353,4 +379,99 @@ function acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angl
 			setBarAttributesTranslationsOrAngles(6, 2);
 		}
 	}
+}
+function acertou_inicial(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3){
+		//figura1
+		if(tx1 == tx1_certo_nivel2){
+			hit_x1 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(1, 1);
+		}
+		if(ty1 == ty1_certo_nivel2){
+			hit_y1 = true;
+			acertou +=1
+			//setBarAttributesTranslationsOrAngles(2, 1);
+		}
+		if(tz1 == tz1_certo_nivel2){
+			hit_z1 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(3, 1);
+		}
+		if(angleXX1 == angleXX1_certo_nivel2){
+			hit_angX1 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(4, 1);
+		}
+		if(angleYY1 == angleYY1_certo_nivel2){
+			hit_angY1 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(5, 1);
+		}
+		if(angleZZ1 == angleZZ1_certo_nivel2){
+			hit_angZ1 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(6, 1);
+		}
+		//figura2
+		if(tx2 == tx2_certo_nivel2){
+			hit_x2 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(1, 2);
+		}
+		if(ty2 == ty2_certo_nivel2){
+			hit_y2 = true;
+			acertou +=1
+			//setBarAttributesTranslationsOrAngles(2, 2);
+		}
+		if(tz2 == tz2_certo_nivel2){
+			hit_z2 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(3, 2);
+		}
+		if(angleXX2 == angleXX2_certo_nivel2){
+			hit_angX2 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(4, 2);
+		}
+		if(angleYY2 == angleYY2_certo_nivel2){
+			hit_angY2 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(5, 2);
+		}
+		if(angleZZ2 == angleZZ2_certo_nivel2){
+			hit_angZ2 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(6, 2);
+		}
+		//figura 3
+		if(tx3 == tx3_certo_nivel2){
+			hit_x3 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(1, 2);
+		}
+		if(ty3 == ty3_certo_nivel2){
+			hit_y3 = true;
+			acertou +=1
+			//setBarAttributesTranslationsOrAngles(2, 2);
+		}
+		if(tz3 == tz3_certo_nivel2){
+			hit_z3 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(3, 2);
+		}
+		if(angleXX3 == angleXX3_certo_nivel2){
+			hit_angX3 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(4, 2);
+		}
+		if(angleYY3 == angleYY3_certo_nivel2){
+			hit_angY3 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(5, 2);
+		}
+		if(angleZZ3 == angleZZ2_certo_nivel2){
+			hit_angZ3 = true;
+			acertou += 1;
+			//setBarAttributesTranslationsOrAngles(6, 2);
+		}
 }
