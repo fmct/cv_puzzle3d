@@ -10,7 +10,7 @@ var cubeVertexIndexBuffer_piramide_nivel3 = null;
 
 var cubeVertexTextureCoordBuffer_piramide_nivel3;
 
-verticesCubo = [
+var verticesCubo = [
             // Front face
             -1.0, -1.0,  1.0,
              1.0, -1.0,  1.0,
