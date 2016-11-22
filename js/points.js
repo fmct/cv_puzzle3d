@@ -712,7 +712,7 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 	
 	if(nivel == 1){
 		if(figura == "figura1"){					
-			if( angleYY != angleYY1_certo_nivel1 && angleYY != angleYY1_certo_nivel1 - 360 && angleYY != 360 - Math.abs(angleYY1_certo_nivel1)){
+			if( angleYY != angleYY1_certo_nivel1 && angleYY != angleYY1_certo_nivel1 - 360){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(5, 1, angleYY1_certo_nivel1, angleYY);	
