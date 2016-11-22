@@ -23,6 +23,14 @@ var tz1_certo_nivel2 = -0.2;
 var angleXX1_certo_nivel2 = 0.0;
 var angleYY1_certo_nivel2 = 180;
 var angleZZ1_certo_nivel2 = 45;
+		//nivel 3
+//ALTERAR - SO PATA POR AS BARRAS A DAR!!!!!		
+var tx1_certo_nivel3 = 0.0;
+var ty1_certo_nivel3 = 0.65;
+var tz1_certo_nivel3 = -0.2;
+var angleXX1_certo_nivel3 = 0.0;
+var angleYY1_certo_nivel3 = 180;
+var angleZZ1_certo_nivel3 = 45;		
 	//figura2
 var hit_x2 = false;
 var hit_y2 = false;
@@ -44,7 +52,15 @@ var tz2_certo_nivel2 = -0.2;
 var angleYY2_certo_nivel2 = 90;
 var angleXX2_certo_nivel2 = 0.0;
 var angleZZ2_certo_nivel2 = 0.0;
-	//figura 3
+		//nivel 3
+//ALTERAR - SO PATA POR AS BARRAS A DAR!!!!!		
+var tx2_certo_nivel3 = 0.0;
+var ty2_certo_nivel3 = 0.35;
+var tz2_certo_nivel3 = -0.2;
+var angleYY2_certo_nivel3 = 90;
+var angleXX2_certo_nivel3 = 0.0;
+var angleZZ2_certo_nivel3 = 0.0;		
+	//figura 3 - nive2
 var hit_x3 = false;
 var hit_y3 = false;
 var hit_z3 = false;
@@ -57,6 +73,14 @@ var tz3_certo_nivel2 = -0.2;
 var angleYY3_certo_nivel2 = 0.0;
 var angleXX3_certo_nivel2 = 90;
 var angleZZ3_certo_nivel2 = -90;
+	// figura 3 - nivel3
+//ALTERAR - SO PATA POR AS BARRAS A DAR!!!!!		
+var tx3_certo_nivel3 = 0.0;
+var ty3_certo_nivel3 = -0.15;
+var tz3_certo_nivel3 = -0.2;
+var angleYY3_certo_nivel3 = 0.0;
+var angleXX3_certo_nivel3 = 90;
+var angleZZ3_certo_nivel3 = -90;	
 
 function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
@@ -100,7 +124,6 @@ function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 		}
 	}	
 	else if(nivel == 2){
-		alert(acertou);
 		if(figura == "figura1"){
 			if( !(tx >= tx1_certo_nivel2-0.04 && tx <= tx1_certo_nivel2+0.04)){
 				points -= 10;
@@ -158,6 +181,64 @@ function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 				}
 			}
 		}
+	}else if(nivel==3){
+		if(figura == "figura1"){
+			if( !(tx >= tx1_certo_nivel3-0.04 && tx <= tx1_certo_nivel3+0.04)){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(1, 6, tx1_certo_nivel3, tx);
+				if(hit_x1 == true){
+					hit_x1 = false;
+					acertou -= 1;
+				}
+			}
+			else{
+				acertou += 1;
+				hit_x1 =true;
+				setBarAttributesTranslationsOrAngles(1, 6);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel X da Pirâmide", "success");
+				}
+			}
+		}
+		if(figura == "figura2"){
+			if( !(tx >= tx2_certo_nivel3-0.04 && tx <= tx2_certo_nivel3+0.04)){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(1, 7, tx2_certo_nivel3, tx);
+				if(hit_x2 == true){
+					hit_x2 = false;
+					acertou -= 1;
+				}
+			}
+			else{
+				acertou += 1;
+				hit_x2 =true;
+				setBarAttributesTranslationsOrAngles(1, 7);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel X da Pirâmide", "success");
+				}
+			}
+		}
+		if(figura == "figura3"){
+			if( !(tx >= tx3_certo_nivel3-0.04 && tx <= tx3_certo_nivel3+0.04)){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(1, 8, tx3_certo_nivel3, tx);
+				if(hit_x3 == true){
+					hit_x3 = false;
+					acertou -= 1;
+				}
+			}
+			else{
+				acertou += 1;
+				hit_x3 =true;
+				setBarAttributesTranslationsOrAngles(1, 8);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel X do paralelipipedo", "success");
+				}
+			}
+		}	
 	}
 	return [points,fase,jogadas];
 }
@@ -254,6 +335,61 @@ function verificarPosicaoTy(ty, nivel, points, fase,jogadas, figura){
 				setBarAttributesTranslationsOrAngles(2, 5);
 				if(acertou != 18){
 					swal("Bom trabalho!", "Acertou a variavel Y do paralelipipedo", "success");
+				}
+			}
+		}
+	}else if(nivel == 3){
+		if(figura == "figura1"){
+			if( !(ty >= ty1_certo_nivel3-0.04 && ty <= ty1_certo_nivel3+0.04)){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(2, 6, ty1_certo_nivel3, ty);
+				if(hit_y1 == true){
+					hit_y1 = false;
+					acertou -= 1; 
+				}
+			}else{
+				acertou += 1;
+				hit_y1 = true;
+				setBarAttributesTranslationsOrAngles(2, 6);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel Y da Pirâmide", "success");
+				}
+			}
+		}
+		if(figura == "figura2"){
+			if( !(ty >= ty2_certo_nivel3-0.04 && ty <= ty2_certo_nivel3+0.04)){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(2, 7, ty2_certo_nivel3, ty);
+				if(hit_y2 == true){
+					hit_y2 = false;
+					acertou -= 1;
+				}
+			}else{
+				acertou += 1;
+				hit_y2 = true;
+				setBarAttributesTranslationsOrAngles(2, 7);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel Y do Cubo", "success");
+				}
+			}
+		}
+		if(figura == "figura3"){
+			if( !(ty >= ty3_certo_nivel3-0.04 && ty <= ty3_certo_nivel3+0.04)){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(2, 8, ty3_certo_nivel2, ty);
+				if(hit_y3 == true){
+					hit_y3 = false;
+					acertou -= 1;
+				}
+			}else{
+				acertou += 1;
+				hit_y3 = true;
+				setBarAttributesTranslationsOrAngles(2, 8);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel Y do Paralelipipedo", "success");
 				}
 			}
 		}
@@ -357,6 +493,61 @@ function verificarPosicaoTz(tz, nivel, points, fase,jogadas, figura){
 				}
 			}
 		}
+	}else if(nivel == 3){
+		if(figura == "figura1"){
+			if(!(tz >= tz1_certo_nivel3-0.04 && tz <= tz1_certo_nivel3+0.04)) {
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(3, 6, tz1_certo_nivel3, tz);
+				if(hit_z1 == true){
+					hit_z1 = false;
+					acertou -= 1; 
+				}
+			}else{
+				acertou += 1;
+				hit_z1 = true;
+				setBarAttributesTranslationsOrAngles(3, 6);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel Z da Pirâmide", "success");
+				}
+			}
+		}
+		if(figura == "figura2"){
+			if(!(tz >= tz2_certo_nivel3-0.04 && tz <= tz2_certo_nivel3+0.04)) {
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(3, 7, tz2_certo_nivel3, tz);
+				if(hit_z2 == true){
+					hit_z2 = false;
+					acertou -= 1; 
+				}
+			}else{
+				acertou += 1;
+				hit_z2 = true;
+				setBarAttributesTranslationsOrAngles(3, 7);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel Z do Cubo", "success");
+				}
+			}
+		}
+		if(figura == "figura3"){
+			if(!(tz >= tz3_certo_nivel3-0.04 && tz <= tz3_certo_nivel3+0.04)) {
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesTranslationsNot(3, 8, tz3_certo_nivel3, tz);
+				if(hit_z3 == true){
+					hit_z3 = false;
+					acertou -= 1; 
+				}
+			}else{
+				acertou += 1;
+				hit_z3 = true;
+				setBarAttributesTranslationsOrAngles(3, 8);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou a variavel Z do Paralelipipedo", "success");
+				}
+			}
+		}
 	}
 	return [points,fase,jogadas];
 }
@@ -457,6 +648,62 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 				}
 			}				
 		}
+	}else if(nivel == 3){
+		if(figura == "figura1"){ 
+			if( angleXX != angleXX1_certo_nivel3){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(4, 6, angleXX1_certo_nivel3, angleXX);			
+				if(hit_angX1 == true){
+					hit_angX1 = false;
+					acertou -= 1;
+				}			
+			}
+			else{
+				acertou += 1;
+				hit_angX1 = true;	
+				setBarAttributesTranslationsOrAngles(4, 6);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo X da Pirâmide", "success");
+				}
+			}
+		}
+		if(figura == "figura2"){
+			if( angleXX != angleXX2_certo_nivel3 + 360 && angleXX != angleXX2_certo_nivel3 ){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(4, 7, angleXX2_certo_nivel3, angleXX);	
+				if(hit_angX2 == true){
+					hit_angX2 = false;
+					acertou -= 1;
+				}		
+			}else{
+				acertou += 1;
+				hit_angX2 = true;
+				setBarAttributesTranslationsOrAngles(4, 7);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo X do Cubo", "success");
+				}
+			}				
+		}
+		if(figura == "figura3"){
+			if( angleXX != angleXX3_certo_nivel3 - 360 && angleXX != angleXX3_certo_nivel3){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(4, 8, angleXX3_certo_nivel3, angleXX);	
+				if(hit_angX3 == true){
+					hit_angX3 = false;
+					acertou -= 1;
+				}		
+			}else{
+				acertou += 1;
+				hit_angX3 = true;
+				setBarAttributesTranslationsOrAngles(4, 8);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo X do Paralelipipedo", "success");
+				}
+			}				
+		}
 	}
 	return [points,fase,jogadas];
 }
@@ -464,8 +711,8 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 	
 	if(nivel == 1){
-		if(figura == "figura1"){
-			if( angleYY != angleYY1_certo_nivel1 && angleYY != angleYY1_certo_nivel1 - 360 ){
+		if(figura == "figura1"){					
+			if( angleYY != angleYY1_certo_nivel1 && angleYY != angleYY1_certo_nivel1 - 360 && angleYY != 360 - Math.abs(angleYY1_certo_nivel1)){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(5, 1, angleYY1_certo_nivel1, angleYY);	
@@ -553,6 +800,61 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 				setBarAttributesTranslationsOrAngles(5, 5);	
 				if(acertou != 18){
 					swal("Bom trabalho!", "Acertou o ângulo Y do paralelipipedo", "success");
+				}
+			}
+		}
+	}else if(nivel == 3){
+		if(figura == "figura1"){
+			if( angleYY != angleYY1_certo_nivel3 && angleYY != angleYY1_certo_nivel3 - 360 ){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(5, 6, angleYY1_certo_nivel3, angleYY);	
+				if(hit_angY1 == true){
+					hit_angY1 = false;
+					acertou -= 1;
+				}	
+			}else{
+				acertou += 1;
+				hit_angY1 = true;
+				setBarAttributesTranslationsOrAngles(5, 6);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Y da Pirâmide", "success");
+				}
+			}
+		}
+		if(figura == "figura2"){
+			if( angleYY != angleYY2_certo_nivel3 && angleYY != angleYY2_certo_nivel3 - 360 ){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(5, 7, angleYY2_certo_nivel3, angleYY);	
+				if(hit_angY2 == true){
+					hit_angY2 = false;
+					acertou -= 1;
+				}
+			}else{
+				acertou += 1;
+				hit_angY2 = true;
+				setBarAttributesTranslationsOrAngles(5, 7);	
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Y do Cubo", "success");
+				}
+			}
+		}
+		if(figura == "figura3"){
+			if( angleYY != angleYY3_certo_nivel3){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(5, 8, angleYY3_certo_nivel3, angleYY);	
+				if(hit_angY3 == true){
+					hit_angY3 = false;
+					acertou -= 1;
+				}
+			}else{
+				acertou += 1;
+				hit_angY3 = true;
+				setBarAttributesTranslationsOrAngles(5, 8);	
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Y do Paralelipipedo", "success");
 				}
 			}
 		}
@@ -651,6 +953,61 @@ function verificarPosicaoAngleZZ(angleZZ, nivel, points, fase,jogadas, figura){
 				setBarAttributesTranslationsOrAngles(6, 5);
 				if(acertou != 18){
 					swal("Bom trabalho!", "Acertou o ângulo Z do paralelipipedo", "success");
+				}
+			}
+		}
+	}else if(nivel == 3){	
+		if(figura == "figura1"){
+			if( angleZZ != angleZZ1_certo_nivel3 && angleZZ != angleZZ1_certo_nivel3 - 360){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(6, 6, angleZZ1_certo_nivel3, angleZZ);
+				if(hit_angZ1 == true){
+					hit_angZ1 = false;
+					acertou -= 1;
+				}	
+			}else{
+				acertou += 1;
+				hit_angZ1 = true;
+				setBarAttributesTranslationsOrAngles(6, 6);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Z da Pirâmide", "success");
+				}
+			}
+		}
+		if(figura == "figura2"){
+			if( angleZZ != angleZZ2_certo_nivel3 ){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(6, 7, angleZZ2_certo_nivel3, angleZZ);	
+				if(hit_angZ2 == true){
+					hit_angZ2 = false;
+					acertou -= 1;
+				}
+			}else{
+				acertou += 1;
+				hit_angZ2 = true;
+				setBarAttributesTranslationsOrAngles(6, 7);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Z do Cubo", "success");
+				}
+			}
+		}
+		if(figura == "figura3"){
+			if( angleZZ != angleZZ3_certo_nivel3 && angleZZ != angleZZ3_certo_nivel3 + 360){
+				points -= 10;
+				jogadas -= 1;
+				setBarAttributesAnglesNot(6, 8, angleZZ3_certo_nivel3, angleZZ);	
+				if(hit_angZ3 == true){
+					hit_angZ3 = false;
+					acertou -= 1;
+				}
+			}else{
+				acertou += 1;
+				hit_angZ3 = true;
+				setBarAttributesTranslationsOrAngles(6, 8);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Z do Paralelipipedo", "success");
 				}
 			}
 		}
@@ -818,5 +1175,101 @@ function acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,t
 		hit_angZ3 = true;
 		acertou += 1;
 		setBarAttributesTranslationsOrAngles(6, 5);
+	}
+}
+
+function acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3){	
+	//figura1_nivel3 -> fig6
+	if(tx1 == tx1_certo_nivel3){
+		hit_x1 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(1, 6);
+	}
+	if(ty1 == ty1_certo_nivel3){
+		hit_y1 = true;
+		acertou +=1
+		setBarAttributesTranslationsOrAngles(2, 6);
+	}
+	if(tz1 == tz1_certo_nivel3){
+		hit_z1 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(3, 6);
+	}
+	if(angleXX1 == angleXX1_certo_nivel3){
+		hit_angX1 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(4, 6);
+	}
+	if(angleYY1 == angleYY1_certo_nivel3){
+		hit_angY1 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(5, 6);
+	}
+	if(angleZZ1 == angleZZ1_certo_nivel3){
+		hit_angZ1 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(6, 6);
+	}
+	//figura2_nivel3 -> fig7
+	if(tx2 == tx2_certo_nivel3){
+		hit_x2 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(1, 7);
+	}
+	if(ty2 == ty2_certo_nivel3){
+		hit_y2 = true;
+		acertou +=1
+		setBarAttributesTranslationsOrAngles(2, 7);
+	}
+	if(tz2 == tz2_certo_nivel3){
+		hit_z2 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(3, 7);
+	}
+	if(angleXX2 == angleXX2_certo_nivel3){
+		hit_angX2 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(4, 7);
+	}
+	if(angleYY2 == angleYY2_certo_nivel3){
+		hit_angY2 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(5, 7);
+	}
+	if(angleZZ2 == angleZZ2_certo_nivel3){
+		hit_angZ2 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(6, 7);
+	}
+	//figura3_nivel23 -> fig8
+	if(tx3 == tx3_certo_nivel3){
+		hit_x3 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(1, 8);
+	}
+	if(ty3 == ty3_certo_nivel3){
+		hit_y3 = true;
+		acertou +=1
+		setBarAttributesTranslationsOrAngles(2, 8);
+	}
+	if(tz3 == tz3_certo_nivel3){
+		hit_z3 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(3, 8);
+	}
+	if(angleXX3 == angleXX3_certo_nivel3){
+		hit_angX3 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(4, 8);
+	}
+	if(angleYY3 == angleYY3_certo_nivel3){
+		hit_angY3 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(5, 8);
+	}
+	if(angleZZ3 == angleZZ3_certo_nivel3){
+		hit_angZ3 = true;
+		acertou += 1;
+		setBarAttributesTranslationsOrAngles(6, 8);
 	}
 }

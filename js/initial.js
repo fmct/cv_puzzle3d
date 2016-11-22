@@ -31,7 +31,7 @@ function niveis(){
 		document.getElementById("nivel").src="imgs/nivel2.png";
 		document.getElementById("points").innerHTML=points;
 		document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
-		document.getElementById("figura1").innerHTML="pirâmide";
-		document.getElementById("figura2").innerHTML="cubo";
+		document.getElementById("figura1").innerHTML="Pirâmide";
+		document.getElementById("figura2").innerHTML="Cubo";
 	}
 }

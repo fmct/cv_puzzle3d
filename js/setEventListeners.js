@@ -29,9 +29,11 @@ function setEventListeners(canvas){
 		figura2_on = 0;
 		figura3_on = 0;
 		if(document.getElementById("figura1").innerHTML=="pirâmide"){
-			getBarsReset(1,0,0,0,0);
+			getBarsReset(1,0,0,0,0,0,0,0);
 		}else if(document.getElementById("figura1").innerHTML=="estrela"){
-			getBarsReset(0,0,1,0,0);
+			getBarsReset(0,0,1,0,0,0,0,0);
+		}else if(document.getElementById("figura1").innerHTML=="Pirâmide"){
+			getBarsReset(0,0,0,0,0,1,0,0);
 		}
 		getVisibleBars();
 		document.getElementById("move-left-button").onclick = function(){			
@@ -80,7 +82,7 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Primeiro nivel concluido!",
+					  title: "Segundo nivel concluido!",
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
@@ -105,7 +107,34 @@ function setEventListeners(canvas){
 				if(tx1 > limite_esq){
 					tx1 -= 0.05;		
 				}
-				drawScene();
+				var tentativa = verificarPosicaoTx(tx1,nivel,points,fase,jogadas_nivel,"figura1");
+				points = tentativa[0];
+				document.getElementById("points").innerHTML=points;
+				fase = tentativa[1];
+				jogadas_nivel = tentativa[2];
+				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+				if(acertou == 12){
+					swal({
+					  title: "Terceiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
+					});
+					background = 0;
+					nivel = nivel+1;
+					points_fim_nivel = points;
+					niveis();
+				}
+				else{
+					if(jogadas_nivel == 0){
+						swal({
+							  title: "Jogadas disponiveis esgotadas",
+							  text: "Começar do inicio",
+							  imageUrl: "imgs/sadSmile.png"
+						});
+						reset();
+					}
+					drawScene();
+				}
 			}			  
 		};
 
@@ -647,6 +676,7 @@ function setEventListeners(canvas){
 				if(angleYY1 == 360 || angleYY1 == -360){
 					angleYY1 = 0;
 				}	
+				alert(angleYY1);
 				var tentativa = verificarPosicaoAngleYY(angleYY1,nivel,points,fase,jogadas_nivel,"figura1");
 				points = tentativa[0];
 				document.getElementById("points").innerHTML=points;
@@ -959,9 +989,11 @@ function setEventListeners(canvas){
 		figura1_on = 0;
 		figura3_on = 0;
 		if(document.getElementById("figura2").innerHTML=="cubo"){
-			getBarsReset(0,1,0,0,0);
+			getBarsReset(0,1,0,0,0,0,0,0);
 		}else if(document.getElementById("figura2").innerHTML=="pirâmide"){
-			getBarsReset(0,0,0,1,0);
+			getBarsReset(0,0,0,1,0,0,0,0);
+		}else if(document.getElementById("figura2").innerHTML=="Cubo"){
+			getBarsReset(0,0,0,0,0,0,1,0);
 		}
 		getVisibleBars();
 		document.getElementById("move-left-button").onclick = function(){			
@@ -1896,7 +1928,7 @@ function setEventListeners(canvas){
 		figura2_on = 0;
 		figura1_on = 0;
 		figura3_on = 1;
-		getBarsReset(0,0,0,0,1);
+		getBarsReset(0,0,0,0,1,0,0,0);
 		getVisibleBars();
 		document.getElementById("move-left-button").onclick = function(){			
 			// Updating		

@@ -6,6 +6,9 @@ var bars_fig2_nivel1 = 0;
 var bars_fig1_nivel2 = 0;
 var bars_fig2_nivel2 = 0;
 var bars_fig3_nivel2 = 0;
+var bars_fig1_nivel3 = 0;
+var bars_fig2_nivel3 = 0;
+var bars_fig3_nivel3 = 0;
 
 function setProgressBars(){
   var classes = ["success","info","warning"];
@@ -23,6 +26,17 @@ function setProgressBars(){
 
   var id_bars_fig5 = ["bar1_fig5" /*tx_fig5*/, "bar2_fig5" /*ty_fig5*/, "bar3_fig5" /*tz_fig5*/];  
   var id_bars2_fig5 = ["bar4_fig5" /*angX_fig5*/, "bar5_fig5" /*angY_fig5*/, "bar6_fig5" /*angZ_fig5*/]; 
+
+  var id_bars_fig6 = ["bar1_fig6" /*tx_fig6*/, "bar2_fig6" /*ty_fig6*/, "bar3_fig6" /*tz_fig6*/];  
+  var id_bars2_fig6 = ["bar4_fig6" /*angX_fig6*/, "bar5_fig6" /*angY_fig6*/, "bar6_fig6" /*angZ_fig6*/]; 
+
+  var id_bars_fig7 = ["bar1_fig7" /*tx_fig7*/, "bar2_fig7" /*ty_fig7*/, "bar3_fig7" /*tz_fig7*/];  
+  var id_bars2_fig7 = ["bar4_fig7" /*angX_fig7*/, "bar5_fig7" /*angY_fig7*/, "bar6_fig7" /*angZ_fig7*/]; 
+
+  var id_bars_fig8 = ["bar1_fig8" /*tx_fig8*/, "bar2_fig8" /*ty_fig8*/, "bar3_fig8" /*tz_fig8*/];  
+  var id_bars2_fig8 = ["bar4_fig8" /*angX_fig8*/, "bar5_fig8" /*angY_fig8*/, "bar6_fig8" /*angZ_fig8*/]; 
+
+  //Nivel 3 - +2 figs
 
   var titles_bars = ["X", "Y", "Z"];
 
@@ -58,6 +72,24 @@ function setProgressBars(){
     $("#bars2_fig5").append('<div class="progress"><div id="'+ id_bars2_fig5[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
+    $("#bars_fig6").append('<div class="progress"><div id="'+ id_bars_fig6[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
+      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+
+    $("#bars2_fig6").append('<div class="progress"><div id="'+ id_bars2_fig6[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
+      title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+
+    $("#bars_fig7").append('<div class="progress"><div id="'+ id_bars_fig7[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
+      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+
+    $("#bars2_fig7").append('<div class="progress"><div id="'+ id_bars2_fig7[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
+      title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+
+    $("#bars_fig8").append('<div class="progress"><div id="'+ id_bars_fig8[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
+      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+
+    $("#bars2_fig8").append('<div class="progress"><div id="'+ id_bars2_fig8[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
+      title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+
   }
 
   // Visible and hidden bars
@@ -70,12 +102,15 @@ function setProgressBars(){
    
 }
 
-function getBarsReset(fig1,fig2,fig3,fig4,fig5){
+function getBarsReset(fig1,fig2,fig3,fig4,fig5,fig6,fig7,fig8){
   bars_fig1_nivel1 = fig1;
   bars_fig2_nivel1 = fig2;
   bars_fig1_nivel2 = fig3;
   bars_fig2_nivel2 = fig4;
   bars_fig3_nivel2 = fig5;
+  bars_fig1_nivel3 = fig6;
+  bars_fig2_nivel3 = fig7;
+  bars_fig3_nivel3 = fig8;
 }
 
 function positionsNot() {
@@ -114,6 +149,20 @@ function positionsNot() {
   setBarAttributesAnglesNot(4, 5, angleXX3_certo_nivel2, angleXX3);
   setBarAttributesAnglesNot(5, 5, angleYY3_certo_nivel2, angleYY3);
   setBarAttributesAnglesNot(6, 5, angleZZ3_certo_nivel2, angleZZ3);  
+  // Figura6
+  setBarAttributesTranslationsNot(1, 6, tx1_certo_nivel3, tx1);
+  setBarAttributesTranslationsNot(2, 6, ty1_certo_nivel3, ty1);
+  setBarAttributesTranslationsNot(3, 6, tz1_certo_nivel3, tz1);
+  setBarAttributesAnglesNot(4, 6, angleXX1_certo_nivel3, angleXX1);
+  setBarAttributesAnglesNot(5, 6, angleYY1_certo_nivel3, angleYY1);
+  setBarAttributesAnglesNot(6, 6, angleZZ1_certo_nivel3, angleZZ1);  
+  // Figura7
+  setBarAttributesTranslationsNot(1, 7, tx2_certo_nivel3, tx2);
+  setBarAttributesTranslationsNot(2, 7, ty2_certo_nivel3, ty2);
+  setBarAttributesTranslationsNot(3, 7, tz2_certo_nivel3, tz2);
+  setBarAttributesAnglesNot(4, 7, angleXX2_certo_nivel3, angleXX2);
+  setBarAttributesAnglesNot(5, 7, angleYY2_certo_nivel3, angleYY2);
+  setBarAttributesAnglesNot(6, 7, angleZZ2_certo_nivel3, angleZZ2);  
 }
 
 
@@ -131,6 +180,12 @@ function getVisibleBars(){
     document.getElementById("bars2_fig4").style.display = "none";
     document.getElementById("bars_fig5").style.display = "none";
     document.getElementById("bars2_fig5").style.display = "none";
+    document.getElementById("bars_fig6").style.display = "none";
+    document.getElementById("bars2_fig6").style.display = "none";
+    document.getElementById("bars_fig7").style.display = "none";
+    document.getElementById("bars2_fig7").style.display = "none";
+    document.getElementById("bars_fig8").style.display = "none";
+    document.getElementById("bars2_fig8").style.display = "none";
   }else if(bars_fig2_nivel1){
     document.getElementById("bars_fig2").style.display = "block";
     document.getElementById("bars2_fig2").style.display = "block";
@@ -143,6 +198,12 @@ function getVisibleBars(){
     document.getElementById("bars2_fig4").style.display = "none";
     document.getElementById("bars_fig5").style.display = "none";
     document.getElementById("bars2_fig5").style.display = "none";
+    document.getElementById("bars_fig6").style.display = "none";
+    document.getElementById("bars2_fig6").style.display = "none";
+    document.getElementById("bars_fig7").style.display = "none";
+    document.getElementById("bars2_fig7").style.display = "none";
+    document.getElementById("bars_fig8").style.display = "none";
+    document.getElementById("bars2_fig8").style.display = "none";
   }else if(bars_fig1_nivel2){
     document.getElementById("bars_fig3").style.display = "block";
     document.getElementById("bars2_fig3").style.display = "block";
@@ -155,6 +216,12 @@ function getVisibleBars(){
     document.getElementById("bars2_fig4").style.display = "none";
     document.getElementById("bars_fig5").style.display = "none";
     document.getElementById("bars2_fig5").style.display = "none";
+     document.getElementById("bars_fig6").style.display = "none";
+    document.getElementById("bars2_fig6").style.display = "none";
+    document.getElementById("bars_fig7").style.display = "none";
+    document.getElementById("bars2_fig7").style.display = "none";
+    document.getElementById("bars_fig8").style.display = "none";
+    document.getElementById("bars2_fig8").style.display = "none";
   }else if(bars_fig2_nivel2){
     document.getElementById("bars_fig4").style.display = "block";
     document.getElementById("bars2_fig4").style.display = "block";
@@ -167,7 +234,13 @@ function getVisibleBars(){
     document.getElementById("bars2_fig3").style.display = "none";
     document.getElementById("bars_fig5").style.display = "none";
     document.getElementById("bars2_fig5").style.display = "none";
-  }else{
+    document.getElementById("bars_fig6").style.display = "none";
+    document.getElementById("bars2_fig6").style.display = "none";
+    document.getElementById("bars_fig7").style.display = "none";
+    document.getElementById("bars2_fig7").style.display = "none";
+    document.getElementById("bars_fig8").style.display = "none";
+    document.getElementById("bars2_fig8").style.display = "none";
+  }else if(bars_fig3_nivel2){
     document.getElementById("bars_fig5").style.display = "block";
     document.getElementById("bars2_fig5").style.display = "block";
     //
@@ -178,7 +251,68 @@ function getVisibleBars(){
     document.getElementById("bars_fig3").style.display = "none";
     document.getElementById("bars2_fig3").style.display = "none";
     document.getElementById("bars_fig4").style.display = "none";
-    document.getElementById("bars2_fig4").style.display = "none";
+    document.getElementById("bars2_fig4").style.display = "none";  
+    document.getElementById("bars_fig6").style.display = "none";
+    document.getElementById("bars2_fig6").style.display = "none";
+    document.getElementById("bars_fig7").style.display = "none";
+    document.getElementById("bars2_fig7").style.display = "none";
+    document.getElementById("bars_fig8").style.display = "none";
+    document.getElementById("bars2_fig8").style.display = "none";
+  }else if(bars_fig1_nivel3){
+    document.getElementById("bars_fig6").style.display = "block";
+    document.getElementById("bars2_fig6").style.display = "block";
+    //
+    document.getElementById("bars_fig1").style.display = "none";
+    document.getElementById("bars2_fig1").style.display = "none";
+    document.getElementById("bars_fig2").style.display = "none";
+    document.getElementById("bars2_fig2").style.display = "none";
+    document.getElementById("bars_fig3").style.display = "none";
+    document.getElementById("bars2_fig3").style.display = "none";
+    document.getElementById("bars_fig4").style.display = "none";
+    document.getElementById("bars2_fig4").style.display = "none"; 
+    document.getElementById("bars_fig5").style.display = "none";
+    document.getElementById("bars2_fig5").style.display = "none";
+    document.getElementById("bars_fig7").style.display = "none";
+    document.getElementById("bars2_fig7").style.display = "none";
+    document.getElementById("bars_fig8").style.display = "none";
+    document.getElementById("bars2_fig8").style.display = "none";
+
+  }else if(bars_fig2_nivel3){
+    document.getElementById("bars_fig7").style.display = "block";
+    document.getElementById("bars2_fig7").style.display = "block";
+    //
+    document.getElementById("bars_fig1").style.display = "none";
+    document.getElementById("bars2_fig1").style.display = "none";
+    document.getElementById("bars_fig2").style.display = "none";
+    document.getElementById("bars2_fig2").style.display = "none";
+    document.getElementById("bars_fig3").style.display = "none";
+    document.getElementById("bars2_fig3").style.display = "none";
+    document.getElementById("bars_fig4").style.display = "none";
+    document.getElementById("bars2_fig4").style.display = "none"; 
+    document.getElementById("bars_fig5").style.display = "none";
+    document.getElementById("bars2_fig5").style.display = "none";
+    document.getElementById("bars_fig6").style.display = "none";
+    document.getElementById("bars2_fig6").style.display = "none";
+    document.getElementById("bars_fig8").style.display = "none";
+    document.getElementById("bars2_fig8").style.display = "none";
+  }else{
+    document.getElementById("bars_fig8").style.display = "block";
+    document.getElementById("bars2_fig8").style.display = "block";
+    //
+    document.getElementById("bars_fig1").style.display = "none";
+    document.getElementById("bars2_fig1").style.display = "none";
+    document.getElementById("bars_fig2").style.display = "none";
+    document.getElementById("bars2_fig2").style.display = "none";
+    document.getElementById("bars_fig3").style.display = "none";
+    document.getElementById("bars2_fig3").style.display = "none";
+    document.getElementById("bars_fig4").style.display = "none";
+    document.getElementById("bars2_fig4").style.display = "none"; 
+    document.getElementById("bars_fig5").style.display = "none";
+    document.getElementById("bars2_fig5").style.display = "none";
+    document.getElementById("bars_fig6").style.display = "none";
+    document.getElementById("bars2_fig6").style.display = "none";
+    document.getElementById("bars_fig7").style.display = "none";
+    document.getElementById("bars2_fig7").style.display = "none";
   }     
 }
 
@@ -210,20 +344,34 @@ function getPercentageAngle(valor_figura, f_valor){
 		return 17*5;
 	}else if(valor == -305){
 		return 17*5;
-	}
+  }
 	return valor+30;
 }
 
 function setBarAttributesTranslationsOrAngles(barra, figura){
-  $("#bar"+barra+"_fig"+figura).removeClass('progress-bar progress-bar-info progress-bar-striped');
+  $("#bar"+barra+"_fig"+figura).removeClass('progress-bar progress-bar-warning progress-bar-striped');
   $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-success progress-bar-striped");
   $("#bar"+barra+"_fig"+figura).attr("style", "width:100%");
   $("#bar"+barra+"_fig"+figura).text("100%");
 }
 
 function setBarAttributesTranslationsNot(barra, figura, t_certo, t){
-  $("#bar"+barra+"_fig"+figura).removeClass('progress-bar progress-bar-success progress-bar-striped');
-  $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-info progress-bar-striped");
+  if(getPercentage(t_certo, t) <= 20){
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-info progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-danger progress-bar-striped");
+  }else if(getPercentage(t_certo, t) > 20 && getPercentage(t_certo, t) <= 75){
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-danger progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-warning progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-info progress-bar-striped");
+  }else if(getPercentage(t_certo, t) > 75 && getPercentage(t_certo, t) < 100){
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-info progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-sucess progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-warning progress-bar-striped");
+  }else{
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-warning progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-info progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-danger progress-bar-striped");
+  }
   $("#bar"+barra+"_fig"+figura).attr("style", "width:"+getPercentage(t_certo, t)+"%");
   if(getPercentage(t_certo, t)<=0){
      $("#bar"+barra+"_fig"+figura).attr("style", "color:black");
@@ -232,8 +380,22 @@ function setBarAttributesTranslationsNot(barra, figura, t_certo, t){
 }
 
 function setBarAttributesAnglesNot(barra, figura, angle_certo, angle){
-  $("#bar"+barra+"_fig"+figura).removeClass('progress-bar progress-bar-success progress-bar-striped');
-  $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-info progress-bar-striped");
+  if(getPercentageAngle(angle_certo, angle) <= 20){
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-info progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-danger progress-bar-striped");
+  }else if(getPercentageAngle(angle_certo, angle) > 20 && getPercentageAngle(angle_certo, angle) <= 75){
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-danger progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-warning progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-info progress-bar-striped");
+  }else if(getPercentageAngle(angle_certo, angle) > 75 && getPercentageAngle(angle_certo, angle) < 100){
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-info progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-sucess progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-warning progress-bar-striped");
+  }else{
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-warning progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-info progress-bar-striped");
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-danger progress-bar-striped");
+  }
   $("#bar"+barra+"_fig"+figura).attr("style", "width:"+getPercentageAngle(angle_certo, angle)+"%");
   if(getPercentageAngle(angle_certo, angle)<=0){
      $("#bar"+barra+"_fig"+figura).attr("style", "color:black");

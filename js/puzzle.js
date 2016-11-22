@@ -775,8 +775,9 @@ function runWebGL() {
 		button.className = "btn btn-tumblr btn3d";
 		button.id = "figura3";
 		document.getElementById("choose_fig").appendChild(button);
-		document.getElementById("figura3").innerHTML="paralelipipedo"
+		document.getElementById("figura3").innerHTML="paralelipipedo";
 	}
+
 	setEventListeners(canvas);
 
 	tick();
@@ -784,18 +785,21 @@ function runWebGL() {
 	setProgressBars();
 
 	if(nivel == 1){
-		getBarsReset(1,0,0,0,0);
+		getBarsReset(1,0,0,0,0,0,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 		jogadas_nivel = 25;
 	}
 	if(nivel == 2){
-		getBarsReset(0,0,1,0,0);
+		getBarsReset(0,0,1,0,0,0,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 		jogadas_nivel = 50;
 	}
 	if(nivel == 3){
+		getBarsReset(0,0,0,0,0,1,0,0);
+		getVisibleBars();
+		acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 		jogadas_nivel = 100;
 	}
 
