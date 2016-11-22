@@ -1807,7 +1807,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-up-button").onclick = function(){			
 			// Updating	
 			if(ty3 < limite_sup){
-				ty3 += 0.1;	
+				ty3 += 0.05;	
 			}	
 			var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
@@ -1838,7 +1838,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-down-button").onclick = function(){		
 			// Updating	
 			if(ty3 > limite_inf){
-				ty3 -= 0.1;	
+				ty3 -= 0.05;	
 			}		
 			var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
 			points = tentativa[0];
