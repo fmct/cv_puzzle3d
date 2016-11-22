@@ -100,6 +100,12 @@ function setEventListeners(canvas){
 					}
 					drawScene();
 				}
+			}
+			else if(nivel == 3){
+				if(tx1 > limite_esq){
+					tx1 -= 0.05;		
+				}
+				drawScene();
 			}			  
 		};
 
@@ -169,7 +175,13 @@ function setEventListeners(canvas){
 					}
 					drawScene();
 				}
-			}			  
+			}
+			else if(nivel == 3){
+				if(tx1 > limite_esq){
+					tx1 += 0.05;		
+				}
+				drawScene();
+			}				  
 		};
 
 		document.getElementById("move-up-button").onclick = function(){			
@@ -238,6 +250,12 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				if(ty1 < limite_sup){
+					ty1 += 0.05;	
+				}
+				drawScene();
 			}		 
 		};
 
@@ -308,6 +326,12 @@ function setEventListeners(canvas){
 					drawScene(); 
 				} 	
 			}
+			else if(nivel == 3){
+				if(ty1 < limite_sup){
+					ty1 -= 0.05;	
+				}
+				drawScene();
+			}
 		};
 
 
@@ -377,6 +401,12 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				if(tz1 < limite_sup){
+					tz1 += 0.1;	
+				}
+				drawScene();
 			}	 
 		};      
 
@@ -446,6 +476,12 @@ function setEventListeners(canvas){
 					}
 					drawScene();
 				}
+			}
+			else if(nivel == 3){
+				if(tz1+block > tz_back){
+					tz1 -= 0.1;	
+				}
+				drawScene();
 			}		  
 		};
 
@@ -517,6 +553,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				angleXX1 -= 45;
+				if(angleXX1 == 360 || angleXX1 == -360){
+					angleXX1 = 0;
+				}
+				drawScene();
 			}			 
 		};
 		
@@ -588,6 +631,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}	
+			}
+			else if(nivel == 3){
+				angleXX1 += 45;
+				if(angleXX1 == 360 || angleXX1 == -360){
+					angleXX1 = 0;
+				}
+				drawScene();
 			}	  
 		};
 
@@ -659,6 +709,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				angleYY1 += 45;
+				if(angleYY1 == 360 || angleYY1 == -360){
+					angleYY1 = 0;
+				}
+				drawScene();
 			}	 
 		};
 
@@ -730,6 +787,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				angleYY1 -= 45;
+				if(angleYY1 == 360 || angleYY1 == -360){
+					angleYY1 = 0;
+				}
+				drawScene();
 			}	  
 		};
 
@@ -801,6 +865,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				angleZZ1 -= 45;		
+				if(angleZZ1 == 360 || angleZZ1 == -360){
+					angleZZ1 = 0;
+				}
+				drawScene();
 			}	  
 		};
 
@@ -872,7 +943,14 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
-			}	  
+			}
+			else if(nivel == 3){
+				angleZZ1 += 45;		
+				if(angleZZ1 == 360 || angleZZ1 == -360){
+					angleZZ1 = 0;
+				}
+				drawScene();
+			}	 	  
 		};		      
 	};
 
@@ -952,6 +1030,12 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				if(tx2 > limite_inf){
+					tx2 -= 0.05;		
+				}
+				drawScene();
 			}  
 		};
 
@@ -1021,6 +1105,12 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				if(tx2 < limite_sup){
+					tx2 += 0.05;		
+				}
+				drawScene();
 			}	  
 		};
 
@@ -1090,6 +1180,12 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				if(ty2 < limite_sup){
+					ty2 += 0.05;	
+				}
+				drawScene();
 			}	  
 		};
 
@@ -1159,7 +1255,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
-			}	  
+			}
+			else if(nivel == 3){
+				if(ty2 < limite_sup){
+					ty2 -= 0.05;	
+				}
+				drawScene();
+			}		  
 		};
 
 		document.getElementById("move-front-button").onclick = function(){
@@ -1228,6 +1330,12 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				if(tz2 < limite_sup){
+					tz2 += 0.1;		
+				}
+				drawScene();
 			}	 
 		};      
 
@@ -1297,7 +1405,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
-			}	   
+			}
+			else if(nivel == 3){
+				if(tz2+block > tz_back){
+					tz2 -= 0.1;
+				}
+				drawScene();
+			}
 		};   
 		
 		document.getElementById("rotate-xx-up").onclick = function(){				
@@ -1368,7 +1482,14 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
-			}	 
+			}
+			else if(nivel == 3){
+				angleXX2 -= 45;			
+				if(angleXX2 == 360 || angleXX2 == -360){
+					angleXX2 = 0;
+				}	
+				drawScene();
+			} 
 		};
 		
 		document.getElementById("rotate-xx-down").onclick = function(){		
@@ -1439,6 +1560,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				angleXX2 += 45;				
+				if(angleXX2 == 360 || angleXX2 == -360){
+					angleXX2 = 0;
+				}
+				drawScene();
 			}	  
 		};
 
@@ -1511,7 +1639,14 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
-			}	  
+			}
+			else if(nivel == 3){
+				angleYY2 += 45;		
+				if(angleYY2 == 360 || angleYY2 == -360){
+					angleYY2 = 0;
+				}	
+				drawScene();
+			}  
 		};
 
 		document.getElementById("rotate-yy-left").onclick = function(){			
@@ -1582,6 +1717,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				angleYY2 -= 45;		
+				if(angleYY2 == 360 || angleYY2 == -360){
+					angleYY2 = 0;
+				}
+				drawScene();
 			}	  
 		};
 
@@ -1661,6 +1803,13 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
+			}
+			else if(nivel == 3){
+				angleZZ2 -= 45;			
+				if(angleZZ2 == 360 || angleZZ2 == -360){
+					angleZZ2 = 0;
+				}
+				drawScene();
 			}	 
 		};
 
@@ -1732,7 +1881,14 @@ function setEventListeners(canvas){
 					}
 					drawScene(); 
 				}
-			}	  
+			}
+			else if(nivel == 3){
+				angleZZ2 += 45;				
+				if(angleZZ2 == 360 || angleZZ2 == -360){
+					angleZZ2 = 0;
+				}	
+				drawScene();
+			}  
 		};
 	};
 	if(nivel == 2){

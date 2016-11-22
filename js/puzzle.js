@@ -36,7 +36,7 @@ var triangleVertexColorBuffer_F3 = null;
 
 var globalTz = 0.0;
 
-var nivel = 2;
+var nivel = 3;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0
@@ -247,6 +247,9 @@ function initBuffers() {
 	    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndices), gl.STATIC_DRAW);
 	    cubeVertexIndexBuffer.itemSize = 1;
 	    cubeVertexIndexBuffer.numItems = 6;
+	    if(nivel == 3){
+	    	initBuffersNivel3();
+		}
 	}
 
 	gl.enable(gl.DEPTH_TEST);
@@ -268,78 +271,80 @@ function drawModel( angleXX, angleYY, angleZZ,
 	mvMatrix = mult(mvMatrix, scalingMatrix(sx, sy, sz));
 
   	if(!background){
-  		gl.useProgram(shaderProgram);
-		var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
-		gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
-		if(nivel == 1){
-	  		if(figura == "cubo"){			
-			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
-		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-		                          			triangleVertexPositionBuffer_F1.itemSize,
-		                          			gl.FLOAT, false, 0, 0);
+  		if(nivel == 1 || nivel ==2){
+	  		gl.useProgram(shaderProgram);
+			var mvUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
+			gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
+			if(nivel == 1){
+		  		if(figura == "cubo"){			
+				    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
+			    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+			                          			triangleVertexPositionBuffer_F1.itemSize,
+			                          			gl.FLOAT, false, 0, 0);
 
-		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
+			    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
 
-		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-		                                triangleVertexColorBuffer_F1.itemSize,
-		                                gl.FLOAT, false, 0, 0);
-		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
+			    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+			                                triangleVertexColorBuffer_F1.itemSize,
+			                                gl.FLOAT, false, 0, 0);
+			   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
 
+		   		}
+		   		if(figura == "piramideQuandrangular"){
+				    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
+			    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+			                          			triangleVertexPositionBuffer_F2.itemSize,
+			                          			gl.FLOAT, false, 0, 0);
+
+			    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
+
+			    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+			                                triangleVertexColorBuffer_F2.itemSize,
+			                                gl.FLOAT, false, 0, 0);
+			   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
+		   		}
 	   		}
-	   		if(figura == "piramideQuandrangular"){
-			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
-		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-		                          			triangleVertexPositionBuffer_F2.itemSize,
-		                          			gl.FLOAT, false, 0, 0);
+	   		if(nivel == 2){
+	   			if(figura == "estrela"){			
+				    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
+			    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+			                          			triangleVertexPositionBuffer_F1.itemSize,
+			                          			gl.FLOAT, false, 0, 0);
 
-		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
+			    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
 
-		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-		                                triangleVertexColorBuffer_F2.itemSize,
-		                                gl.FLOAT, false, 0, 0);
-		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
-	   		}
-   		}
-   		if(nivel == 2){
-   			if(figura == "estrela"){			
-			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F1);
-		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-		                          			triangleVertexPositionBuffer_F1.itemSize,
-		                          			gl.FLOAT, false, 0, 0);
+			    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+			                                triangleVertexColorBuffer_F1.itemSize,
+			                                gl.FLOAT, false, 0, 0);
+			   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
 
-		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F1);
+		   		}
+		   		if(figura == "piramideVerde"){
+				    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
+			    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+			                          			triangleVertexPositionBuffer_F2.itemSize,
+			                          			gl.FLOAT, false, 0, 0);
 
-		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-		                                triangleVertexColorBuffer_F1.itemSize,
-		                                gl.FLOAT, false, 0, 0);
-		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F1.numItems);
+			    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
 
-	   		}
-	   		if(figura == "piramideVerde"){
-			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F2);
-		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-		                          			triangleVertexPositionBuffer_F2.itemSize,
-		                          			gl.FLOAT, false, 0, 0);
+			    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+			                                triangleVertexColorBuffer_F2.itemSize,
+			                                gl.FLOAT, false, 0, 0);
+			   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
+		   		}
+		   		if(figura == "paralelipipedo"){
+				    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F3);
+			    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
+			                          			triangleVertexPositionBuffer_F3.itemSize,
+			                          			gl.FLOAT, false, 0, 0);
 
-		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F2);
+			    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F3);
 
-		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-		                                triangleVertexColorBuffer_F2.itemSize,
-		                                gl.FLOAT, false, 0, 0);
-		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F2.numItems);
-	   		}
-	   		if(figura == "paralelipipedo"){
-			    gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer_F3);
-		    	gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute,
-		                          			triangleVertexPositionBuffer_F3.itemSize,
-		                          			gl.FLOAT, false, 0, 0);
-
-		    	gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer_F3);
-
-		    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
-		                                triangleVertexColorBuffer_F3.itemSize,
-		                                gl.FLOAT, false, 0, 0);
-		   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F3.numItems);
+			    	gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+			                                triangleVertexColorBuffer_F3.itemSize,
+			                                gl.FLOAT, false, 0, 0);
+			   		gl.drawArrays(gl.TRIANGLES, 0, triangleVertexPositionBuffer_F3.numItems);
+		   		}
 	   		}
    		}
   	}
@@ -367,7 +372,19 @@ function drawModel( angleXX, angleYY, angleZZ,
 	    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
 
 		gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
-  	}		
+	  	
+  	}
+  	if(nivel == 3){
+	  		gl.useProgram(shaderProgram_back);
+			var mvUniform = gl.getUniformLocation(shaderProgram_back, "uMVMatrix");
+			gl.uniformMatrix4fv(mvUniform, false, new Float32Array(flatten(mvMatrix)));
+			if(figura == "cubo"){
+				drawModelNivel3("cubo");
+			}
+			if(figura == "piramide"){
+				drawModelNivel3("piramide");
+			}
+	 }		
 }
 
 //----------------------------------------------------------------------------
@@ -395,68 +412,68 @@ function drawScene() {
 	globalTz = -3.5;
 
 	// Background = 0
+	if(nivel == 1 || nivel == 2){
+		gl.useProgram(shaderProgram);
+		var pUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
 
-	gl.useProgram(shaderProgram);
-	var pUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
+		gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
 
-	gl.uniformMatrix4fv(pUniform, false, new Float32Array(flatten(pMatrix)));
-
-	mvMatrix = translationMatrix(0, 0, globalTz);
-  	mvMatrix = mult(translationMatrix(0, 0, globalTz),
-	                rotationYYMatrix(globalAngleYY));
- 	mvMatrix = mult(mult(translationMatrix(0, 0, globalTz),
-	                rotationYYMatrix(globalAngleYY)),
-	                rotationXXMatrix(globalAngleXX));
-
-	mvMatrix2 = translationMatrix(0, 0, globalTz);
-  	mvMatrix2 = mult(translationMatrix(0, 0, globalTz),
-	                rotationYYMatrix(globalAngleYY));
- 	mvMatrix2 = mult(mult(translationMatrix(0, 0, globalTz),
-	                rotationYYMatrix(globalAngleYY)),
-	                rotationXXMatrix(globalAngleXX));
- 	if(nivel == 1){
-		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
-		           sx1, sy1, sz1,
-		           tx1, ty1, tz1,
-		           mvMatrix2,
-		           primitiveType, false , "piramideQuandrangular" );
-			
-		drawModel( angleXX2, angleYY2, angleZZ2, 
-		           sx2, sy2, sz2,
-		           tx2, ty2, tz2,
-		           mvMatrix,
-		           primitiveType, false, "cubo" );
-
-	//background = 1;
-	}
-	if(nivel == 2){
-
-		mvMatrix3 = translationMatrix(0, 0, globalTz);
-	  	mvMatrix3 = mult(translationMatrix(0, 0, globalTz),
+		mvMatrix = translationMatrix(0, 0, globalTz);
+	  	mvMatrix = mult(translationMatrix(0, 0, globalTz),
 		                rotationYYMatrix(globalAngleYY));
-	 	mvMatrix3 = mult(mult(translationMatrix(0, 0, globalTz),
-	                rotationYYMatrix(globalAngleYY)),
-	                rotationXXMatrix(globalAngleXX));
+	 	mvMatrix = mult(mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY)),
+		                rotationXXMatrix(globalAngleXX));
 
-		drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
-		           sx1, sy1, sz1,
-		           tx1, ty1, tz1,
-		           mvMatrix2,
-		           primitiveType, false , "estrela" );
-			
-		drawModel( angleXX2, angleYY2, angleZZ2, 
-		           sx2, sy2, sz2,
-		           tx2, ty2, tz2,
-		           mvMatrix,
-		           primitiveType, false, "piramideVerde" );
+		mvMatrix2 = translationMatrix(0, 0, globalTz);
+	  	mvMatrix2 = mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY));
+	 	mvMatrix2 = mult(mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY)),
+		                rotationXXMatrix(globalAngleXX));
+	 	if(nivel == 1){
+			drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
+			           sx1, sy1, sz1,
+			           tx1, ty1, tz1,
+			           mvMatrix2,
+			           primitiveType, false , "piramideQuandrangular" );
+				
+			drawModel( angleXX2, angleYY2, angleZZ2, 
+			           sx2, sy2, sz2,
+			           tx2, ty2, tz2,
+			           mvMatrix,
+			           primitiveType, false, "cubo" );
 
-		drawModel( angleXX3, angleYY3, angleZZ3, 
-		           sx3, sy3, sz3,
-		           tx3, ty3, tz3,
-		           mvMatrix3,
-		           primitiveType, false, "paralelipipedo" );
+		//background = 1;
+		}
+		if(nivel == 2){
+
+			mvMatrix3 = translationMatrix(0, 0, globalTz);
+		  	mvMatrix3 = mult(translationMatrix(0, 0, globalTz),
+			                rotationYYMatrix(globalAngleYY));
+		 	mvMatrix3 = mult(mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY)),
+		                rotationXXMatrix(globalAngleXX));
+
+			drawModel( angleXX1, angleYY1, angleZZ1,  // CW rotations
+			           sx1, sy1, sz1,
+			           tx1, ty1, tz1,
+			           mvMatrix2,
+			           primitiveType, false , "estrela" );
+				
+			drawModel( angleXX2, angleYY2, angleZZ2, 
+			           sx2, sy2, sz2,
+			           tx2, ty2, tz2,
+			           mvMatrix,
+			           primitiveType, false, "piramideVerde" );
+
+			drawModel( angleXX3, angleYY3, angleZZ3, 
+			           sx3, sy3, sz3,
+			           tx3, ty3, tz3,
+			           mvMatrix3,
+			           primitiveType, false, "paralelipipedo" );
+		}
 	}
-
 	gl.useProgram(shaderProgram_back);
 	var pUniform1 = gl.getUniformLocation(shaderProgram_back, "uPMatrix");
 
@@ -473,7 +490,34 @@ function drawScene() {
 	           sx_back, sy_back, sz_back,
 	           tx_back, ty_back, tz_back,
 	           mvMatrix_back,
-	           primitiveType, true);	
+	           primitiveType, true);
+	if(nivel == 3){
+		mvMatrix = translationMatrix(0, 0, globalTz);
+	  	mvMatrix = mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY));
+	 	mvMatrix = mult(mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY)),
+		                rotationXXMatrix(globalAngleXX));
+
+		mvMatrix2 = translationMatrix(0, 0, globalTz);
+	  	mvMatrix2 = mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY));
+	 	mvMatrix2 = mult(mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY)),
+		                rotationXXMatrix(globalAngleXX));
+
+ 		drawModel( angleXX1, angleYY1, angleZZ1, 
+			           sx1, sy1, sz1,
+			           tx1, ty1, tz1,
+			           mvMatrix,
+			           primitiveType, false, "piramide" );
+
+ 		drawModel( angleXX2, angleYY2, angleZZ2, 
+			           sx2, sy2, sz2,
+			           tx2, ty2, tz2,
+			           mvMatrix2,
+			           primitiveType, false, "cubo" );
+	}
 }
 
 //----------------------------------------------------------------------------
@@ -715,10 +759,10 @@ function runWebGL() {
 	var canvas = document.getElementById("my-canvas");
 	
 	initWebGL( canvas );
-
-	shaderProgram = initShaders( gl );
-	initBuffers();
-
+	if(nivel == 1 || nivel == 2){
+		shaderProgram = initShaders( gl );
+		initBuffers();
+	}
 	background = 1;
 
 	shaderProgram_back = initShaders_back( gl );

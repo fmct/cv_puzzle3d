@@ -12,40 +12,40 @@ var cubeVertexTextureCoordBuffer_piramide_nivel3;
 
 var verticesCubo = [
             // Front face
-            -1.0, -1.0,  1.0,
-             1.0, -1.0,  1.0,
-             1.0,  1.0,  1.0,
-            -1.0,  1.0,  1.0,
+            -0.45, -0.45,  0.45,
+             0.45, -0.45,  0.45,
+             0.45,  0.45,  0.45,
+            -0.45,  0.45,  0.45,
 
             // Back face
-            -1.0, -1.0, -1.0,
-            -1.0,  1.0, -1.0,
-             1.0,  1.0, -1.0,
-             1.0, -1.0, -1.0,
+            -0.45, -0.45, -0.45,
+            -0.45,  0.45, -0.45,
+            0.45,  0.45, -0.45,
+            0.45, -0.45, -0.45,
 
             // Top face
-            -1.0,  1.0, -1.0,
-            -1.0,  1.0,  1.0,
-             1.0,  1.0,  1.0,
-             1.0,  1.0, -1.0,
+            -0.45,  0.45, -0.45,
+            -0.45,  0.45,  0.45,
+             0.45,  0.45,  0.45,
+             0.45,  0.45, -0.45,
 
             // Bottom face
-            -1.0, -1.0, -1.0,
-             1.0, -1.0, -1.0,
-             1.0, -1.0,  1.0,
-            -1.0, -1.0,  1.0,
+            -0.45, -0.45, -0.45,
+            0.45, -0.45, -0.45,
+            0.45, -0.45,  0.45,
+            -0.45, -0.45,  0.45,
 
             // Right face
-             1.0, -1.0, -1.0,
-             1.0,  1.0, -1.0,
-             1.0,  1.0,  1.0,
-             1.0, -1.0,  1.0,
+             0.45, -0.45, -0.45,
+             0.45,  0.45, -0.45,
+             0.45,  0.45,  0.45,
+             0.45, -0.45,  0.45,
 
             // Left face
-            -1.0, -1.0, -1.0,
-            -1.0, -1.0,  1.0,
-            -1.0,  1.0,  1.0,
-            -1.0,  1.0, -1.0
+            -0.45, -0.45, -0.45,
+            -0.45, -0.45,  0.45,
+            -0.45,  0.45,  0.45,
+            -0.45,  0.45, -0.45,
 ];
 
 var verticesPiramide = [
@@ -194,7 +194,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTextureV)
 	}
 
-	webGLTextureV.image.src = "v.jpg";
+	webGLTextureV.image.src = "imgs/v.jpg";
 
 	webGLTextureC = gl.createTexture();
 	webGLTextureC.image = new Image();
@@ -202,7 +202,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTextureC)
 	}
 
-	webGLTextureC.image.src = "c.jpg";
+	webGLTextureC.image.src = "imgs/c.jpg";
 
 
 	webGLTextureM = gl.createTexture();
@@ -211,7 +211,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTextureM)
 	}
 
-	webGLTextureM.image.src = "m.jpg";
+	webGLTextureM.image.src = "imgs/m.jpg";
 
 	webGLTextureL = gl.createTexture();
 	webGLTextureL.image = new Image();
@@ -219,7 +219,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTextureL)
 	}
 
-	webGLTextureL.image.src = "l.jpg";
+	webGLTextureL.image.src = "imgs/l.jpg";
 
 	webGLTextureS = gl.createTexture();
 	webGLTextureS.image = new Image();
@@ -227,7 +227,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTextureS)
 	}
 
-	webGLTextureS.image.src = "s.jpg";
+	webGLTextureS.image.src = "imgs/s.jpg";
 
 	webGLTexturePiramide = gl.createTexture();
 	webGLTexturePiramide.image = new Image();
@@ -235,7 +235,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTexturePiramide)
 	}
 
-	webGLTexturePiramide.image.src = "piramide.jpg";
+	webGLTexturePiramide.image.src = "imgs/piramide.jpg";
 
 }
 
@@ -264,7 +264,7 @@ function initBuffersNivel3() {
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndicesCubo), gl.STATIC_DRAW);
     cubeVertexIndexBuffer_cubo_nivel3.itemSize = 1;
     cubeVertexIndexBuffer_cubo_nivel3.numItems = 36;
-
+    
     //cordinates piramide
     cubeVertexPositionBuffer_piramide_nivel3 = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer_piramide_nivel3);
@@ -282,14 +282,15 @@ function initBuffersNivel3() {
 
 	// Vertex indices
 	
-    cubeVertexIndexBuffer_cubo_nivel3 = gl.createBuffer();
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer_cubo_nivel3);
+    cubeVertexIndexBuffer_piramide_nivel3 = gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer_piramide_nivel3);
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndicesPiramide), gl.STATIC_DRAW);
     cubeVertexIndexBuffer_piramide_nivel3.itemSize = 1;
     cubeVertexIndexBuffer_piramide_nivel3.numItems = 36;
 }
 
 function drawModelNivel3(figura){
+
 	if(figura == "cubo"){
 		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer_cubo_nivel3);
     
@@ -317,9 +318,8 @@ function drawModelNivel3(figura){
 		gl.bindTexture(gl.TEXTURE_2D, webGLTextureV);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 24);
 
-
 		gl.bindTexture(gl.TEXTURE_2D, webGLTextureM);
-		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 26);
+		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 36);
 
 		gl.bindTexture(gl.TEXTURE_2D, webGLTextureS);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 48);
@@ -328,28 +328,29 @@ function drawModelNivel3(figura){
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 60);
 	}
 	if(figura == "piramide"){
-
 		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer_piramide_nivel3);
     
-	    gl.vertexAttribPointer(shaderProgram_back.vertexPositionAttribute, cubeVertexPositionBuffer_piramide_nivel3.itemSize, gl.FLOAT, false, 0, 0);
+		gl.vertexAttribPointer(shaderProgram_back.vertexPositionAttribute, cubeVertexPositionBuffer_piramide_nivel3.itemSize, gl.FLOAT, false, 0, 0);
 
 		// NEW --- Textures
-		
+
 		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer_piramide_nivel3);
-	    gl.vertexAttribPointer(shaderProgram_back.textureCoordAttribute, cubeVertexTextureCoordBuffer_piramide_nivel3.itemSize, gl.FLOAT, false, 0, 0);
+		gl.vertexAttribPointer(shaderProgram_back.textureCoordAttribute, cubeVertexTextureCoordBuffer_piramide_nivel3.itemSize, gl.FLOAT, false, 0, 0);
 
-	    gl.activeTexture(gl.TEXTURE0);
-	         
-	    gl.uniform1i(shaderProgram_back.samplerUniform, 0);
-	    
-	    // The vertex indices
-	    
-	    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer_piramide_nivel3);
+		gl.activeTexture(gl.TEXTURE0);
 
+		    
+		gl.uniform1i(shaderProgram_back.samplerUniform, 0);
+
+		// The vertex indices
+
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer_piramide_nivel3);
+
+		// Drawing the triangles --- NEW --- DRAWING ELEMENTS 
 		gl.bindTexture(gl.TEXTURE_2D, webGLTexturePiramide);
 		gl.drawElements(gl.TRIANGLES, 3, gl.UNSIGNED_SHORT, 0);	
 
-	    gl.bindTexture(gl.TEXTURE_2D, webGLTexturePiramide);
+		gl.bindTexture(gl.TEXTURE_2D, webGLTexturePiramide);
 		gl.drawElements(gl.TRIANGLES, 3, gl.UNSIGNED_SHORT, 6);	
 
 		gl.bindTexture(gl.TEXTURE_2D, webGLTextureV);
