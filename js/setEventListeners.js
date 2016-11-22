@@ -889,7 +889,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-left-button").onclick = function(){			
 			if(nivel == 1){		
 				if(tx2 > limite_inf){
-					tx2 -= 0.1;		
+					tx2 -= 0.05;		
 				}	
 				var tentativa = verificarPosicaoTx(tx2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -922,7 +922,7 @@ function setEventListeners(canvas){
 			}
 			else if(nivel == 2){
 				if(tx2 > limite_inf){
-					tx2 -= 0.1;		
+					tx2 -= 0.05;		
 				}
 				var tentativa = verificarPosicaoTx(tx2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -958,7 +958,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-right-button").onclick = function(){		
 			if(nivel == 1){
 				if(tx2 < limite_sup){
-					tx2 += 0.1;		
+					tx2 += 0.05;		
 				}		
 				var tentativa = verificarPosicaoTx(tx2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -991,7 +991,7 @@ function setEventListeners(canvas){
 			}
 			else if(nivel == 2){
 				if(tx2 < limite_sup){
-					tx2 += 0.1;		
+					tx2 += 0.05;		
 				}
 				var tentativa = verificarPosicaoTx(tx2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -1027,7 +1027,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-up-button").onclick = function(){			
 			if(nivel == 1){
 				if(ty2 < limite_sup){
-					ty2 += 0.1;	
+					ty2 += 0.05;	
 				}	
 				var tentativa = verificarPosicaoTy(ty2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -1060,7 +1060,7 @@ function setEventListeners(canvas){
 			}
 			else if(nivel == 2){
 				if(ty2 < limite_sup){
-					ty2 += 0.1;	
+					ty2 += 0.05;	
 				}
 				var tentativa = verificarPosicaoTy(ty2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -1096,7 +1096,7 @@ function setEventListeners(canvas){
 		document.getElementById("move-down-button").onclick = function(){		
 			if(nivel == 1){
 				if(ty2 > limite_inf){
-					ty2 -= 0.1;	
+					ty2 -= 0.05;	
 				}		
 				var tentativa = verificarPosicaoTy(ty2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -1129,7 +1129,7 @@ function setEventListeners(canvas){
 			}
 			else if(nivel == 2){
 				if(ty2 > limite_inf){
-					ty2 -= 0.1;	
+					ty2 -= 0.05;	
 				}
 				var tentativa = verificarPosicaoTy(ty2,nivel,points,fase,jogadas_nivel,"figura2");
 				points = tentativa[0];
@@ -1608,14 +1608,6 @@ function setEventListeners(canvas){
 					points_fim_nivel = points;
 					niveis();
 				}
-				if(jogadas_nivel == 0 && nivel == 1){
-					swal({
-						  title: "Jogadas disponiveis esgotadas",
-						  text: "Começar do inicio",
-						  imageUrl: "imgs/sadSmile.png"
-					});
-					reset();
-				}	
 				else{
 					if(jogadas_nivel == 0){
 						swal({
@@ -2083,14 +2075,6 @@ function setEventListeners(canvas){
 					  imageUrl: "imgs/thumbs-up.jpg"
 				});
 			}
-			if(jogadas_nivel == 0 && nivel == 1){
-				swal({
-					  title: "Jogadas disponiveis esgotadas",
-					  text: "Começar do inicio",
-					  imageUrl: "imgs/sadSmile.png"
-				});
-				reset();
-			}	
 			else{
 				if(jogadas_nivel == 0){
 					swal({

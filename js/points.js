@@ -18,7 +18,7 @@ var angleYY1_certo_nivel1 = -90;
 var angleZZ1_certo_nivel1 = 0.0;
 		//nivel 2
 var tx1_certo_nivel2 = 0.0;
-var ty1_certo_nivel2 = 0.9;
+var ty1_certo_nivel2 = 0.65;
 var tz1_certo_nivel2 = -0.2;
 var angleXX1_certo_nivel2 = 0.0;
 var angleYY1_certo_nivel2 = 180;
@@ -39,9 +39,9 @@ var angleXX2_certo_nivel1 = 90;
 var angleZZ2_certo_nivel1 = 0.0;
 		//nivel 2
 var tx2_certo_nivel2 = 0.0;
-var ty2_certo_nivel2 = 0.3;
+var ty2_certo_nivel2 = 0.35;
 var tz2_certo_nivel2 = -0.2;
-var angleYY2_certo_nivel2 = -90;
+var angleYY2_certo_nivel2 = 90;
 var angleXX2_certo_nivel2 = 0.0;
 var angleZZ2_certo_nivel2 = 0.0;
 	//figura 3
@@ -56,7 +56,7 @@ var ty3_certo_nivel2 = -0.2;
 var tz3_certo_nivel2 = -0.2;
 var angleYY3_certo_nivel2 = 0.0;
 var angleXX3_certo_nivel2 = 90;
-var angleZZ3_certo_nivel2 = 90;
+var angleZZ3_certo_nivel2 = -90;
 
 function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
@@ -100,6 +100,7 @@ function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 		}
 	}	
 	else if(nivel == 2){
+		alert(acertou);
 		if(figura == "figura1"){
 			if( !(tx >= tx1_certo_nivel2-0.04 && tx <= tx1_certo_nivel2+0.04)){
 				points -= 10;
@@ -182,6 +183,7 @@ function verificarPosicaoTy(ty, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
+
 			if( !(ty >= ty2_certo_nivel1-0.04 && ty <= ty2_certo_nivel1+0.04)){
 				points -= 10;
 				jogadas -= 1;
@@ -261,6 +263,7 @@ function verificarPosicaoTy(ty, nivel, points, fase,jogadas, figura){
 
 
 function verificarPosicaoTz(tz, nivel, points, fase,jogadas, figura){
+	alert(acertou);
 	if(nivel == 1){
 		if(figura == "figura1"){
 			if(!(tz >= tz1_certo_nivel1-0.04 && tz <= tz1_certo_nivel1+0.04)) {
@@ -462,7 +465,7 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 	
 	if(nivel == 1){
 		if(figura == "figura1"){
-			if( angleYY != angleYY1_certo_nivel1 && angleYY != angleYY1_certo_nivel1 + 360 ){
+			if( angleYY != angleYY1_certo_nivel1 && angleYY != angleYY1_certo_nivel1 - 360 ){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(5, 1, angleYY1_certo_nivel1, angleYY);	
@@ -634,7 +637,7 @@ function verificarPosicaoAngleZZ(angleZZ, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura3"){
-			if( angleZZ != angleZZ3_certo_nivel2 && angleZZ != angleZZ3_certo_nivel2 - 360){
+			if( angleZZ != angleZZ3_certo_nivel2 && angleZZ != angleZZ3_certo_nivel2 + 360){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(6, 5, angleZZ3_certo_nivel2, angleZZ);	
@@ -722,7 +725,7 @@ function acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,t
 	}
 }
 
-function acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3){
+function acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3){	
 	//figura1_nivel2 -> fig3
 	if(tx1 == tx1_certo_nivel2){
 		hit_x1 = true;

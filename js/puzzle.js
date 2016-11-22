@@ -692,7 +692,7 @@ function reset(){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		jogadas_nivel = 35;
+		jogadas_nivel = 50;
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = points_fim_nivel; 
 		document.getElementById("points").innerHTML=points;
@@ -701,7 +701,10 @@ function reset(){
 		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
 		hit_x3 = hit_y3 = hit_z3 = hit_angXX3 = hit_angYY3 = hit_angZZ3 = false;
 		positionsNot();
-		acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
+		if(!inicial){
+			acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
+		}
+		inicial = false;
 	}
 }
 
@@ -746,7 +749,7 @@ function runWebGL() {
 		getBarsReset(0,0,1,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
-		jogadas_nivel = 80;
+		jogadas_nivel = 50;
 	}
 	if(nivel == 3){
 		jogadas_nivel = 100;

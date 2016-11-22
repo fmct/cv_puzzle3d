@@ -1,4 +1,4 @@
-
+var inicial = true;
 
 function niveis(){	
 	if(nivel == 1){
