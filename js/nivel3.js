@@ -293,7 +293,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTextureL)
 	}
 
-	webGLTextureL.image.src = "imgs/l.jpg";
+	webGLTextureL.image.src = "imgs/piramide.jpg";
 
 	webGLTextureS = gl.createTexture();
 	webGLTextureS.image = new Image();

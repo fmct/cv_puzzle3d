@@ -163,6 +163,13 @@ function positionsNot() {
   setBarAttributesAnglesNot(4, 7, angleXX2_certo_nivel3, angleXX2);
   setBarAttributesAnglesNot(5, 7, angleYY2_certo_nivel3, angleYY2);
   setBarAttributesAnglesNot(6, 7, angleZZ2_certo_nivel3, angleZZ2);  
+  // Figura8
+  setBarAttributesTranslationsNot(1, 8, tx3_certo_nivel3, tx3);
+  setBarAttributesTranslationsNot(2, 8, ty3_certo_nivel3, ty3);
+  setBarAttributesTranslationsNot(3, 8, tz3_certo_nivel3, tz3);
+  setBarAttributesAnglesNot(4, 8, angleXX3_certo_nivel3, angleXX3);
+  setBarAttributesAnglesNot(5, 8, angleYY3_certo_nivel3, angleYY3);
+  setBarAttributesAnglesNot(6, 8, angleZZ3_certo_nivel3, angleZZ3);  
 }
 
 

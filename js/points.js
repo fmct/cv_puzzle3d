@@ -27,11 +27,11 @@ var angleZZ1_certo_nivel2 = 45;
 		//nivel 3
 //ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
 var tx1_certo_nivel3 = 0.0;
-var ty1_certo_nivel3 = 0.65;
-var tz1_certo_nivel3 = -0.2;
+var ty1_certo_nivel3 = 0.75;
+var tz1_certo_nivel3 = -0.5;
 var angleXX1_certo_nivel3 = 0.0;
-var angleYY1_certo_nivel3 = 180;
-var angleZZ1_certo_nivel3 = 45;		
+var angleYY1_certo_nivel3 = -180;
+var angleZZ1_certo_nivel3 = 0.0;		
 	//figura2
 var hit_x2 = false;
 var hit_y2 = false;
@@ -47,7 +47,7 @@ var angleYY2_certo_nivel1 = 0.0;
 var angleXX2_certo_nivel1 = 90;
 var angleZZ2_certo_nivel1 = 0.0;
 		//nivel 2
-var tx2_certo_nivel2 = 0.0;
+var tx2_certo_nivel2 = -0.1;
 var ty2_certo_nivel2 = 0.35;
 var tz2_certo_nivel2 = -0.2;
 var angleYY2_certo_nivel2 = 90;
@@ -55,39 +55,34 @@ var angleXX2_certo_nivel2 = 0.0;
 var angleZZ2_certo_nivel2 = 0.0;
 		//nivel 3
 //ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
-var tx2_certo_nivel3 = 0.0;
+var tx2_certo_nivel3 = -0.5;
 var ty2_certo_nivel3 = 0.35;
-var tz2_certo_nivel3 = -0.2;
-var angleYY2_certo_nivel3 = 90;
-var angleXX2_certo_nivel3 = 0.0;
+var tz2_certo_nivel3 = -0.5;
+var angleYY2_certo_nivel3 = 180;
+var angleXX2_certo_nivel3 = -90;
 var angleZZ2_certo_nivel3 = 0.0;		
-	//figura 3 - nive2
+	//figura 3 
 var hit_x3 = false;
 var hit_y3 = false;
 var hit_z3 = false;
 var hit_angY3 = false;
 var hit_angX3 = false;
-var hit_angZ3 = false;	
+var hit_angZ3 = false;
+		// nivel 2	
 var tx3_certo_nivel2 = 0.0;
 var ty3_certo_nivel2 = -0.15;
 var tz3_certo_nivel2 = -0.2;
 var angleYY3_certo_nivel2 = 0.0;
 var angleXX3_certo_nivel2 = 90;
 var angleZZ3_certo_nivel2 = -90;
-	// figura 3 - nivel3
-//ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
-var tx3_certo_nivel3 = 0.0;
-var ty3_certo_nivel3 = -0.15;
-var tz3_certo_nivel3 = -0.2;
+		// nivel3	
+var tx3_certo_nivel3 = 0.6;
+var ty3_certo_nivel3 = 0.95;
+var tz3_certo_nivel3 = -0.5;
 var angleYY3_certo_nivel3 = 0.0;
 var angleXX3_certo_nivel3 = 90;
-var angleZZ3_certo_nivel3 = -90;
+var angleZZ3_certo_nivel3 = 0.0;
 
-function selectPieces(){
-	if(!figura_selecionada){
-		alert("Selecione uma figura!");
-	}
-}	
 
 function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
@@ -386,7 +381,7 @@ function verificarPosicaoTy(ty, nivel, points, fase,jogadas, figura){
 			if( !(ty >= ty3_certo_nivel3-0.04 && ty <= ty3_certo_nivel3+0.04)){
 				points -= 10;
 				jogadas -= 1;
-				setBarAttributesTranslationsNot(2, 8, ty3_certo_nivel2, ty);
+				setBarAttributesTranslationsNot(2, 8, ty3_certo_nivel3, ty);
 				if(hit_y3 == true){
 					hit_y3 = false;
 					acertou -= 1;

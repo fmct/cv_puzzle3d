@@ -35,7 +35,7 @@ var triangleVertexColorBuffer_F3 = null;
 
 var globalTz = 0.0;
 
-var nivel = 1;
+var nivel = 2;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0
@@ -81,7 +81,7 @@ var angleZZ2 = 0.0;
 
 var angleXX3 = 45;
 
-var angleYY3 = 0.0;
+var angleYY3 = 90.0;
 
 var angleZZ3 = 0.0;
 
@@ -824,12 +824,19 @@ function runWebGL() {
 	initBuffers();
 
 	initTexture();	
-	if(nivel == 2 || nivel == 3){
+
+	if(nivel == 2){
 		var button = document.createElement("button");
 		button.className = "btn btn-tumblr btn3d";
 		button.id = "figura3";
 		document.getElementById("choose_fig").appendChild(button);
 		document.getElementById("figura3").innerHTML="paralelipipedo";
+	}else if(nivel == 3){
+		var button = document.createElement("button");
+		button.className = "btn btn-tumblr btn3d";
+		button.id = "figura3";
+		document.getElementById("choose_fig").appendChild(button);
+		document.getElementById("figura3").innerHTML="Paralelipipedo";
 	}
 
 	setEventListeners(canvas);
@@ -843,14 +850,12 @@ function runWebGL() {
 		getVisibleBars();
 		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 		jogadas_nivel = 25;
-	}
-	if(nivel == 2){
+	}else if(nivel == 2){
 		getBarsReset(0,0,1,0,0,0,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 		jogadas_nivel = 50;
-	}
-	if(nivel == 3){
+	}else if(nivel == 3){
 		getBarsReset(0,0,0,0,0,1,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
