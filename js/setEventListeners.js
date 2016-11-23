@@ -2601,773 +2601,775 @@ function setEventListeners(canvas){
 	};
 
 	// Button events
-	document.getElementById("figura3").onclick = function(){
-		figura1_on = 0;
-		figura2_on = 0;
-		figura3_on = 1;
-		//MAMAS
-		if(document.getElementById("figura3").innerHTML=="paralelipipedo"){
-			getBarsReset(0,0,0,0,1,0,0,0);
-		}else if(document.getElementById("figura3").innerHTML=="Paralelipipedo"){
-			getBarsReset(0,0,0,0,0,0,0,1);
-		}	
-		getVisibleBars();
-		document.getElementById("move-left-button").onclick = function(){			
-			if(nivel == 2){		
-				if(tx3 > limite_esq){
-					tx3 -= 0.05;		
+	if(nivel!=1){
+		document.getElementById("figura3").onclick = function(){
+			figura1_on = 0;
+			figura2_on = 0;
+			figura3_on = 1;
+			//MAMAS
+			if(document.getElementById("figura3").innerHTML=="paralelipipedo"){
+				getBarsReset(0,0,0,0,1,0,0,0);
+			}else if(document.getElementById("figura3").innerHTML=="Paralelipipedo"){
+				getBarsReset(0,0,0,0,0,0,0,1);
+			}	
+			getVisibleBars();
+			document.getElementById("move-left-button").onclick = function(){			
+				if(nivel == 2){		
+					if(tx3 > limite_esq){
+						tx3 -= 0.05;		
+					}
+					var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	
+
+				}else if(nivel == 3){
+					if(tx3 > limite_inf){
+						tx3 -= 0.1;		
+					}	
+					var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
 				}
-				var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	
+			};	
 
-			}else if(nivel == 3){
-				if(tx3 > limite_inf){
-					tx3 -= 0.1;		
-				}	
-				var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
+			document.getElementById("move-right-button").onclick = function(){		
+				// Updating	
+				if(nivel==2){
+					if(tx3 < limite_sup){
+						tx3 += 0.1;		
 					}
-					drawScene(); 
-				}	  
-			}
-		};	
+					var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
 
-		document.getElementById("move-right-button").onclick = function(){		
-			// Updating	
-			if(nivel==2){
-				if(tx3 < limite_sup){
-					tx3 += 0.1;		
+				}else if(nivel == 3){
+					if(tx3 < limite_sup){
+						tx3 += 0.1;		
+					}		
+					var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
 				}
-				var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
+			};
 
-			}else if(nivel == 3){
-				if(tx3 < limite_sup){
-					tx3 += 0.1;		
+			document.getElementById("move-up-button").onclick = function(){			
+				// Updating	
+				if(nivel == 2){
+					if(ty3 < limite_sup){
+						ty3 += 0.05;	
+					}	
+					var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}else if(nivel == 3){
+					if(ty3 < limite_sup){
+						ty3 += 0.05;	
+					}	
+					var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}
+			};	
+
+			document.getElementById("move-down-button").onclick = function(){		
+				// Updating	
+				if(nivel == 2){
+					if(ty3 > limite_inf){
+						ty3 -= 0.05;	
+					}		
+					var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+
+				}else if(nivel == 3){
+					if(ty3 > limite_inf){
+						ty3 -= 0.05;	
+					}		
+					var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}
+				
+			};	
+
+			document.getElementById("move-front-button").onclick = function(){
+				// Updating
+				if(nivel == 2){
+					if(tz3 < limite_sup){
+						tz3 += 0.1;		
+					}
+					var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	 
+
+				}else if(nivel == 3){
+					if(tz3 < limite_sup){
+						tz3 += 0.1;		
+					}
+					var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	 
+				}
+			}; 
+
+			document.getElementById("move-back-button").onclick = function(){
+				if(nivel == 2){
+					if(tz3+block > tz_back){
+						tz3 -= 0.1;
+					}
+					var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	   
+
+				}else if(nivel == 3){
+					if(tz3+block > tz_back){
+						tz3 -= 0.1;
+					}
+					var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	   
+				}
+			};   
+
+			document.getElementById("rotate-xx-up").onclick = function(){				
+				// Updating	
+				if(nivel == 2){
+					angleXX3 -= 45;			
+					if(angleXX3 == 360 || angleXX3 == -360){
+						angleXX3 = 0;
+					}
+					var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}			
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	 
+
+				}else if(nivel == 3){
+					angleXX3 -= 45;			
+					if(angleXX3 == 360 || angleXX3 == -360){
+						angleXX3 = 0;
+					}
+					alert(angleXX3);
+					var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}			
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	 
 				}		
-				var tentativa = verificarPosicaoTx(tx3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}
-		};
+			};
 
-		document.getElementById("move-up-button").onclick = function(){			
-			// Updating	
-			if(nivel == 2){
-				if(ty3 < limite_sup){
-					ty3 += 0.05;	
-				}	
-				var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
+			document.getElementById("rotate-xx-down").onclick = function(){		
+				// Updating	
+				if(nivel == 2){
+					angleXX3 += 45;				
+					if(angleXX3 == 360 || angleXX3 == -360){
+						angleXX3 = 0;
 					}
-					drawScene(); 
-				}	  
-			}else if(nivel == 3){
-				if(ty3 < limite_sup){
-					ty3 += 0.05;	
-				}	
-				var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
+					var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
 						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
 						});
-						reset();
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}else if(nivel == 3){
+					angleXX3 += 45;				
+					if(angleXX3 == 360 || angleXX3 == -360){
+						angleXX3 = 0;
 					}
-					drawScene(); 
-				}	  
-			}
+					alert(angleXX3);
+					var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}
+			};
+
+			document.getElementById("rotate-yy-right").onclick = function(){			
+				// Updating			
+				if(nivel == 2){
+					angleYY3 += 45;		
+					if(angleYY3 == 360 || angleYY3 == -360){
+						angleYY3 = 0;
+					}	
+					var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+
+				}else if(nivel == 3){
+					angleYY3 += 45;		
+					if(angleYY3 == 360 || angleYY3 == -360){
+						angleYY3 = 0;
+					}	
+					var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}
+			};
+
+			document.getElementById("rotate-yy-left").onclick = function(){			
+				// Updating	
+				if(nivel == 2){
+					angleYY3 -= 45;		
+					if(angleYY3 == 360 || angleYY3 == -360){
+						angleYY3 = 0;
+					}
+					var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+
+				}else if(nivel == 3){
+					angleYY3 -= 45;		
+					if(angleYY3 == 360 || angleYY3 == -360){
+						angleYY3 = 0;
+					}
+					var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}	
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}
+			};
+
+			document.getElementById("rotate-zz-cw").onclick = function(){		
+				// Updating		
+				if(nivel == 2){
+					angleZZ3 -= 45;			
+					if(angleZZ3 == 360 || angleZZ3 == -360){
+						angleZZ3 = 0;
+					}
+					var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	 
+				}else if(nivel == 3){
+					angleZZ3 -= 45;			
+					if(angleZZ3 == 360 || angleZZ3 == -360){
+						angleZZ3 = 0;
+					}
+					var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	 
+				}
+			};
+
+
+
+			document.getElementById("rotate-zz-ccw").onclick = function(){		
+				// Updating
+				if(nivel == 2) {
+					angleZZ3 += 45;				
+					if(angleZZ3 == 360 || angleZZ3 == -360){
+						angleZZ3 = 0;
+					}
+					var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Segundo nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}			
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}else if(nivel == 3){
+					angleZZ3 += 45;				
+					if(angleZZ3 == 360 || angleZZ3 == -360){
+						angleZZ3 = 0;
+					}
+					var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
+					points = tentativa[0];
+					document.getElementById("points").innerHTML=points;
+					fase = tentativa[1];
+					jogadas_nivel = tentativa[2];
+					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+					if(acertou == 18){
+						swal({
+							  title: "Terceiro nivel concluido!",
+							  text: "Próximo nivel",
+							  imageUrl: "imgs/thumbs-up.jpg"
+						});
+					}			
+					else{
+						if(jogadas_nivel == 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						drawScene(); 
+					}	  
+				}
+			}; 
+
 		};	
-
-		document.getElementById("move-down-button").onclick = function(){		
-			// Updating	
-			if(nivel == 2){
-				if(ty3 > limite_inf){
-					ty3 -= 0.05;	
-				}		
-				var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-
-			}else if(nivel == 3){
-				if(ty3 > limite_inf){
-					ty3 -= 0.05;	
-				}		
-				var tentativa = verificarPosicaoTy(ty3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}
-			
-		};	
-
-		document.getElementById("move-front-button").onclick = function(){
-			// Updating
-			if(nivel == 2){
-				if(tz3 < limite_sup){
-					tz3 += 0.1;		
-				}
-				var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	 
-
-			}else if(nivel == 3){
-				if(tz3 < limite_sup){
-					tz3 += 0.1;		
-				}
-				var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	 
-			}
-		}; 
-
-		document.getElementById("move-back-button").onclick = function(){
-			if(nivel == 2){
-				if(tz3+block > tz_back){
-					tz3 -= 0.1;
-				}
-				var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	   
-
-			}else if(nivel == 3){
-				if(tz3+block > tz_back){
-					tz3 -= 0.1;
-				}
-				var tentativa = verificarPosicaoTz(tz3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	   
-			}
-		};   
-
-		document.getElementById("rotate-xx-up").onclick = function(){				
-			// Updating	
-			if(nivel == 2){
-				angleXX3 -= 45;			
-				if(angleXX3 == 360 || angleXX3 == -360){
-					angleXX3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}			
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	 
-
-			}else if(nivel == 3){
-				angleXX3 -= 45;			
-				if(angleXX3 == 360 || angleXX3 == -360){
-					angleXX3 = 0;
-				}
-				alert(angleXX3);
-				var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}			
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	 
-			}		
-		};
-
-		document.getElementById("rotate-xx-down").onclick = function(){		
-			// Updating	
-			if(nivel == 2){
-				angleXX3 += 45;				
-				if(angleXX3 == 360 || angleXX3 == -360){
-					angleXX3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}else if(nivel == 3){
-				angleXX3 += 45;				
-				if(angleXX3 == 360 || angleXX3 == -360){
-					angleXX3 = 0;
-				}
-				alert(angleXX3);
-				var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}
-		};
-
-		document.getElementById("rotate-yy-right").onclick = function(){			
-			// Updating			
-			if(nivel == 2){
-				angleYY3 += 45;		
-				if(angleYY3 == 360 || angleYY3 == -360){
-					angleYY3 = 0;
-				}	
-				var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-
-			}else if(nivel == 3){
-				angleYY3 += 45;		
-				if(angleYY3 == 360 || angleYY3 == -360){
-					angleYY3 = 0;
-				}	
-				var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}
-		};
-
-		document.getElementById("rotate-yy-left").onclick = function(){			
-			// Updating	
-			if(nivel == 2){
-				angleYY3 -= 45;		
-				if(angleYY3 == 360 || angleYY3 == -360){
-					angleYY3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-
-			}else if(nivel == 3){
-				angleYY3 -= 45;		
-				if(angleYY3 == 360 || angleYY3 == -360){
-					angleYY3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleYY(angleYY3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}	
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}
-		};
-
-		document.getElementById("rotate-zz-cw").onclick = function(){		
-			// Updating		
-			if(nivel == 2){
-				angleZZ3 -= 45;			
-				if(angleZZ3 == 360 || angleZZ3 == -360){
-					angleZZ3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	 
-			}else if(nivel == 3){
-				angleZZ3 -= 45;			
-				if(angleZZ3 == 360 || angleZZ3 == -360){
-					angleZZ3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	 
-			}
-		};
-
-
-
-		document.getElementById("rotate-zz-ccw").onclick = function(){		
-			// Updating
-			if(nivel == 2) {
-				angleZZ3 += 45;				
-				if(angleZZ3 == 360 || angleZZ3 == -360){
-					angleZZ3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}			
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}else if(nivel == 3){
-				angleZZ3 += 45;				
-				if(angleZZ3 == 360 || angleZZ3 == -360){
-					angleZZ3 = 0;
-				}
-				var tentativa = verificarPosicaoAngleZZ(angleZZ3,nivel,points,fase,jogadas_nivel,"figura3");
-				points = tentativa[0];
-				document.getElementById("points").innerHTML=points;
-				fase = tentativa[1];
-				jogadas_nivel = tentativa[2];
-				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-				if(acertou == 18){
-					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-				}			
-				else{
-					if(jogadas_nivel == 0){
-						swal({
-							  title: "Jogadas disponiveis esgotadas",
-							  text: "Começar do inicio",
-							  imageUrl: "imgs/sadSmile.png"
-						});
-						reset();
-					}
-					drawScene(); 
-				}	  
-			}
-		}; 
-
-	};			
+	}			
 
 
 	document.getElementById("reset-button").onclick = function(){	
