@@ -384,6 +384,9 @@ function drawModel( angleXX, angleYY, angleZZ,
 			if(figura == "piramide"){
 				drawModelNivel3("piramide");
 			}
+			if(figura == "paralelipipedo"){
+				drawModelNivel3("paralelipipedo");
+			}
 	 }		
 }
 
@@ -506,6 +509,13 @@ function drawScene() {
 		                rotationYYMatrix(globalAngleYY)),
 		                rotationXXMatrix(globalAngleXX));
 
+		mvMatrix3 = translationMatrix(0, 0, globalTz);
+	  	mvMatrix3 = mult(translationMatrix(0, 0, globalTz),
+		                rotationYYMatrix(globalAngleYY));
+	 	mvMatrix3 = mult(mult(translationMatrix(0, 0, globalTz),
+	                rotationYYMatrix(globalAngleYY)),
+		            rotationXXMatrix(globalAngleXX));
+
  		drawModel( angleXX1, angleYY1, angleZZ1, 
 			           sx1, sy1, sz1,
 			           tx1, ty1, tz1,
@@ -517,6 +527,12 @@ function drawScene() {
 			           tx2, ty2, tz2,
 			           mvMatrix2,
 			           primitiveType, false, "cubo" );
+
+ 		drawModel( angleXX3, angleYY3, angleZZ3, 
+			           sx3, sy3, sz3,
+			           tx3, ty3, tz3,
+			           mvMatrix3,
+			           primitiveType, false, "paralelipipedo" );
 	}
 }
 
@@ -770,7 +786,7 @@ function runWebGL() {
 	initBuffers();
 
 	initTexture();	
-	if(nivel == 2){
+	if(nivel == 2 || nivel == 3){
 		var button = document.createElement("button");
 		button.className = "btn btn-tumblr btn3d";
 		button.id = "figura3";

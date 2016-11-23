@@ -7,6 +7,7 @@ var hit_x1 = false;
 var hit_y1 = false;
 var hit_z1 = false;
 var hit_angY1 = false;
+var hit_angY1_XZ = false;
 var hit_angX1 = false;
 var hit_angZ1 = false;
 		//nivel 1
@@ -573,7 +574,7 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 				}
 			}
 		}
-		if(figura == "figura2"){
+		if(figura == "figura2"){ 
 			if( angleXX != angleXX2_certo_nivel1 - 360 && angleXX != angleXX2_certo_nivel1 ){
 				points -= 10;
 				jogadas -= 1;
@@ -594,6 +595,23 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 	}
 	else if(nivel == 2){
 		if(figura == "figura1"){ 
+			/*if((angleYY1 == 0 && angleXX == 180 && angleZZ1 == -180) || (angleYY1 == 0 && angleXX == -180 && angleZZ1 == -180)){
+				hit_angY1 = true;
+				hit_angY1_XZ = true;
+				acertou += 1;
+				angleYY1_certo_nivel2 = 0.0;
+				if(angleXX == 180){
+					angleXX1_certo_nivel2 = 180;
+				}
+				if(angleXX == -180){
+					angleXX1_certo_nivel2 = -180;
+				}
+				angleZZ1_certo_nivel2 = -135;
+				setBarAttributesTranslationsOrAngles(5, 3);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Y da estrela", "success");
+				}
+			}*/
 			if( angleXX != angleXX1_certo_nivel2){
 				points -= 10;
 				jogadas -= 1;
@@ -756,15 +774,21 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 				setBarAttributesAnglesNot(5, 3, angleYY1_certo_nivel2, angleYY);	
 				if(hit_angY1 == true){
 					hit_angY1 = false;
+					/*if(hit_angY1_XZ == true){
+						hit_angY1_XZ = false;
+						angleYY1_certo_nivel2 = 0.0;
+					}*/
 					acertou -= 1;
 				}	
 			}else{
-				acertou += 1;
-				hit_angY1 = true;
-				setBarAttributesTranslationsOrAngles(5, 3);
-				if(acertou != 18){
-					swal("Bom trabalho!", "Acertou o ângulo Y da estrela", "success");
-				}
+				//if(hit_angY1_XZ == false){
+					acertou += 1;
+					hit_angY1 = true;
+					setBarAttributesTranslationsOrAngles(5, 3);
+					if(acertou != 18){
+						swal("Bom trabalho!", "Acertou o ângulo Y da estrela", "success");
+					}
+				//}
 			}
 		}
 		if(figura == "figura2"){
@@ -805,7 +829,7 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 		}
 	}else if(nivel == 3){
 		if(figura == "figura1"){
-			if( angleYY != angleYY1_certo_nivel3 && angleYY != angleYY1_certo_nivel3 - 360 ){
+			if( angleYY != angleYY1_certo_nivel3 && angleYY != angleYY1_certo_nivel3 - 360){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(5, 6, angleYY1_certo_nivel3, angleYY);	
@@ -903,6 +927,23 @@ function verificarPosicaoAngleZZ(angleZZ, nivel, points, fase,jogadas, figura){
 	}
 	else if(nivel == 2){
 		if(figura == "figura1"){
+			/*if((angleYY1 == 0 && angleZZ == -180 && angleXX1 == 180) || (angleYY2 == 0 && angleXX1 == -180 && angleZZ == -180)){
+				hit_angY1 = true;
+				hit_angY1_XZ = true;
+				acertou += 2;
+				angleYY1_certo_nivel2 = 0.0;
+				if(angleXX1 == 180){
+					angleXX1_certo_nivel2 = 180;
+				}
+				if(angleXX1 == -180){
+					angleXX1_certo_nivel2 = -180;
+				}
+				angleZZ1_certo_nivel2 = -135;
+				setBarAttributesTranslationsOrAngles(5, 3);
+				if(acertou != 18){
+					swal("Bom trabalho!", "Acertou o ângulo Y da estrela", "success");
+				}
+			}*/
 			if( angleZZ != angleZZ1_certo_nivel2 && angleZZ != angleZZ1_certo_nivel2 - 360){
 				points -= 10;
 				jogadas -= 1;
