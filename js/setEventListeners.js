@@ -2606,7 +2606,6 @@ function setEventListeners(canvas){
 			figura1_on = 0;
 			figura2_on = 0;
 			figura3_on = 1;
-			//MAMAS
 			if(document.getElementById("figura3").innerHTML=="paralelipipedo"){
 				getBarsReset(0,0,0,0,1,0,0,0);
 			}else if(document.getElementById("figura3").innerHTML=="Paralelipipedo"){
@@ -3020,7 +3019,6 @@ function setEventListeners(canvas){
 					if(angleXX3 == 360 || angleXX3 == -360){
 						angleXX3 = 0;
 					}
-					alert(angleXX3);
 					var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
 					points = tentativa[0];
 					document.getElementById("points").innerHTML=points;
@@ -3084,7 +3082,6 @@ function setEventListeners(canvas){
 					if(angleXX3 == 360 || angleXX3 == -360){
 						angleXX3 = 0;
 					}
-					alert(angleXX3);
 					var tentativa = verificarPosicaoAngleXX(angleXX3,nivel,points,fase,jogadas_nivel,"figura3");
 					points = tentativa[0];
 					document.getElementById("points").innerHTML=points;

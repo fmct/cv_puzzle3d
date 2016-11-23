@@ -317,7 +317,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTexture1617)
 	}
 
-	webGLTexture1617.image.src = "imgs/1617.jpg";
+	webGLTexture1617.image.src = "imgs/16.png";
 
 }
 

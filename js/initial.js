@@ -27,8 +27,8 @@ function niveis(){
 		//reset();
 		runWebGL();
 		document.getElementById("nome_nivel").innerHTML="Nível 3: ";
-		document.getElementById("nivel_2").src="imgs/nivel2_2.png";
-		document.getElementById("nivel").src="imgs/nivel2.png";
+		document.getElementById("nivel_2").src="imgs/nivel3_2.png";
+		document.getElementById("nivel").src="imgs/nivel3.png";
 		document.getElementById("points").innerHTML=points;
 		document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
 		document.getElementById("figura1").innerHTML="Pirâmide";

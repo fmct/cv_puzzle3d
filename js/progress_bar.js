@@ -345,10 +345,16 @@ function getPercentageAngle(valor_figura, f_valor){
 		return 17*3;
 	}else if(valor == -170){
 		return 17*4;
-	}else if(valor == -215){
+	}else if(valor == -215){ 
 		return 17*5;
-	}else if(valor == -305){
+  }else if(valor == -350){ 
+    return 68;
+	}else if(valor == -305){ 
 		return 17*5;
+  }else if(valor == -395){
+    return 51; 
+  }else if(valor == 100){
+    return 100;
   }
 	return valor+30;
 }

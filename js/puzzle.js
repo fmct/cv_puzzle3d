@@ -35,7 +35,7 @@ var triangleVertexColorBuffer_F3 = null;
 
 var globalTz = 0.0;
 
-var nivel = 2;
+var nivel = 3;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0;
@@ -780,10 +780,15 @@ function reset(){
 		angleXX2 = 0.0;
 		angleYY2 = 0.0;
 		angleZZ2 = 0.0;
-		// Falta paralelipipedo
+		tx3 = 0.5;
+		ty3 = 0.5;
+		tz3 = -0.5; 
 		tx_back = 0.0;
 		ty_back = 0.0;
 		tz_back = 0.0;
+		angleXX3 = 45;
+		angleYY3 = 0.0;
+		angleZZ3 = 0.0; 
 		angleXX_back = 0.0;
 		angleYY_back = 0.0;
 		angleZZ_back = 0.0; 
@@ -799,12 +804,8 @@ function reset(){
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
 		hit_x2 = hit_y2 = hit_z2 = hit_angX2 = hit_angY2 = hit_angZ2 = false;
 		hit_x3 = hit_y3 = hit_z3 = hit_angX3 = hit_angY3 = hit_angZ3 = false;
-		// Falta hit paralelipipedo
 		positionsNot();
-		if(!inicial){
-			acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
-		}
-		inicial = false;
+		acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 	}
 }
 
