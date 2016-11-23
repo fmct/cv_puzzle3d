@@ -25,7 +25,7 @@ var angleXX1_certo_nivel2 = 0.0;
 var angleYY1_certo_nivel2 = 180;
 var angleZZ1_certo_nivel2 = 45;
 		//nivel 3
-//ALTERAR - SO PATA POR AS BARRAS A DAR!!!!!		
+//ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
 var tx1_certo_nivel3 = 0.0;
 var ty1_certo_nivel3 = 0.65;
 var tz1_certo_nivel3 = -0.2;
@@ -54,7 +54,7 @@ var angleYY2_certo_nivel2 = 90;
 var angleXX2_certo_nivel2 = 0.0;
 var angleZZ2_certo_nivel2 = 0.0;
 		//nivel 3
-//ALTERAR - SO PATA POR AS BARRAS A DAR!!!!!		
+//ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
 var tx2_certo_nivel3 = 0.0;
 var ty2_certo_nivel3 = 0.35;
 var tz2_certo_nivel3 = -0.2;
@@ -75,13 +75,19 @@ var angleYY3_certo_nivel2 = 0.0;
 var angleXX3_certo_nivel2 = 90;
 var angleZZ3_certo_nivel2 = -90;
 	// figura 3 - nivel3
-//ALTERAR - SO PATA POR AS BARRAS A DAR!!!!!		
+//ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
 var tx3_certo_nivel3 = 0.0;
 var ty3_certo_nivel3 = -0.15;
 var tz3_certo_nivel3 = -0.2;
 var angleYY3_certo_nivel3 = 0.0;
 var angleXX3_certo_nivel3 = 90;
-var angleZZ3_certo_nivel3 = -90;	
+var angleZZ3_certo_nivel3 = -90;
+
+function selectPieces(){
+	if(!figura_selecionada){
+		alert("Selecione uma figura!");
+	}
+}	
 
 function verificarPosicaoTx(tx, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
@@ -400,7 +406,6 @@ function verificarPosicaoTy(ty, nivel, points, fase,jogadas, figura){
 
 
 function verificarPosicaoTz(tz, nivel, points, fase,jogadas, figura){
-	alert(acertou);
 	if(nivel == 1){
 		if(figura == "figura1"){
 			if(!(tz >= tz1_certo_nivel1-0.04 && tz <= tz1_certo_nivel1+0.04)) {

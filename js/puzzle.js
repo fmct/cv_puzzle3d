@@ -10,7 +10,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-
 //----------------------------------------------------------------------------
 //
 // Global Variables
@@ -763,6 +762,44 @@ function reset(){
 		positionsNot();
 		if(!inicial){
 			acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
+		}
+		inicial = false;
+	}
+	if(nivel == 3){
+		tx1 = -0.5;
+		ty1 = 0.0; 
+		tz1 = 0.0;
+		angleXX1 = 0.0;
+		angleYY1 = 0.0;
+		angleZZ1 = 0.0;  
+		tx2 = 0.0;
+		ty2 = 0.0; 
+		tz2 = 0.0;
+		angleXX2 = 0.0;
+		angleYY2 = 0.0;
+		angleZZ2 = 0.0;
+		// Falta paralelipipedo
+		tx_back = 0.0;
+		ty_back = 0.0;
+		tz_back = 0.0;
+		angleXX_back = 0.0;
+		angleYY_back = 0.0;
+		angleZZ_back = 0.0; 
+		globalAngleXX = 0.0;
+		globalAngleYY = 0.0;
+		globalAngleXX_back = 0.0;
+		globalAngleYY_back = 0.0;
+		jogadas_nivel = 100;
+		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
+		points = points_fim_nivel; 
+		document.getElementById("points").innerHTML=points;
+		acertou = 0;
+		hit_x1 = hit_y1 = hit_z1 = hit_angXX1 = hit_angYY1 = hit_angZZ1 = false;
+		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
+		// Falta hit paralelipipedo
+		positionsNot();
+		if(!inicial){
+			acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 		}
 		inicial = false;
 	}
