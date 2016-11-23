@@ -35,7 +35,7 @@ var triangleVertexColorBuffer_F3 = null;
 
 var globalTz = 0.0;
 
-var nivel = 3;
+var nivel = 1;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0
@@ -796,6 +796,7 @@ function reset(){
 		acertou = 0;
 		hit_x1 = hit_y1 = hit_z1 = hit_angXX1 = hit_angYY1 = hit_angZZ1 = false;
 		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
+		hit_x3 = hit_y3 = hit_z3 = hit_angXX3 = hit_angYY3 = hit_angZZ3 = false;
 		// Falta hit paralelipipedo
 		positionsNot();
 		if(!inicial){
