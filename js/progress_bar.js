@@ -36,8 +36,6 @@ function setProgressBars(){
   var id_bars_fig8 = ["bar1_fig8" /*tx_fig8*/, "bar2_fig8" /*ty_fig8*/, "bar3_fig8" /*tz_fig8*/];  
   var id_bars2_fig8 = ["bar4_fig8" /*angX_fig8*/, "bar5_fig8" /*angY_fig8*/, "bar6_fig8" /*angZ_fig8*/]; 
 
-  //Nivel 3 - +2 figs
-
   var titles_bars = ["X", "Y", "Z"];
 
   for(var i=0; i<3; i++){

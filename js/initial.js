@@ -22,9 +22,9 @@ function niveis(){
 		document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
 		document.getElementById("figura1").innerHTML="estrela";
 		document.getElementById("figura2").innerHTML="pirâmide"
-		
 	}
 	if(nivel == 3){
+		//reset();
 		runWebGL();
 		document.getElementById("nome_nivel").innerHTML="Nível 3: ";
 		document.getElementById("nivel_2").src="imgs/nivel2_2.png";

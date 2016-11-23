@@ -47,14 +47,13 @@ var angleYY2_certo_nivel1 = 0.0;
 var angleXX2_certo_nivel1 = 90;
 var angleZZ2_certo_nivel1 = 0.0;
 		//nivel 2
-var tx2_certo_nivel2 = -0.1;
-var ty2_certo_nivel2 = 0.35;
+var tx2_certo_nivel2 = 0.0;
+var ty2_certo_nivel2 = 0.30;
 var tz2_certo_nivel2 = -0.2;
 var angleYY2_certo_nivel2 = 90;
 var angleXX2_certo_nivel2 = 0.0;
 var angleZZ2_certo_nivel2 = 0.0;
-		//nivel 3
-//ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
+		//nivel 3	
 var tx2_certo_nivel3 = -0.5;
 var ty2_certo_nivel3 = 0.35;
 var tz2_certo_nivel3 = -0.5;
@@ -70,7 +69,7 @@ var hit_angX3 = false;
 var hit_angZ3 = false;
 		// nivel 2	
 var tx3_certo_nivel2 = 0.0;
-var ty3_certo_nivel2 = -0.15;
+var ty3_certo_nivel2 = -0.1;
 var tz3_certo_nivel2 = -0.2;
 var angleYY3_certo_nivel2 = 0.0;
 var angleXX3_certo_nivel2 = 90;

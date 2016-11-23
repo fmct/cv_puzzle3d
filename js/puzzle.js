@@ -38,7 +38,7 @@ var globalTz = 0.0;
 var nivel = 2;
 var points = 500;
 var points_fim_nivel = 0;
-var fase = 0
+var fase = 0;
 var jogadas_nivel = 0;// The translation vector
 
 var figura1_on = 0;
@@ -117,6 +117,8 @@ var limite_dir = 1.5;
 var limite_esq = -1.5;
 var limite_sup = 1.5;
 var limite_inf = -1.5;
+
+var inicio = 1;
 
 // Texture coordinates for the quadrangular faces and their color
 
@@ -843,7 +845,10 @@ function runWebGL() {
 
 	tick();
 
-	setProgressBars();
+	if(inicio){
+		setProgressBars();
+		inicio=0;
+	}
 
 	if(nivel == 1){
 		getBarsReset(1,0,0,0,0,0,0,0);
@@ -854,12 +859,11 @@ function runWebGL() {
 		getBarsReset(0,0,1,0,0,0,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
-		jogadas_nivel = 50;
+		jogadas_nivel = 90;
 	}else if(nivel == 3){
 		getBarsReset(0,0,0,0,0,1,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
 		jogadas_nivel = 100;
 	}
-
 }
