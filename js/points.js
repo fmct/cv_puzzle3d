@@ -753,10 +753,10 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
-			if( angleYY != angleYY2_certo_nivel1 ){
+			if( angleYY != angleYY2_certo_nivel1 && angleYY != angleYY1_certo_nivel1 + 360){
 				points -= 10;
 				jogadas -= 1;
-				setBarAttributesAnglesNot(5, 2, angleYY1_certo_nivel1, angleYY);	
+				setBarAttributesAnglesNot(5, 2, angleYY2_certo_nivel1, angleYY);	
 				if(hit_angY2 == true){
 					hit_angY2 = false;
 					acertou -= 1;
