@@ -717,8 +717,8 @@ function reset(){
 		points = 500; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
-		hit_x1 = hit_y1 = hit_z1 = hit_angXX1 = hit_angYY1 = hit_angZZ1 = false;
-		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
+		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
+		hit_x2 = hit_y2 = hit_z2 = hit_angX2 = hit_angY2 = hit_angZ2 = false;
 		positionsNot();
 		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 	}
@@ -756,9 +756,9 @@ function reset(){
 		points = points_fim_nivel; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
-		hit_x1 = hit_y1 = hit_z1 = hit_angXX1 = hit_angYY1 = hit_angZZ1 = false;
-		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
-		hit_x3 = hit_y3 = hit_z3 = hit_angXX3 = hit_angYY3 = hit_angZZ3 = false;
+		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
+		hit_x2 = hit_y2 = hit_z2 = hit_angX2 = hit_angY2 = hit_angZ2 = false;
+		hit_x3 = hit_y3 = hit_z3 = hit_angX3 = hit_angY3 = hit_angZ3 = false;
 		positionsNot();
 		if(!inicial){
 			acertou_inicial_nivel2(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
@@ -794,9 +794,9 @@ function reset(){
 		points = points_fim_nivel; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
-		hit_x1 = hit_y1 = hit_z1 = hit_angXX1 = hit_angYY1 = hit_angZZ1 = false;
-		hit_x2 = hit_y2 = hit_z2 = hit_angXX2 = hit_angYY2 = hit_angZZ2 = false;
-		hit_x3 = hit_y3 = hit_z3 = hit_angXX3 = hit_angYY3 = hit_angZZ3 = false;
+		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
+		hit_x2 = hit_y2 = hit_z2 = hit_angX2 = hit_angY2 = hit_angZ2 = false;
+		hit_x3 = hit_y3 = hit_z3 = hit_angX3 = hit_angY3 = hit_angZ3 = false;
 		// Falta hit paralelipipedo
 		positionsNot();
 		if(!inicial){

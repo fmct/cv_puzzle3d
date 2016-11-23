@@ -731,8 +731,7 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 	return [points,fase,jogadas];
 }
 
-function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
-	
+function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){		
 	if(nivel == 1){
 		if(figura == "figura1"){					
 			if( angleYY != angleYY1_certo_nivel1 && angleYY != angleYY1_certo_nivel1 + 360){
