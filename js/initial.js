@@ -24,7 +24,8 @@ function niveis(){
 		document.getElementById("figura2").innerHTML="pirâmide"
 	}
 	if(nivel == 3){
-		//reset();
+		inicial = true;
+		reset();
 		runWebGL();
 		document.getElementById("nome_nivel").innerHTML="Nível 3: ";
 		document.getElementById("nivel_2").src="imgs/nivel3_2.png";

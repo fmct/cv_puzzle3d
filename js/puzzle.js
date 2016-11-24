@@ -35,7 +35,7 @@ var triangleVertexColorBuffer_F3 = null;
 
 var globalTz = 0.0;
 
-var nivel = 3;
+var nivel = 2;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0;
@@ -753,7 +753,7 @@ function reset(){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		jogadas_nivel = 50;
+		jogadas_nivel = 90;
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = points_fim_nivel; 
 		document.getElementById("points").innerHTML=points;
@@ -805,7 +805,10 @@ function reset(){
 		hit_x2 = hit_y2 = hit_z2 = hit_angX2 = hit_angY2 = hit_angZ2 = false;
 		hit_x3 = hit_y3 = hit_z3 = hit_angX3 = hit_angY3 = hit_angZ3 = false;
 		positionsNot();
-		acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
+		if(!inicial){
+			acertou_inicial_nivel3(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2,tx3,ty3,tz3,angleXX3,angleYY3,angleZZ3);
+		}
+		inicial = false;
 	}
 }
 
@@ -834,11 +837,8 @@ function runWebGL() {
 		button.id = "figura3";
 		document.getElementById("choose_fig").appendChild(button);
 		document.getElementById("figura3").innerHTML="paralelipipedo";
-	}else if(nivel == 3){
-		var button = document.createElement("button");
-		button.className = "btn btn-tumblr btn3d";
-		button.id = "figura3";
-		document.getElementById("choose_fig").appendChild(button);
+	}
+	else if(nivel == 3){
 		document.getElementById("figura3").innerHTML="Paralelipipedo";
 	}
 

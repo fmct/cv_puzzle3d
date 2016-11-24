@@ -555,7 +555,7 @@ function verificarPosicaoTz(tz, nivel, points, fase,jogadas, figura){
 function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 	if(nivel == 1){
 		if(figura == "figura1"){ 
-			if( angleXX != angleXX1_certo_nivel1 && angleXX != 360 - (Math.abs(angleXX1_certo_nivel1))){
+			if( angleXX != angleXX1_certo_nivel1 ){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(4, 1, angleXX1_certo_nivel1, angleXX);			
@@ -574,7 +574,7 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){ 
-			if( angleXX != angleXX2_certo_nivel1 - 360 && angleXX != 360 - (Math.abs(angleXX2_certo_nivel1))){
+			if( angleXX != angleXX2_certo_nivel1 - 360 && angleXX != angleXX2_certo_nivel1){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(4, 2, angleXX2_certo_nivel1, angleXX);	
@@ -594,23 +594,6 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 	}
 	else if(nivel == 2){
 		if(figura == "figura1"){ 
-			/*if((angleYY1 == 0 && angleXX == 180 && angleZZ1 == -180) || (angleYY1 == 0 && angleXX == -180 && angleZZ1 == -180)){
-				hit_angY1 = true;
-				hit_angY1_XZ = true;
-				acertou += 1;
-				angleYY1_certo_nivel2 = 0.0;
-				if(angleXX == 180){
-					angleXX1_certo_nivel2 = 180;
-				}
-				if(angleXX == -180){
-					angleXX1_certo_nivel2 = -180;
-				}
-				angleZZ1_certo_nivel2 = -135;
-				setBarAttributesTranslationsOrAngles(5, 3);
-				if(acertou != 18){
-					swal("Bom trabalho!", "Acertou o ângulo Y da estrela", "success");
-				}
-			}*/
 			if( angleXX != angleXX1_certo_nivel2 && angleXX != 360 - (Math.abs(angleXX1_certo_nivel2))){
 				points -= 10;
 				jogadas -= 1;
@@ -630,7 +613,7 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
-			if( angleXX != angleXX2_certo_nivel2 + 360 && angleXX != 360 - (Math.abs(angleXX2_certo_nivel2)) ){
+			if( angleXX != angleXX2_certo_nivel2 + 360 && angleXX != angleXX2_certo_nivel2 ){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(4, 4, angleXX2_certo_nivel2, angleXX);	
@@ -648,7 +631,7 @@ function verificarPosicaoAngleXX(angleXX, nivel, points, fase,jogadas, figura){
 			}				
 		}
 		if(figura == "figura3"){
-			if( angleXX != angleXX3_certo_nivel2 - 360 && angleXX != 360 - (Math.abs(angleXX3_certo_nivel2))){
+			if( angleXX != angleXX3_certo_nivel2 - 360 && angleXX != angleXX3_certo_nivel2){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(4, 5, angleXX3_certo_nivel2, angleXX);	
@@ -784,7 +767,7 @@ function verificarPosicaoAngleYY(angleYY, nivel, points, fase,jogadas, figura){
 			}
 		}
 		if(figura == "figura2"){
-			if( angleYY != angleYY2_certo_nivel2 && angleYY != angleYY2_certo_nivel2 - 360 && angleYY != 360 - (Math.abs(angleYY2_certo_nivel2))){
+			if( angleYY != angleYY2_certo_nivel2 && angleYY != angleYY2_certo_nivel2 - 360 ){
 				points -= 10;
 				jogadas -= 1;
 				setBarAttributesAnglesNot(5, 4, angleYY2_certo_nivel2, angleYY);	

@@ -2629,6 +2629,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -2691,6 +2695,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -2753,6 +2761,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -2814,6 +2826,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -2877,6 +2893,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -2938,6 +2958,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -3001,6 +3025,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}			
 					else{
 						if(jogadas_nivel == 0){
@@ -3065,6 +3093,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -3128,6 +3160,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -3192,6 +3228,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}	
 					else{
 						if(jogadas_nivel == 0){
@@ -3256,6 +3296,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}
 					else{
 						if(jogadas_nivel == 0){
@@ -3321,6 +3365,10 @@ function setEventListeners(canvas){
 							  text: "Próximo nivel",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel = points;
+						niveis();
 					}			
 					else{
 						if(jogadas_nivel == 0){
