@@ -1,10 +1,10 @@
-//////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Mathematical functions 
+//  Mathematical functions
 //
 //  Ref. Original code from the Angel / Shreiner examples
-//	
-//	Additional functions by J. Madeira - Sep./Oct. 2015
+//
+//  Additional functions by J. Madeira - Sep./Oct. 2015
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -12,6 +12,11 @@
 //
 //  Helper functions
 //
+
+Number.prototype.round = function(p) {
+  p = p || 10;
+  return parseFloat( this.toFixed(p) );
+};
 
 function _argumentsToArray( args )
 {
@@ -169,7 +174,7 @@ function mat4()
 function equal( u, v )
 {
     if ( u.length != v.length ) { return false; }
-   
+
     if ( u.matrix && v.matrix ) {
         for ( var i = 0; i < u.length; ++i ) {
             if ( u[i].length != v[i].length ) { return false; }
@@ -340,7 +345,7 @@ function transpose( m )
     }
 
     result.matrix = true;
-    
+
     return result;
 }
 
@@ -398,78 +403,78 @@ var sizeof = {
 
 //----------------------------------------------------------------------------
 //
-//  Constructing the 4 x 4 transformation matrices - J. Madeira 
+//  Constructing the 4 x 4 transformation matrices - J. Madeira
 //
 
 function rotationXXMatrix( degrees )
 {
-	m = mat4();
-	
-	m[1][1] = Math.cos( radians( degrees ) );
-	
-	m[1][2] = -Math.sin( radians( degrees ) );
-	
-	m[2][1] = Math.sin( radians( degrees ) );
-	
-	m[2][2]	= Math.cos( radians( degrees ) )
-	
-	return m;	
+    m = mat4();
+
+    m[1][1] = Math.cos( radians( degrees ) );
+
+    m[1][2] = -Math.sin( radians( degrees ) );
+
+    m[2][1] = Math.sin( radians( degrees ) );
+
+    m[2][2] = Math.cos( radians( degrees ) )
+
+    return m;
 }
 
 function rotationYYMatrix( degrees )
 {
-	m = mat4();
-	
-	m[0][0] = Math.cos( radians( degrees ) );
-	
-	m[0][2] = Math.sin( radians( degrees ) );
-	
-	m[2][0] = -Math.sin( radians( degrees ) );
-	
-	m[2][2]	= Math.cos( radians( degrees ) )
-	
-	return m;	
+    m = mat4();
+
+    m[0][0] = Math.cos( radians( degrees ) );
+
+    m[0][2] = Math.sin( radians( degrees ) );
+
+    m[2][0] = -Math.sin( radians( degrees ) );
+
+    m[2][2] = Math.cos( radians( degrees ) )
+
+    return m;
 }
 
 function rotationZZMatrix( degrees )
 {
-	m = mat4();
-	
-	m[0][0] = Math.cos( radians( degrees ) );
-	
-	m[0][1] = -Math.sin( radians( degrees ) );
-	
-	m[1][0] = Math.sin( radians( degrees ) );
-	
-	m[1][1]	= Math.cos( radians( degrees ) )
-	
-	return m;	
+    m = mat4();
+
+    m[0][0] = Math.cos( radians( degrees ) );
+
+    m[0][1] = -Math.sin( radians( degrees ) );
+
+    m[1][0] = Math.sin( radians( degrees ) );
+
+    m[1][1] = Math.cos( radians( degrees ) )
+
+    return m;
 }
 
 function scalingMatrix( sx, sy, sz )
 {
-	m = mat4();
-	
-	m[0][0] = sx;
-	
-	m[1][1] = sy;
-	
-	m[2][2] = sz;	
-	
-	return m;	
+    m = mat4();
+
+    m[0][0] = sx;
+
+    m[1][1] = sy;
+
+    m[2][2] = sz;
+
+    return m;
 }
 
 function translationMatrix( tx, ty, tz )
 {
-	m = mat4();
-	
-	m[0][3] = tx;
-	
-	m[1][3] = ty;
-	
-	m[2][3] = tz;	
-	
-	return m;	
+    m = mat4();
+
+    m[0][3] = tx;
+
+    m[1][3] = ty;
+
+    m[2][3] = tz;
+
+    return m;
 }
 
 //----------------------------------------------------------------------------
@@ -488,7 +493,7 @@ function ortho( left, right, bottom, top, near, far )
     var d = far - near;
 
     var result = mat4();
-    
+
     result[0][0] = 2.0 / w;
     result[1][1] = 2.0 / h;
     result[2][2] = -2.0 / d;
@@ -507,7 +512,7 @@ function perspective( fovy, aspect, near, far )
     var d = far - near;
 
     var result = mat4();
-    
+
     result[0][0] = f / aspect;
     result[1][1] = f;
     result[2][2] = -(near + far) / d;
@@ -526,24 +531,22 @@ function perspective( fovy, aspect, near, far )
 function computeMidPoint( p1, p2 )
 {
     var result = vec3();
-    
 
-    result[0] = ((p1[0]+p2[0])/2.0);
-    result[1] = ((p1[1]+p2[1])/2.0);
-    result[2] = ((p1[2]+p2[2])/2.0);
-        
+    result[0] = (p1[0] + p2[0])/2.0;
+    result[1] = (p1[1] + p2[1])/2.0;
+    result[2] = (p1[2] + p2[2])/2.0;
+
     return result;
 }
 
 function computeCentroid( p1, p2, p3 )
 {
     var result = vec3();
-    
-    result[0] = ((p1[0]+p2[0]+p3[0])/3.0);
-    result[1] = ((p1[1]+p2[1]+p3[1])/3.0);
-    result[2] = ((p1[2]+p2[2]+p3[2])/3.0);
-    result[3] = ((p1[3]+p2[3]+p3[3])/3.0);
-    
+
+    result[0] = (p1[0] + p2[0] + p3[0])/3.0;
+    result[1] = (p1[1] + p2[1] + p3[1])/3.0;
+    result[2] = (p1[2] + p2[2] + p3[2])/3.0;
+
     return result;
 }
 
@@ -551,12 +554,13 @@ function computeCentroid( p1, p2, p3 )
 
 function normalize( v )
 {
-    var result = vec3(); 
-    var som = Math.pow(v[0], 2) + Math.pow(v[1], 2) + Math.pow(v[2], 2);
-    var norm = Math.sqrt(som);
-    result[0] = v[0] / norm;
-    result[1] = v[1] / norm;
-    result[2] = v[2] / norm;
+  var somOfSq = v[0] * v[0] + v[1] * v[1] + v[2] * v[2];
+  var norm = Math.sqrt(somOfSq);
 
-    return result;
+  v[0] /= norm;
+  v[1] /= norm;
+  v[2] /= norm;
+
+  return v;
 }
+

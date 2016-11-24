@@ -2635,13 +2635,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	
@@ -2664,13 +2674,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -2701,13 +2721,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -2730,13 +2760,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -2767,13 +2807,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -2795,13 +2845,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -2832,13 +2892,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -2861,13 +2931,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -2899,13 +2979,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	 
@@ -2928,13 +3018,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	 
@@ -2964,13 +3064,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	   
@@ -2993,13 +3103,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	   
@@ -3031,13 +3151,23 @@ function setEventListeners(canvas){
 						niveis();
 					}			
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	 
@@ -3061,13 +3191,23 @@ function setEventListeners(canvas){
 						});
 					}			
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	 
@@ -3099,13 +3239,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -3128,13 +3278,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -3166,13 +3326,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -3196,13 +3366,23 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -3234,13 +3414,23 @@ function setEventListeners(canvas){
 						niveis();
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -3264,13 +3454,40 @@ function setEventListeners(canvas){
 						});
 					}	
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
+						}if(jogadas_nivel == 0 && points != 0){
+							swal({
+								  title: "Jogadas disponiveis esgotadas",
+								  text: "Começar do inicio",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	  
@@ -3302,13 +3519,23 @@ function setEventListeners(canvas){
 						niveis();
 					}
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	 
@@ -3331,13 +3558,23 @@ function setEventListeners(canvas){
 						});
 					}
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
 								  imageUrl: "imgs/sadSmile.png"
 							});
 							reset();
+						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
 						}
 						drawScene(); 
 					}	 
@@ -3371,7 +3608,7 @@ function setEventListeners(canvas){
 						niveis();
 					}			
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
@@ -3379,6 +3616,16 @@ function setEventListeners(canvas){
 							});
 							reset();
 						}
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
+						} 
 						drawScene(); 
 					}	  
 				}else if(nivel == 3){
@@ -3400,7 +3647,7 @@ function setEventListeners(canvas){
 						});
 					}			
 					else{
-						if(jogadas_nivel == 0){
+						if(jogadas_nivel == 0 && points != 0){
 							swal({
 								  title: "Jogadas disponiveis esgotadas",
 								  text: "Começar do inicio",
@@ -3408,7 +3655,16 @@ function setEventListeners(canvas){
 							});
 							reset();
 						}
-						drawScene(); 
+						else if(points == 0){
+							swal({
+								  title: "Perdeu o jogo",
+								  text: "Começar desde o 1º nivel",
+								  imageUrl: "imgs/sadSmile.png"
+							});
+							background = 0;
+							nivel = 1;
+							niveis();
+						} 
 					}	  
 				}
 			}; 

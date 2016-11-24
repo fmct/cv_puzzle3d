@@ -293,7 +293,7 @@ function initTextureNivel3() {
 		handleLoadedTexture(webGLTextureL)
 	}
 
-	webGLTextureL.image.src = "imgs/piramide.jpg";
+	webGLTextureL.image.src = "imgs/l.jpg";
 
 	webGLTextureS = gl.createTexture();
 	webGLTextureS.image = new Image();
@@ -421,7 +421,7 @@ function drawModelNivel3(figura){
 	    gl.bindTexture(gl.TEXTURE_2D, webGLTextureC);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 12);	
 
-		gl.bindTexture(gl.TEXTURE_2D, webGLTextureV);
+		gl.bindTexture(gl.TEXTURE_2D, webGLTextureS);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 24);
 
 		gl.bindTexture(gl.TEXTURE_2D, webGLTextureM);
