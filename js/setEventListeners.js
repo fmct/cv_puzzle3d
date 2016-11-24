@@ -2,7 +2,7 @@
 /* Events related */
 
 function setEventListeners(canvas){
-
+	
 	canvas.onmousedown = handleMouseDown;
 
     document.onmouseup = handleMouseUp;
@@ -22,7 +22,7 @@ function setEventListeners(canvas){
 	document.onkeydown = handleKeyDown;
     
     document.onkeyup = handleKeyUp;   
-
+    
     document.getElementById("move-left-button").onclick = function(){	
     	swal("Tem de selecionar uma figura!!");
     }

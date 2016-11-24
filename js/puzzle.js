@@ -89,8 +89,7 @@ var globalAngleXX = 0.0;
 
 var globalAngleYY = 0.0;
 
-// The scaling factors
-
+var globalAngleZZ = 0.0;
 var sx1 = 0.5;
 
 var sx2 = 0.5;
@@ -266,9 +265,9 @@ function drawModel( angleXX, angleYY, angleZZ,
 					primitiveType, background , figura) {
 
     mvMatrix = mult(mvMatrix, translationMatrix(tx, ty, tz));
-	mvMatrix = mult(mvMatrix, rotationZZMatrix(angleZZ));
 	mvMatrix = mult(mvMatrix, rotationYYMatrix(angleYY));
 	mvMatrix = mult(mvMatrix, rotationXXMatrix(angleXX));
+	mvMatrix = mult(mvMatrix, rotationZZMatrix(angleZZ));
 	mvMatrix = mult(mvMatrix, scalingMatrix(sx, sy, sz));
 
   	if(!background){
@@ -428,6 +427,7 @@ function drawScene() {
 	 	mvMatrix = mult(mult(translationMatrix(0, 0, globalTz),
 		                rotationYYMatrix(globalAngleYY)),
 		                rotationXXMatrix(globalAngleXX));
+
 
 		mvMatrix2 = translationMatrix(0, 0, globalTz);
 	  	mvMatrix2 = mult(translationMatrix(0, 0, globalTz),
