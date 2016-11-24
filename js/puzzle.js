@@ -33,9 +33,9 @@ var triangleVertexColorBuffer_F3 = null;
 
 // The GLOBAL transformation parameters
 
-var globalTz = 0.0;
+var globalTz = -3.5;
 
-var nivel = 1;
+var nivel = 3;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0;
@@ -410,10 +410,6 @@ function drawScene() {
 
 	gl.enable( gl.DEPTH_TEST );
 
-	// Global transformation !!
-	
-	globalTz = -3.5;
-
 	// Background = 0
 	if(nivel == 1 || nivel == 2){
 		gl.useProgram(shaderProgram);
@@ -547,72 +543,17 @@ var currentlyPressedKeys = {};
 
 function handleKeys() {
 
-	if (currentlyPressedKeys[65]) {
-		// a
-		if(figura1_on){
-			if(tx1 > limite_inf){
-				tx1 -= 0.01;	
-			}
-		}else if(figura2_on){
-			if(tx2 > limite_inf){
-				tx2 -= 0.01;		
-			}
-		}else{
-			if(tx1 > limite_inf){
-				tx1 -= 0.01;		
-			}	
-		}
-	}
-	else if (currentlyPressedKeys[68]) {
-		// d
-		if(figura1_on){
-			if(tx1 < limite_sup){
-				tx1 += 0.01;		
-			}	
-		}else if(figura2_on){
-			if(tx2 < limite_sup){
-				tx2 += 0.01;		
-			}
-		}else{
-			if(tx1 < limite_sup){
-				tx1 += 0.01;		
-			}	
-		}	
-	}
-	else if (currentlyPressedKeys[87]) {
-		// w
-		if(figura1_on){
-			if(ty1 < limite_sup){
-				ty1 += 0.01;	
-			}
-		}else if(figura2_on){
-			if(ty2 < limite_sup){
-				ty2 += 0.01;	
-			}	
-		}else{
-			if(ty1 < limite_sup){
-				ty1 += 0.01;	
-			}	
-		}
-	}
-	else if (currentlyPressedKeys[83]) {
-		// s
-		if(figura1_on){
-			if(ty1 > limite_inf){
-				ty1 -= 0.01;
-			}	
-		}else if(figura2_on){
-			if(ty2 > limite_inf){
-				ty2 -= 0.01;
-			}
-		}else{
-			if(ty1 > limite_inf){
-				ty1 -= 0.01;
-			}	
-		}
-	}
-}
+ 	if(currentlyPressedKeys[107]){
+		// add key (+)
+		globalTz += 0.1;
 
+	}else if(currentlyPressedKeys[109]){
+		// subtract key (-)
+		globalTz -= 0.1;
+	}
+	
+	currentlyPressedKeys={};
+}
 
 //----------------------------------------------------------------------------
 
@@ -839,10 +780,10 @@ function runWebGL() {
 		document.getElementById("figura3").innerHTML="paralelipipedo";
 	}
 	else if(nivel == 3){
-		/*var button = document.createElement("button");
+		var button = document.createElement("button");
 		button.className = "btn btn-tumblr btn3d";
 		button.id = "figura3";
-		document.getElementById("choose_fig").appendChild(button);*/
+		document.getElementById("choose_fig").appendChild(button);
 		document.getElementById("figura3").innerHTML="Paralelipipedo";
 	}
 
