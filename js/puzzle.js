@@ -790,6 +790,7 @@ function runWebGL() {
 			button.id = "figura3";
 			document.getElementById("choose_fig").appendChild(button);
 			document.getElementById("figura3").innerHTML="paralelipipedo";
+			existebotao = true;
 		}
 	}
 	else if(nivel == 3){
