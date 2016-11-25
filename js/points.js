@@ -72,7 +72,7 @@ var tx3_certo_nivel2 = 0.0;
 var ty3_certo_nivel2 = -0.1;
 var tz3_certo_nivel2 = -0.2;
 var angleYY3_certo_nivel2 = 0.0;
-var angleXX3_certo_nivel2 = 90;
+var angleXX3_certo_nivel2 = 0.0;
 var angleZZ3_certo_nivel2 = -90;
 		// nivel3	
 var tx3_certo_nivel3 = 0.6;
@@ -1016,7 +1016,7 @@ function verificarPosicaoAngleZZ(angleZZ, nivel, points, fase,jogadas, figura){
 
 function acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2){
 	if(nivel == 1){
-		//figura1
+		
 		if(tx1 == tx1_certo_nivel1){
 			hit_x1 = true;
 			acertou += 1;

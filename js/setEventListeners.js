@@ -100,9 +100,10 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -145,7 +146,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -188,7 +189,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					//points_fim_nivel = points;
 					niveis();
 				}
 				else{
@@ -231,10 +232,11 @@ function setEventListeners(canvas){
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
-					});;
+					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -277,7 +279,7 @@ function setEventListeners(canvas){
 					});;
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -360,13 +362,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -409,7 +412,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -492,13 +495,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -541,7 +545,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -625,13 +629,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -674,7 +679,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -757,13 +762,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -806,7 +812,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -877,7 +883,8 @@ function setEventListeners(canvas){
 		};
 
 		document.getElementById("rotate-xx-up").onclick = function(){				
-			if(nivel == 1){			
+			if(nivel == 1){		
+				alert(acertou);	
 				angleXX1 -= 45;
 				if(angleXX1 == 360 || angleXX1 == -360){
 					angleXX1 = 0;
@@ -890,13 +897,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -922,6 +930,7 @@ function setEventListeners(canvas){
 				}
 			}
 			else if(nivel == 2){
+
 				angleXX1 -= 45;
 				if(angleXX1 == 360 || angleXX1 == -360){
 					angleXX1 = 0;
@@ -940,7 +949,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -1025,13 +1034,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -1075,7 +1085,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				else{
@@ -1160,13 +1170,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -1204,15 +1215,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -1295,13 +1306,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -1339,15 +1351,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -1430,13 +1442,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}				
 				else{
@@ -1474,15 +1487,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}				
+				}			
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -1565,13 +1578,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}			
 				else{
@@ -1609,15 +1623,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}			
+				}		
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -1712,13 +1726,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -1755,15 +1770,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -1844,13 +1859,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -1887,15 +1903,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -1976,13 +1992,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -2019,15 +2036,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -2108,13 +2125,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -2151,15 +2169,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -2240,13 +2258,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -2283,15 +2302,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -2372,13 +2391,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -2415,15 +2435,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -2505,13 +2525,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}			
 				else{
@@ -2549,15 +2570,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}			
+				}		
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -2646,7 +2667,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();	
 				}	
 				else{
@@ -2684,14 +2705,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();	
+					points_fim_nivel2 = points;
+					niveis();
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2776,13 +2797,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -2820,15 +2842,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -2911,13 +2933,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}	
 				else{
@@ -2955,15 +2978,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}	
+				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -3046,13 +3069,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}
 				else{
@@ -3096,7 +3120,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
 				}
 				if(jogadas_nivel == 0 && nivel == 1){
@@ -3197,13 +3221,14 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
 					swal({
-						  title: "Primeiro nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Primeiro nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel1 = points;
 					niveis();
 				}			
 				else{
@@ -3241,15 +3266,15 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Segundo nivel concluido!",
-						  text: "Próximo nivel",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Segundo nivel concluido!",
+					  text: "Próximo nivel",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
 					nivel = nivel+1;
-					points_fim_nivel = points;
+					points_fim_nivel2 = points;
 					niveis();
-				}			
+				}		
 				else{
 					if(jogadas_nivel == 0 && points != 0){
 							swal({
@@ -3321,6 +3346,24 @@ function setEventListeners(canvas){
 
 	// Button events
 	if(nivel!=1){
+		if(nivel == 2){
+			document.getElementById("nivel1").disabled = false;	
+		}
+		if(nivel == 3){
+			document.getElementById("nivel2").disabled = false;
+		}
+		document.getElementById("nivel1").onclick = function(){
+			nivel = 1;
+			background = 0;
+			var x = document.getElementById("figura3");
+			document.getElementById("choose_fig").removeChild(x);
+			niveis();
+		};
+		document.getElementById("nivel2").onclick = function(){
+			nivel = 2;
+			background = 0;
+			niveis();
+		};
 		document.getElementById("figura3").onclick = function(){
 			figura1_on = 0;
 			figura2_on = 0;
@@ -3350,7 +3393,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -3387,9 +3430,9 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+							title: "Terceiro nivel concluido!",
+						  	text: "Acabou o jogo com " + pontos + "pontos",
+						  	imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
 					else{
@@ -3436,7 +3479,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -3522,7 +3565,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -3607,7 +3650,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -3694,7 +3737,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -3779,7 +3822,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -3866,7 +3909,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}			
 					else{
@@ -3954,7 +3997,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -4041,7 +4084,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -4129,7 +4172,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}	
 					else{
@@ -4217,7 +4260,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}
 					else{
@@ -4306,7 +4349,7 @@ function setEventListeners(canvas){
 						});
 						background = 0;
 						nivel = nivel+1;
-						points_fim_nivel = points;
+						points_fim_nivel2 = points;
 						niveis();
 					}			
 					else{

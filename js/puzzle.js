@@ -37,7 +37,9 @@ var globalTz = -3.5;
 
 var nivel = 1;
 var points = 500;
-var points_fim_nivel = 0;
+var points_fim_nivel1 = 0;
+var points_fim_nivel2 = 0;
+var points_fim_nivel3 = 0;
 var fase = 0;
 var jogadas_nivel = 0;// The translation vector
 
@@ -121,15 +123,19 @@ var inicio = 1;
 
 // Texture coordinates for the quadrangular faces and their color
 
-var vertices = vertices_cubo();
+var vertices;
 
-var colors = colors_cubo();
+var colors;
 
 
 function initBuffers() {	
 	
 	if(background == 0){
     // Coordinates
+    	if(nivel == 1){
+    		vertices =  vertices_cubo();
+    		colors = colors_cubo();
+    	}
     	if(nivel == 2){
     		vertices = verticesStar();
     		colors = colorsStar();
@@ -663,7 +669,10 @@ function reset(){
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
 		hit_x2 = hit_y2 = hit_z2 = hit_angX2 = hit_angY2 = hit_angZ2 = false;
 		positionsNot();
-		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
+		if(inicial == false){
+			acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
+		}
+		inicial = false;
 	}
 	if(nivel == 2){	
 		tx1 = -0.5;
@@ -696,7 +705,7 @@ function reset(){
 		globalAngleYY_back = 0.0;
 		jogadas_nivel = 90;
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-		points = points_fim_nivel; 
+		points = points_fim_nivel1; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
@@ -739,7 +748,7 @@ function reset(){
 		globalAngleYY_back = 0.0;
 		jogadas_nivel = 100;
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-		points = points_fim_nivel; 
+		points = points_fim_nivel2; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
