@@ -35,7 +35,7 @@ var triangleVertexColorBuffer_F3 = null;
 
 var globalTz = -3.5;
 
-var nivel = 3;
+var nivel = 1;
 var points = 500;
 var points_fim_nivel = 0;
 var fase = 0;
@@ -780,10 +780,10 @@ function runWebGL() {
 		document.getElementById("figura3").innerHTML="paralelipipedo";
 	}
 	else if(nivel == 3){
-		var button = document.createElement("button");
+		/*var button = document.createElement("button");
 		button.className = "btn btn-tumblr btn3d";
 		button.id = "figura3";
-		document.getElementById("choose_fig").appendChild(button);
+		document.getElementById("choose_fig").appendChild(button);*/
 		document.getElementById("figura3").innerHTML="Paralelipipedo";
 	}
 
