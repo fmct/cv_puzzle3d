@@ -71,6 +71,10 @@ function setEventListeners(canvas){
     	swal("Tem de selecionar uma figura!!");
     }
 
+    document.getElementById("myButton").onclick = function(){	
+    	alert("funfa");
+    }
+
 	// Button events
 	document.getElementById("figura1").onclick = function(){
 		figura1_on = 1;
@@ -164,7 +168,7 @@ function setEventListeners(canvas){
 				if(acertou == 12){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Próximo nivel",
+					  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -266,7 +270,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Próximo nivel",
+					  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});;
 					background = 0;
@@ -368,7 +372,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -470,7 +474,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -573,7 +577,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -675,7 +679,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -780,7 +784,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -885,7 +889,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -990,7 +994,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1095,7 +1099,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1200,7 +1204,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1305,7 +1309,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1420,7 +1424,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1522,7 +1526,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1624,7 +1628,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1726,7 +1730,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1828,7 +1832,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -1930,7 +1934,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -2035,7 +2039,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -2140,7 +2144,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -2246,7 +2250,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -2351,7 +2355,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -2464,7 +2468,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -2577,7 +2581,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Próximo nivel",
+						  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					background = 0;
@@ -2755,7 +2759,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -2840,7 +2844,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -2926,7 +2930,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -3013,7 +3017,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -3098,7 +3102,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -3186,7 +3190,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}			
@@ -3273,7 +3277,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -3361,7 +3365,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -3449,7 +3453,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}	
@@ -3553,7 +3557,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}
@@ -3642,7 +3646,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-							  text: "Próximo nivel",
+							  text: "Parabéns!! Terminaste o jogo com sucesso!!",
 							  imageUrl: "imgs/thumbs-up.jpg"
 						});
 					}			

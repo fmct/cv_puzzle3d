@@ -34,5 +34,7 @@ function niveis(){
 		document.getElementById("jogadas").innerHTML="jogadas disponiveis: " + jogadas_nivel;
 		document.getElementById("figura1").innerHTML="Pirâmide";
 		document.getElementById("figura2").innerHTML="Cubo";
+	}else{
+		// Mostrar os pontos
 	}
 }
