@@ -184,7 +184,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -316,7 +316,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -448,7 +448,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -580,7 +580,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -713,7 +713,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -845,7 +845,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -981,7 +981,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -1116,7 +1116,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -1251,7 +1251,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -1386,7 +1386,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -1521,7 +1521,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -1656,7 +1656,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -1801,7 +1801,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -1933,7 +1933,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -2065,7 +2065,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -2197,7 +2197,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -2329,7 +2329,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -2461,7 +2461,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -2596,7 +2596,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -2730,7 +2730,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -2865,7 +2865,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -3000,7 +3000,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -3143,7 +3143,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -3286,7 +3286,7 @@ function setEventListeners(canvas){
 				if(acertou == 18){
 					swal({
 					  title: "Terceiro nivel concluido!",
-					  text: "Acabou o jogo com " + points + "pontos",
+					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
@@ -3405,7 +3405,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							title: "Terceiro nivel concluido!",
-						  	text: "Acabou o jogo com " + points + "pontos",
+						  	text: "Acabou o jogo com " + points + " pontos",
 						  	imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -3493,7 +3493,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -3580,7 +3580,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -3668,7 +3668,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -3757,7 +3757,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -3844,7 +3844,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -3934,7 +3934,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -4023,7 +4023,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -4113,8 +4113,8 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  text: "Acabou o jogo com " + points + " pontos",
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
 						document.getElementById("nivel3").disabled = false;
 						points_fim_nivel3 = points;
@@ -4203,7 +4203,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -4292,7 +4292,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
@@ -4383,7 +4383,7 @@ function setEventListeners(canvas){
 					if(acertou == 18){
 						swal({
 							  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
+						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;

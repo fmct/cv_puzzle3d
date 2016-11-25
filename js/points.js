@@ -24,8 +24,7 @@ var tz1_certo_nivel2 = -0.2;
 var angleXX1_certo_nivel2 = 0.0;
 var angleYY1_certo_nivel2 = 180;
 var angleZZ1_certo_nivel2 = 45;
-		//nivel 3
-//ALTERAR - SO PARA POR AS BARRAS A DAR!!!!!		
+		//nivel 3	
 var tx1_certo_nivel3 = 0.0;
 var ty1_certo_nivel3 = 0.75;
 var tz1_certo_nivel3 = -0.5;

@@ -36,7 +36,7 @@ var triangleVertexColorBuffer_F3 = null;
 var globalTz = -3.5;
 
 var nivel = 1;
-var points = 999;
+var points = 2000;
 var points_fim_nivel1 = 0;
 var points_fim_nivel2 = 0;
 var points_fim_nivel3 = 0;
@@ -663,7 +663,7 @@ function reset(){
 		globalAngleYY_back = 0.0;
 		jogadas_nivel = 25;
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-		points = 999; 
+		points = 2000; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
