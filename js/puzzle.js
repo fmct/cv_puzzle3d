@@ -806,13 +806,19 @@ function runWebGL() {
 			var button = document.createElement("button");
 			button.className = "btn btn-tumblr btn3d";
 			button.id = "figura3";
-			document.getElementById("choose_fig").appendChild(button);
-			document.getElementById("figura3").innerHTML="paralelipipedo";
+			document.getElementById("choose_fig").appendChild(button);	
 			existebotao = true;
 		}
+		document.getElementById("figura3").innerHTML="paralelipipedo";
 	}
 	else if(nivel == 3){
-		existebotao = true;
+		if(!existebotao){
+			var button = document.createElement("button");
+			button.className = "btn btn-tumblr btn3d";
+			button.id = "figura3";
+			document.getElementById("choose_fig").appendChild(button);
+			existebotao = true;
+		}
 		document.getElementById("figura3").innerHTML="Paralelipipedo";
 	}
 
