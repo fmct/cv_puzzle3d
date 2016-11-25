@@ -189,6 +189,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 
 				}
 				else{
@@ -321,6 +322,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				else{
@@ -453,6 +455,8 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				else{
@@ -585,6 +589,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				else{
@@ -718,6 +723,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				else{
@@ -850,6 +856,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				else{
@@ -986,6 +993,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				else{
@@ -1121,6 +1129,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				else{
@@ -1256,6 +1265,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -1391,6 +1401,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -1526,6 +1537,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}				
 				else{
@@ -1661,6 +1673,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}			
 				else{
@@ -1806,6 +1819,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -1938,6 +1952,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -2070,6 +2085,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -2202,6 +2218,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -2334,6 +2351,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -2466,6 +2484,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -2601,6 +2620,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}			
 				else{
@@ -2734,7 +2754,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
 					document.getElementById("nivel3").disabled = false;
-					points_fim_nivel3 = points;	
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"	
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2870,6 +2891,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -3005,6 +3027,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}	
 				else{
@@ -3148,6 +3171,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}
 				if(jogadas_nivel == 0 && nivel == 1){
@@ -3291,6 +3315,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					
 				}			
 				else{
@@ -3409,7 +3434,8 @@ function setEventListeners(canvas){
 						  	imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3497,7 +3523,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3584,7 +3611,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3672,7 +3700,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3761,7 +3790,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3848,7 +3878,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3938,7 +3969,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}			
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4027,7 +4059,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4117,7 +4150,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4207,7 +4241,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4296,7 +4331,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4387,7 +4423,8 @@ function setEventListeners(canvas){
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
 						document.getElementById("nivel3").disabled = false;
-						points_fim_nivel3 = points;
+					points_fim_nivel3 = points;
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}			
 					else{
 						if(jogadas_nivel == 0 && points != 0){
