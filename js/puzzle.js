@@ -18,7 +18,7 @@
 var gl = null; // WebGL context
 
 var shaderProgram = null;
-
+var existebotao ;
 var triangleVertexPositionBuffer_F1 = null;
 	
 var triangleVertexColorBuffer_F1 = null;
@@ -36,7 +36,7 @@ var triangleVertexColorBuffer_F3 = null;
 var globalTz = -3.5;
 
 var nivel = 1;
-var points = 500;
+var points = 999;
 var points_fim_nivel1 = 0;
 var points_fim_nivel2 = 0;
 var points_fim_nivel3 = 0;
@@ -663,7 +663,7 @@ function reset(){
 		globalAngleYY_back = 0.0;
 		jogadas_nivel = 25;
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-		points = 500; 
+		points = 999; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
@@ -780,19 +780,20 @@ function runWebGL() {
 	initBuffers();
 
 	initTexture();	
-
+	if(nivel == 1){
+		existebotao = false;
+	}
 	if(nivel == 2){
-		var button = document.createElement("button");
-		button.className = "btn btn-tumblr btn3d";
-		button.id = "figura3";
-		document.getElementById("choose_fig").appendChild(button);
-		document.getElementById("figura3").innerHTML="paralelipipedo";
+		if(!existebotao){
+			var button = document.createElement("button");
+			button.className = "btn btn-tumblr btn3d";
+			button.id = "figura3";
+			document.getElementById("choose_fig").appendChild(button);
+			document.getElementById("figura3").innerHTML="paralelipipedo";
+		}
 	}
 	else if(nivel == 3){
-		/*var button = document.createElement("button");
-		button.className = "btn btn-tumblr btn3d";
-		button.id = "figura3";
-		document.getElementById("choose_fig").appendChild(button);*/
+		existebotao = true;
 		document.getElementById("figura3").innerHTML="Paralelipipedo";
 	}
 

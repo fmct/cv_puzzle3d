@@ -883,8 +883,7 @@ function setEventListeners(canvas){
 		};
 
 		document.getElementById("rotate-xx-up").onclick = function(){				
-			if(nivel == 1){		
-				alert(acertou);	
+			if(nivel == 1){			
 				angleXX1 -= 45;
 				if(angleXX1 == 360 || angleXX1 == -360){
 					angleXX1 = 0;
