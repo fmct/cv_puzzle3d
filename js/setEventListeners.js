@@ -189,6 +189,7 @@ function setEventListeners(canvas){
 					});
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
+
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -317,11 +318,10 @@ function setEventListeners(canvas){
 					  title: "Terceiro nivel concluido!",
 					  text: "Acabou o jogo com " + points + "pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
-					});;
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					});
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -447,14 +447,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -580,14 +579,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -714,14 +712,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -847,14 +844,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -984,14 +980,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1120,14 +1115,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1256,14 +1250,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1392,14 +1385,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1528,14 +1520,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}				
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1664,14 +1655,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}			
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1810,14 +1800,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1943,14 +1932,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2076,14 +2064,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2209,14 +2196,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2342,14 +2328,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2475,14 +2460,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2611,14 +2595,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}			
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2750,10 +2733,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();	
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;	
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2883,14 +2864,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -3019,14 +2999,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -3163,14 +3142,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}
 				if(jogadas_nivel == 0 && nivel == 1){
 					swal({
@@ -3307,14 +3285,13 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-						  title: "Terceiro nivel concluido!",
-						  text: "Acabou o jogo com " + points + "pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+					  title: "Terceiro nivel concluido!",
+					  text: "Acabou o jogo com " + points + "pontos",
+					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel = points;
-					niveis();
+					document.getElementById("nivel3").disabled = false;
+					points_fim_nivel3 = points;
+					
 				}			
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -3431,6 +3408,8 @@ function setEventListeners(canvas){
 						  	text: "Acabou o jogo com " + points + "pontos",
 						  	imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3517,6 +3496,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3602,6 +3583,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3688,6 +3671,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3775,6 +3760,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3860,6 +3847,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3948,6 +3937,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}			
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4035,6 +4026,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4123,6 +4116,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4211,6 +4206,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4298,6 +4295,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4387,6 +4386,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + "pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						document.getElementById("nivel3").disabled = false;
+						points_fim_nivel3 = points;
 					}			
 					else{
 						if(jogadas_nivel == 0 && points != 0){
