@@ -36,7 +36,7 @@ var triangleVertexColorBuffer_F3 = null;
 var globalTz = -3.5;
 
 var nivel = 1;
-var points = 2000;
+var points = 5000;
 var points_fim_nivel1 = 0;
 var points_fim_nivel2 = 0;
 var points_fim_nivel3 = 0;
@@ -637,16 +637,19 @@ function initWebGL( canvas ) {
 	}        
 }
 
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
 function reset(){
 	if(nivel == 1){	
-		tx1 = -0.5;
-		ty1 = 0.0; 
-		tz1 = 0.0;
+		tx1 = getRandomArbitrary(-0.5,1.0);
+		ty1 =  getRandomArbitrary(-0.5,1.0);
+		tz1 =  0.0
 		angleXX1 = 0.0;
 		angleYY1 = 0.0;
 		angleZZ1 = 0.0;  
-		tx2 = 0.0;
-		ty2 = 0.0; 
+		tx2 =  getRandomArbitrary(-0.5,1.0);
+		ty2 =  getRandomArbitrary(-0.5,1.0); 
 		tz2 = 0.0;
 		angleXX2 = 0.0;
 		angleYY2 = 0.0;
@@ -661,9 +664,14 @@ function reset(){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		jogadas_nivel = 25;
+		if(tx1 >= 0.0 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5){
+			jogadas_nivel = 30;
+		}
+		else{
+			jogadas_nivel = 40;
+		}
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-		points = 2000; 
+		points = 5000; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
@@ -675,20 +683,20 @@ function reset(){
 		inicial = false;
 	}
 	if(nivel == 2){	
-		tx1 = -0.5;
-		ty1 = 0.0; 
+		tx1 = getRandomArbitrary(-0.5,1.0);
+		ty1 = getRandomArbitrary(-0.5,1.0);
 		tz1 = 0.0;
 		angleXX1 = 0.0;
 		angleYY1 = 0.0;
 		angleZZ1 = 0.0;  
-		tx2 = 0.0;
-		ty2 = 0.0; 
+		tx2 = getRandomArbitrary(-0.5,1.0);
+		ty2 = getRandomArbitrary(-0.5,1.0); 
 		tz2 = 0.0;
 		angleXX2 = 0.0;
 		angleYY2 = 0.0;
 		angleZZ2 = 0.0;
-		tx3 = 0.5;
-		ty3 = 0.5;
+		tx3 = getRandomArbitrary(-0.5,1.0);
+		ty3 = getRandomArbitrary(-0.5,1.0);
 		tz3 = -0.5; 
 		angleXX3 = 45;
 		angleYY3 = 0.0;
@@ -703,7 +711,12 @@ function reset(){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		jogadas_nivel = 90;
+		if(tx1 >= -0.5 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5 && tx3 >= -0.5 && tx3 <= 0.5 && ty3 >= 0.0 && ty3 <= 0.5){
+			jogadas_nivel = 90;
+		}
+		else{
+			jogadas_nivel = 150;
+		}
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = points_fim_nivel1; 
 		document.getElementById("points").innerHTML=points;
@@ -718,20 +731,20 @@ function reset(){
 		inicial = false;
 	}
 	if(nivel == 3){
-		tx1 = -0.5;
-		ty1 = 0.0; 
+		tx1 = getRandomArbitrary(-0.5,1.0);
+		ty1 = getRandomArbitrary(-0.5,1.0); 
 		tz1 = 0.0;
 		angleXX1 = 0.0;
 		angleYY1 = 0.0;
 		angleZZ1 = 0.0;  
-		tx2 = 0.0;
-		ty2 = 0.0; 
+		tx2 = getRandomArbitrary(-0.5,1.0);
+		ty2 = getRandomArbitrary(-0.5,1.0); 
 		tz2 = 0.0;
 		angleXX2 = 0.0;
 		angleYY2 = 0.0;
 		angleZZ2 = 0.0;
-		tx3 = 0.5;
-		ty3 = 0.5;
+		tx3 = getRandomArbitrary(-0.5,1.0);
+		ty3 = getRandomArbitrary(-0.5,1.0);
 		tz3 = -0.5; 
 		tx_back = 0.0;
 		ty_back = 0.0;
@@ -746,7 +759,12 @@ function reset(){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		jogadas_nivel = 100;
+		if(tx1 >= -0.5 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5 && tx3 >= -0.5 && tx3 <= 0.5 && ty3 >= 0.0 && ty3 <= 0.5){
+			jogadas_nivel = 100;
+		}
+		else{
+			jogadas_nivel = 180;
+		}
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = points_fim_nivel2; 
 		document.getElementById("points").innerHTML=points;
@@ -811,7 +829,12 @@ function runWebGL() {
 		getBarsReset(1,0,0,0,0,0,0,0);
 		getVisibleBars();
 		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
-		jogadas_nivel = 25;
+		if(tx1 >= 0.0 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5){
+			jogadas_nivel = 30;
+		}
+		else{
+			jogadas_nivel = 50;
+		}
 	}else if(nivel == 2){
 		getBarsReset(0,0,1,0,0,0,0,0);
 		getVisibleBars();
