@@ -189,7 +189,7 @@ function setEventListeners(canvas){
 					});
 					background = 0;
 					nivel = nivel+1;
-					//points_fim_nivel = points;
+					points_fim_nivel3 = points;
 					niveis();
 				}
 				else{
