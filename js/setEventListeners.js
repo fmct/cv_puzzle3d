@@ -3363,6 +3363,7 @@ function setEventListeners(canvas){
 			background = 0;
 			niveis();
 		};
+		
 		document.getElementById("figura3").onclick = function(){
 			figura1_on = 0;
 			figura2_on = 0;

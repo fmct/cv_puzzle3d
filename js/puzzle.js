@@ -638,7 +638,20 @@ function initWebGL( canvas ) {
 }
 
 function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
+    var random = Math.random() * (max - min) + min;
+    if(random <= 0.0){
+    	random = -0.5;
+    }
+    else if(random <= 0.5 && random > 0){
+    	random = 0.0;
+    }
+    else if(random > 0.5 && random <= 0.8){
+    	random = 0.5;
+    }
+    else{
+    	random = 0.5;
+    }
+    return random;
 }
 function reset(){
 	if(nivel == 1){	
@@ -664,7 +677,7 @@ function reset(){
 		globalAngleYY = 0.0;
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
-		if(tx1 >= 0.0 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5){
+		if((tx1 >= 0.0 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5) || (tx1 >= -0.5 && tx1 <= 0.0 && ty1 >= -0.5 && ty1 <= 0.0 && tx2 >= -0.5 && tx2 <= 0.0 && ty2 >= -0.5 && ty2 <= 0.0)){
 			jogadas_nivel = 30;
 		}
 		else{
@@ -763,7 +776,7 @@ function reset(){
 			jogadas_nivel = 100;
 		}
 		else{
-			jogadas_nivel = 180;
+			jogadas_nivel = 160;
 		}
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = points_fim_nivel2; 
