@@ -101,7 +101,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -122,6 +123,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -141,14 +144,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -165,6 +170,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -188,6 +195,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -208,6 +217,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -229,12 +240,13 @@ function setEventListeners(canvas){
 				jogadas_nivel = tentativa[2];	
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 12){
-					swal({
+				swal({
 					  title: "Primeiro nivel concluido!",
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -255,6 +267,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -274,14 +288,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});;
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -298,6 +314,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -321,6 +339,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -341,6 +361,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -367,7 +389,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -388,6 +411,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -410,11 +435,13 @@ function setEventListeners(canvas){
 						  title: "Segundo nivel concluido!",
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -431,6 +458,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -454,11 +483,11 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
-					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
-					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
-					
+					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"				
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -475,6 +504,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -501,7 +532,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -522,6 +554,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -544,11 +578,13 @@ function setEventListeners(canvas){
 						  title: "Segundo nivel concluido!",
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -565,6 +601,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -588,6 +626,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -608,6 +648,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -635,7 +677,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -656,6 +699,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -678,11 +723,13 @@ function setEventListeners(canvas){
 						  title: "Segundo nivel concluido!",
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -699,6 +746,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -722,6 +771,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -742,6 +793,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -768,7 +821,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -789,6 +843,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -811,11 +867,13 @@ function setEventListeners(canvas){
 						  title: "Segundo nivel concluido!",
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -832,6 +890,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -855,6 +915,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -875,6 +937,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -902,7 +966,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -923,6 +988,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -947,11 +1014,13 @@ function setEventListeners(canvas){
 						  title: "Segundo nivel concluido!",
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -968,6 +1037,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -992,6 +1063,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1012,6 +1085,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1039,7 +1114,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -1060,6 +1136,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1083,11 +1161,13 @@ function setEventListeners(canvas){
 						  title: "Segundo nivel concluido!",
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1104,6 +1184,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1128,6 +1210,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1148,6 +1232,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1175,7 +1261,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -1196,6 +1283,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1216,14 +1305,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1240,6 +1331,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1264,6 +1357,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1284,6 +1379,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1311,7 +1408,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -1332,6 +1430,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1352,14 +1452,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1376,6 +1478,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1400,6 +1504,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1420,6 +1526,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1447,7 +1555,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -1468,6 +1577,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1488,14 +1599,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}			
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1512,6 +1625,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1536,6 +1651,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1556,6 +1673,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1583,7 +1702,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -1604,6 +1724,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1624,14 +1746,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}		
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1648,6 +1772,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1672,6 +1798,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1692,6 +1820,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1731,7 +1861,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -1752,6 +1883,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1771,14 +1904,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1795,6 +1930,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1818,6 +1955,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1838,6 +1977,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1864,7 +2005,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -1885,6 +2027,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1904,14 +2048,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -1928,6 +2074,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1951,6 +2099,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -1971,6 +2121,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -1997,7 +2149,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2018,6 +2171,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2037,14 +2192,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2061,6 +2218,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2084,6 +2243,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -2104,6 +2265,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2130,7 +2293,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2151,6 +2315,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2170,14 +2336,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2194,6 +2362,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2217,6 +2387,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -2237,6 +2409,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2263,7 +2437,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2284,6 +2459,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2303,14 +2480,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2327,6 +2506,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2350,6 +2531,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -2370,6 +2553,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2396,7 +2581,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2417,6 +2603,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2436,14 +2624,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2460,6 +2650,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2483,6 +2675,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -2503,6 +2697,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2530,7 +2726,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2551,6 +2748,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2571,14 +2770,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}		
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2595,6 +2796,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2619,6 +2822,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -2639,6 +2844,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2666,6 +2873,8 @@ function setEventListeners(canvas){
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2686,6 +2895,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2706,14 +2917,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}	
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2730,6 +2943,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2754,6 +2969,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"	
@@ -2773,6 +2990,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2801,7 +3020,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2822,6 +3042,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2842,14 +3064,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -2866,6 +3090,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2890,6 +3116,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -2910,6 +3138,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2937,7 +3167,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -2958,6 +3189,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -2978,14 +3211,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -3002,6 +3237,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3026,6 +3263,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3046,6 +3285,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3073,7 +3314,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -3094,6 +3336,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3117,11 +3361,13 @@ function setEventListeners(canvas){
 						  title: "Segundo nivel concluido!",
 						  text: "Próximo nivel",
 						  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}
 				if(jogadas_nivel == 0 && nivel == 1){
 					swal({
@@ -3146,6 +3392,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3170,6 +3418,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3198,6 +3448,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3225,7 +3477,8 @@ function setEventListeners(canvas){
 					  text: "Próximo nivel",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
-					
+					var audio = new Audio('sounds/correct.mp3');
+					audio.play();
 					background = 0;
 					nivel = nivel+1;
 					points_fim_nivel1 = points;
@@ -3246,6 +3499,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3266,14 +3521,16 @@ function setEventListeners(canvas){
 				document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 				if(acertou == 18){
 					swal({
-					  title: "Segundo nivel concluido!",
-					  text: "Próximo nivel",
-					  imageUrl: "imgs/thumbs-up.jpg"
-					});
-					background = 0;
-					nivel = nivel+1;
-					points_fim_nivel2 = points;
-					niveis();
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
+						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
+						background = 0;
+						nivel = nivel+1;
+						points_fim_nivel2 = points;
+						niveis();
 				}		
 				else{
 					if(jogadas_nivel == 0 && points != 0){
@@ -3290,6 +3547,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3314,6 +3573,8 @@ function setEventListeners(canvas){
 					  text: "Acabou o jogo com " + points + " pontos",
 					  imageUrl: "imgs/thumbs-up.jpg"
 					});
+					var audio = new Audio('sounds/congratulations.mp3');
+					audio.play();
 					document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3334,6 +3595,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3364,7 +3627,11 @@ function setEventListeners(canvas){
 			background = 0;
 			niveis();
 		};
-		
+		document.getElementById("nivel3").onclick = function(){
+			nivel = 3;
+			background = 1;
+			niveis();
+		};
 		document.getElementById("figura3").onclick = function(){
 			figura1_on = 0;
 			figura2_on = 0;
@@ -3388,10 +3655,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -3412,6 +3681,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3435,9 +3706,11 @@ function setEventListeners(canvas){
 						  	text: "Acabou o jogo com " + points + " pontos",
 						  	imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
-					points_fim_nivel3 = points;
-					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
+						points_fim_nivel3 = points;
+						document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -3454,6 +3727,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3477,10 +3752,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -3501,6 +3778,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3522,8 +3801,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3543,6 +3824,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3566,10 +3849,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -3590,6 +3875,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3610,8 +3897,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3631,6 +3920,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3654,10 +3945,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -3678,6 +3971,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3699,8 +3994,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3720,6 +4017,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3744,10 +4043,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -3768,6 +4069,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3789,8 +4092,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3810,6 +4115,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3832,10 +4139,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -3856,6 +4165,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3877,8 +4188,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3898,6 +4211,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3922,10 +4237,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -3946,6 +4263,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -3968,8 +4287,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -3989,6 +4310,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4013,10 +4336,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -4037,6 +4362,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4056,10 +4383,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Terceiro nivel concluido!",
+						  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -4079,6 +4408,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4103,10 +4434,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -4127,6 +4460,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4151,6 +4486,8 @@ function setEventListeners(canvas){
 						  text: "Acabou o jogo com " + points + " pontos",
 						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -4170,6 +4507,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4194,10 +4533,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -4218,6 +4559,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4240,11 +4583,13 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
-					points_fim_nivel3 = points;
-					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
+						points_fim_nivel3 = points;
+						document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
 					}	
 					else{
 						if(jogadas_nivel == 0 && points != 0){
@@ -4261,6 +4606,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4285,10 +4632,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -4309,6 +4658,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4330,8 +4681,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -4351,6 +4704,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4377,10 +4732,12 @@ function setEventListeners(canvas){
 					document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 					if(acertou == 18){
 						swal({
-							  title: "Segundo nivel concluido!",
-							  text: "Próximo nivel",
-							  imageUrl: "imgs/thumbs-up.jpg"
+						  title: "Segundo nivel concluido!",
+						  text: "Próximo nivel",
+						  imageUrl: "imgs/thumbs-up.jpg"
 						});
+						var audio = new Audio('sounds/correct.mp3');
+						audio.play();
 						background = 0;
 						nivel = nivel+1;
 						points_fim_nivel2 = points;
@@ -4401,6 +4758,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();
@@ -4422,8 +4781,10 @@ function setEventListeners(canvas){
 						swal({
 							  title: "Terceiro nivel concluido!",
 						  text: "Acabou o jogo com " + points + " pontos",
-						  imageUrl: "imgs/thumbs-up.jpg"
+						  imageUrl: "imgs/thumbs-up.jpg" 
 						});
+						var audio = new Audio('sounds/congratulations.mp3');
+						audio.play();
 						document.getElementById("nivel3").disabled = false;
 					points_fim_nivel3 = points;
 					document.getElementById("jogoTerminado").innerHTML="Terminou o jogo com " + points_fim_nivel3 + " pontos!"
@@ -4443,6 +4804,8 @@ function setEventListeners(canvas){
 								  text: "Começar do nivel 1",
 								  imageUrl: "imgs/sadSmile.png"
 							});
+							var audio = new Audio('sounds/fail.mp3');
+							audio.play();
 							background = 0;
 							nivel = 1;
 							niveis();

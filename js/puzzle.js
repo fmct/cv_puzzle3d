@@ -36,7 +36,7 @@ var triangleVertexColorBuffer_F3 = null;
 var globalTz = -3.5;
 
 var nivel = 1;
-var points = 5000;
+var points = 4000;
 var points_fim_nivel1 = 0;
 var points_fim_nivel2 = 0;
 var points_fim_nivel3 = 0;
@@ -684,7 +684,7 @@ function reset(){
 			jogadas_nivel = 40;
 		}
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
-		points = 5000; 
+		points = 4000; 
 		document.getElementById("points").innerHTML=points;
 		acertou = 0;
 		hit_x1 = hit_y1 = hit_z1 = hit_angX1 = hit_angY1 = hit_angZ1 = false;
@@ -776,7 +776,7 @@ function reset(){
 			jogadas_nivel = 100;
 		}
 		else{
-			jogadas_nivel = 160;
+			jogadas_nivel = 180;
 		}
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = points_fim_nivel2; 
