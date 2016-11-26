@@ -1,3 +1,6 @@
+
+/* Game initial related */
+
 var inicial = true;
 
 function niveis(){	
@@ -39,5 +42,6 @@ function niveis(){
 		document.getElementById("figura2").innerHTML="Cubo";
 	}else{
 		// Mostrar os pontos
+		// Acabaste o jogo!!
 	}
 }
