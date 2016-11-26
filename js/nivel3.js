@@ -1,3 +1,6 @@
+
+/* Nivel 3 related */
+
 var cubeVertexPositionBuffer_cubo_nivel3 = null;
 
 var cubeVertexIndexBuffer_cubo_nivel3 = null;
@@ -82,41 +85,41 @@ var verticesPiramide = [
 
 
 var vertices_Paralelipipedo = [
-            // Front face
-            -0.65, -0.35,  0.35,
-             0.65, -0.35,  0.35,
-             0.65,  0.35,  0.35,
-            -0.65,  0.35,  0.35,
+        // Front face
+        -0.65, -0.35,  0.35,
+         0.65, -0.35,  0.35,
+         0.65,  0.35,  0.35,
+        -0.65,  0.35,  0.35,
 
-            // Back face
-            -0.65, -0.35, -0.35,
-            -0.65,  0.35, -0.35,
-            0.65,  0.35, -0.35,
-            0.65, -0.35, -0.35,
+        // Back face
+        -0.65, -0.35, -0.35,
+        -0.65,  0.35, -0.35,
+        0.65,  0.35, -0.35,
+        0.65, -0.35, -0.35,
 
-            // Top face
-            -0.65,  0.35, -0.35,
-            -0.65,  0.35,  0.35,
-             0.65,  0.35,  0.35,
-             0.65,  0.35, -0.35,
+        // Top face
+        -0.65,  0.35, -0.35,
+        -0.65,  0.35,  0.35,
+         0.65,  0.35,  0.35,
+         0.65,  0.35, -0.35,
 
-            // Bottom face
-            -0.65, -0.35, -0.35,
-            0.65, -0.35, -0.35,
-            0.65, -0.35,  0.35,
-            -0.65, -0.35,  0.35,
+        // Bottom face
+        -0.65, -0.35, -0.35,
+        0.65, -0.35, -0.35,
+        0.65, -0.35,  0.35,
+        -0.65, -0.35,  0.35,
 
-            // Right face
-             0.65, -0.35, -0.35,
-             0.65,  0.35, -0.35,
-             0.65,  0.35,  0.35,
-             0.65, -0.35,  0.35,
+        // Right face
+         0.65, -0.35, -0.35,
+         0.65,  0.35, -0.35,
+         0.65,  0.35,  0.35,
+         0.65, -0.35,  0.35,
 
-            // Left face
-            -0.65, -0.35, -0.35,
-            -0.65, -0.35,  0.35,
-            -0.65,  0.35,  0.35,
-            -0.65,  0.35, -0.35,
+        // Left face
+        -0.65, -0.35, -0.35,
+        -0.65, -0.35,  0.35,
+        -0.65,  0.35,  0.35,
+        -0.65,  0.35, -0.35,
 ];
 
 // Texture coordinates for the quadrangular faces
@@ -214,7 +217,6 @@ var cubeVertexIndicesCubo = [
 ];
 
 var cubeVertexIndicesPiramide = [
-
             0, 1, 2,         // Front face
 
             3, 4, 5,        // Back face
@@ -238,7 +240,7 @@ var webGLTextureFilipe;
 
 function initTextureNivel3() {
 	
-		webGLTextureV = gl.createTexture();
+	webGLTextureV = gl.createTexture();
 	webGLTextureV.image = new Image();
 	webGLTextureV.image.onload = function () {
 		handleLoadedTexture(webGLTextureV)
@@ -282,7 +284,7 @@ function initTextureNivel3() {
 	webGLTextureM = gl.createTexture();
 	webGLTextureM.image = new Image();
 	webGLTextureM.image.onload = function () {
-		handleLoadedTexture(webGLTextureM)
+	handleLoadedTexture(webGLTextureM)
 	}
 
 	webGLTextureM.image.src = "imgs/m.jpg";
@@ -298,7 +300,7 @@ function initTextureNivel3() {
 	webGLTextureS = gl.createTexture();
 	webGLTextureS.image = new Image();
 	webGLTextureS.image.onload = function () {
-		handleLoadedTexture(webGLTextureS)
+	handleLoadedTexture(webGLTextureS)
 	}
 
 	webGLTextureS.image.src = "imgs/s.jpg";
@@ -314,7 +316,7 @@ function initTextureNivel3() {
 	webGLTexture1617 = gl.createTexture();
 	webGLTexture1617.image = new Image();
 	webGLTexture1617.image.onload = function () {
-		handleLoadedTexture(webGLTexture1617)
+	handleLoadedTexture(webGLTexture1617)
 	}
 
 	webGLTexture1617.image.src = "imgs/16.png";
@@ -415,7 +417,7 @@ function drawModelNivel3(figura){
 	    
 	    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer_cubo_nivel3);
 
-	    gl.bindTexture(gl.TEXTURE_2D, webGLTextureL);
+	    gl.bindTexture(gl.TEXTURE_2D, webGLTexturePiramide);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);	
 
 	    gl.bindTexture(gl.TEXTURE_2D, webGLTextureC);
@@ -430,7 +432,7 @@ function drawModelNivel3(figura){
 		gl.bindTexture(gl.TEXTURE_2D, webGLTextureS);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 48);
 
-		gl.bindTexture(gl.TEXTURE_2D, webGLTextureL);
+		gl.bindTexture(gl.TEXTURE_2D, webGLTexturePiramide);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 60);
 	}
 	if(figura == "piramide"){
@@ -506,7 +508,6 @@ function drawModelNivel3(figura){
 
 		gl.bindTexture(gl.TEXTURE_2D, webGLTextureTiago);
 		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 60);
-
 	}
 
 }

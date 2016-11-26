@@ -1,15 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////
-//
-//  WebGL_example_20.js 
-//
-//  Animating models with global and local transformations.
-//
-//  References: www.learningwebgl.com + E. Angel examples
-//
-//  J. Madeira - October 2015
-//
-//////////////////////////////////////////////////////////////////////////////
-
 //----------------------------------------------------------------------------
 //
 // Global Variables
@@ -41,7 +29,7 @@ var points_fim_nivel1 = 0;
 var points_fim_nivel2 = 0;
 var points_fim_nivel3 = 0;
 var fase = 0;
-var jogadas_nivel = 0;// The translation vector
+var jogadas_nivel = 0;
 
 var figura1_on = 0;
 var figura2_on = 0;
@@ -92,6 +80,7 @@ var globalAngleXX = 0.0;
 var globalAngleYY = 0.0;
 
 var globalAngleZZ = 0.0;
+
 var sx1 = 0.5;
 
 var sx2 = 0.5;
@@ -665,10 +654,10 @@ function reset(){
 		globalAngleXX_back = 0.0;
 		globalAngleYY_back = 0.0;
 		if(tx1 >= 0.0 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5){
-			jogadas_nivel = 30;
+			jogadas_nivel = 40;
 		}
 		else{
-			jogadas_nivel = 40;
+			jogadas_nivel = 70;
 		}
 		document.getElementById("jogadas").innerHTML="Jogadas disponiveis: " + jogadas_nivel;
 		points = 5000; 
@@ -836,10 +825,10 @@ function runWebGL() {
 		getVisibleBars();
 		acertou_inicial_nivel1(tx1,ty1,tz1,angleXX1,angleYY1,angleZZ1,tx2,ty2,tz2,angleXX2,angleYY2,angleZZ2);
 		if(tx1 >= 0.0 && tx1 <= 0.5 && ty1 >= 0.0 && ty1 <= 0.5 && tx2 >= 0.0 && tx2 <= 0.5 && ty2 >= 0.0 && ty2 <= 0.5){
-			jogadas_nivel = 30;
+			jogadas_nivel = 40;
 		}
 		else{
-			jogadas_nivel = 50;
+			jogadas_nivel = 70;
 		}
 	}else if(nivel == 2){
 		getBarsReset(0,0,1,0,0,0,0,0);
