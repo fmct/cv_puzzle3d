@@ -59,7 +59,6 @@ var vertices_Cubo = [
 ];
 
 var verticesPiramide = [
-		
 		-0.45, -0.45,  0.45,
 		 0.45, -0.45,  0.45,
 		 0.0,  0.55,  0.0,
@@ -127,7 +126,6 @@ var vertices_Paralelipipedo = [
 // Notice how they are assigne to the corresponding vertices
 
 var textureCoordsCubo = [
-		
 		// Front face
           0.0, 0.0,
           1.0, 0.0,
@@ -167,7 +165,6 @@ var textureCoordsCubo = [
 
 
 var textureCoordsPiramide = [
-
           // Front face
           0.0, 0.0,
           1.0, 0.0,
@@ -202,7 +199,6 @@ var textureCoordsPiramide = [
 // Vertex indices defining the triangles
         
 var cubeVertexIndicesCubo = [
-
             0, 1, 2,      0, 2, 3,    // Front face
 
             4, 5, 6,      4, 6, 7,    // Back face
@@ -217,15 +213,15 @@ var cubeVertexIndicesCubo = [
 ];
 
 var cubeVertexIndicesPiramide = [
-            0, 1, 2,         // Front face
+            0, 1, 2,         	// Front face
 
-            3, 4, 5,        // Back face
+            3, 4, 5,        	// Back face
 
             6, 7, 8,   6, 8, 9, // Bottom face
 
-            10, 11, 12,    // Right face
+            10, 11, 12,    		// Right face
 
-            13, 14, 15,    // Left face
+            13, 14, 15,    		// Left face
 ];
 
 var webGLTextureV;

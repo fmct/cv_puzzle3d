@@ -2,6 +2,9 @@
 /* Points related */
 
 var acertou = 0;
+
+/* Posições iniciais - Depois vão ser geradas novas posições */
+
 	//figura1
 var hit_x1 = false;
 var hit_y1 = false;

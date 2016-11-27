@@ -41,49 +41,49 @@ function setProgressBars(){
   for(var i=0; i<3; i++){
     
     $("#bars_fig1").append('<div class="progress"><div id="'+ id_bars_fig1[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+      title="Translação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars2_fig1").append('<div class="progress"><div id="'+ id_bars2_fig1[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars_fig2").append('<div class="progress"><div id="'+ id_bars_fig2[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-        title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');    
+        title="Translaçao em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');    
 
     $("#bars2_fig2").append('<div class="progress"><div id="'+ id_bars2_fig2[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
         title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
     
     $("#bars_fig3").append('<div class="progress"><div id="'+ id_bars_fig3[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+      title="Translação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars2_fig3").append('<div class="progress"><div id="'+ id_bars2_fig3[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
     
     $("#bars_fig4").append('<div class="progress"><div id="'+ id_bars_fig4[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+      title="Translação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars2_fig4").append('<div class="progress"><div id="'+ id_bars2_fig4[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars_fig5").append('<div class="progress"><div id="'+ id_bars_fig5[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+      title="Translação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars2_fig5").append('<div class="progress"><div id="'+ id_bars2_fig5[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars_fig6").append('<div class="progress"><div id="'+ id_bars_fig6[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+      title="Translação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars2_fig6").append('<div class="progress"><div id="'+ id_bars2_fig6[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars_fig7").append('<div class="progress"><div id="'+ id_bars_fig7[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+      title="Translação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars2_fig7").append('<div class="progress"><div id="'+ id_bars2_fig7[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars_fig8").append('<div class="progress"><div id="'+ id_bars_fig8[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
-      title="Transação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
+      title="Translação em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
 
     $("#bars2_fig8").append('<div class="progress"><div id="'+ id_bars2_fig8[i] + '" class="progress-bar progress-bar-'+classes[1]+' progress-bar-striped" \
       title="Ângulo em '+ titles_bars[i] +'" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>');
@@ -375,6 +375,7 @@ function setBarAttributesTranslationsNot(barra, figura, t_certo, t){
     $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-warning progress-bar-striped");
     $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-info progress-bar-striped");
   }else if(getPercentage(t_certo, t) > 75 && getPercentage(t_certo, t) < 100){
+    $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-danger progress-bar-striped");
     $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-info progress-bar-striped");
     $("#bar"+barra+"_fig"+figura).removeClass("progress-bar progress-bar-sucess progress-bar-striped");
     $("#bar"+barra+"_fig"+figura).addClass("progress-bar progress-bar-warning progress-bar-striped");
